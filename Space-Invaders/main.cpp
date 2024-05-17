@@ -48,13 +48,10 @@ int main()
 {
     //sf::VideoMode videoMode = *(new sf::VideoMode(800, 600));
 
-    //// Create a window object with specific dimensions and a title
     //sf::RenderWindow window(videoMode, "My SFML Window");
     //Player player;
     //player.playerTexture.loadFromFile("assets/textures/player_ship.png");
     //player.playerSprite.setTexture(player.playerTexture);
-    //
-    //
 
 
     //while (window.isOpen())
@@ -87,11 +84,14 @@ int main()
     //}
 
 
-    GameService gameserice;
-    gameserice.ignite();
-    if (gameserice.isRunning() ){
-        gameserice.update();
-        gameserice.render();
+    GameService* game_service = new GameService();
+
+    game_service->ignite();
+
+    while (game_service->isRunning())
+    {
+        game_service->update();
+        game_service->render();
     }
 
 }

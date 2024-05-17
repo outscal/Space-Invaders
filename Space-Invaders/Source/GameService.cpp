@@ -1,36 +1,56 @@
-#include <iostream>
 #include "../Header/GameService.h"
+#include "../Header/GraphicService.h"
 
-void GameService::initialize() {
-	//Get things running
+void GameService::initialize()
+{
+	
+	serviceLocator->initialize();
+	initializeVariable();
+
 }
 
-void GameService::destroy() {
-	//destroys things
+void GameService::initializeVariable()
+{
+	gameWindow = serviceLocator->getGraphicService()->getGameWindow();
 }
 
-GameService::GameService(){
-	//Constructor
+void GameService::destroy()
+{
 }
 
+// Constructor: Initializes pointers to null.
+GameService::GameService() {
+	serviceLocator = nullptr; // Set service locator to null
+	gameWindow = nullptr; // Set game window to null
+}
+
+// Destructor: Calls the destroy function to clean up resources.
 GameService::~GameService() {
-	//Destructor
+	destroy(); // Clean up and release resources
 }
 
+// Prepares the game service for use by obtaining the service locator instance and initializing services.
 void GameService::ignite() {
-	//starts the game
+	serviceLocator = ServiceLocator::getInstance(); // Get ServiceLocator
+	initialize(); // Initialize services.
 }
 
+// Updates the game logic by delegating to the service locator's update method.
 void GameService::update() {
-	//Updates the game logic and game state.
+
+	serviceLocator->update(); // Call update on the service locator which then updates all its managed services
 }
 
+// Clears the window then display it.
 void GameService::render() {
-	//Renders each frame of the game.
+	// Clears the game window with the background color provided by the graphic service
+	gameWindow->clear(serviceLocator->getGraphicService()->getWindowColor());
+	serviceLocator->render(); // Render the current frame using the service locator
+	gameWindow->display(); // Display the rendered frame on the game window
 }
 
+// Checks if the game is still running by querying the graphic service's window open status.
 bool GameService::isRunning() {
-	//Checks if the game is currently running.
-	return false;
+	// Returns true if the game window is open, indicating the game is still running
+	return serviceLocator->getGraphicService()->isGameWindowOpen();
 }
-
