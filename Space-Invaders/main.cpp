@@ -4,9 +4,9 @@
 class Player {
     
 private:
-    int playerScore;
-    int health;
-    int movementSpeed;
+    int playerScore=0;
+    int health=100;
+    int movementSpeed=1;
     sf::Vector2f position= sf::Vector2f(200,100);
 
 public:
@@ -16,6 +16,9 @@ public:
 
     int getScore() {
         return playerScore;
+    }
+    int getMoveSpeed() {
+        return movementSpeed;
     }
 
     sf::Vector2f getPosition() {
@@ -30,8 +33,8 @@ public:
 
     }
 
-    void move() {
-
+    void move(int offsetX) {
+        position.x += offsetX;
     }
 
     void shootBullets() {
@@ -66,11 +69,11 @@ int main()
       
        
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            player.move();
+            player.move(-1.0f*player.getMoveSpeed());
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            player.move();
+            player.move(1.0f* player.getMoveSpeed());
         }
         // Clear the window
         window.clear(sf::Color::Blue);
