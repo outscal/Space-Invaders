@@ -6,6 +6,15 @@ int main()
 
     // Create a window object with specific dimensions and a title
     sf::RenderWindow* window = new sf::RenderWindow(videoMode, "My SFML Window");
+    sf::Texture outscalTexture;
+    outscalTexture.loadFromFile("assets/textures/outscal_logo.png");
+
+    sf::Sprite sprite;
+    sprite.setTexture(outscalTexture);
+
+    sf::Font font;
+    font.loadFromFile("assets/fonts/OpenSans.ttf");
+
 
     while (window->isOpen())
     {
@@ -43,19 +52,14 @@ int main()
         window->draw(blueTraingle);
 
 
-        sf::Texture outscalTexture;
-        outscalTexture.loadFromFile("assets/textures/outscal_logo.png");
-
-        sf::Sprite sprite;
-        sprite.setTexture(outscalTexture);
+       
         sprite.setPosition(200, 100);
         sprite.setRotation(45);
         sprite.setScale(0.75, 0.75);
 
         window->draw(sprite);
 
-        sf::Font font;
-        font.loadFromFile("assets/fonts/OpenSans.ttf");
+       
         sf::Text text("SFML is awesome!", font, 50);
         text.setFillColor(sf::Color::White);
         text.setPosition(0, 300);
