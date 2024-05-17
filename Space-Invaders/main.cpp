@@ -17,12 +17,12 @@ int main()
         }
 
         // Clear the window
-        window->clear(sf::Color::White);
+        window->clear(sf::Color::Black);
 
         // Draw your content here...
         sf::CircleShape circle(50); // Radius 50
         circle.setFillColor(sf::Color::Red);
-        circle.setPosition(400, 300); // Set position
+        circle.setPosition(300, 450); // Set position
         window->draw(circle);
 
         sf::CircleShape greenCircle(50); // Radius 50
@@ -41,6 +41,26 @@ int main()
         blueTraingle.setPosition(210, 0); // Set position
         blueTraingle.setPointCount(3);
         window->draw(blueTraingle);
+
+
+        sf::Texture outscalTexture;
+        outscalTexture.loadFromFile("assets/textures/outscal_logo.png");
+
+        sf::Sprite sprite;
+        sprite.setTexture(outscalTexture);
+        sprite.setPosition(200, 100);
+        sprite.setRotation(45);
+        sprite.setScale(0.75, 0.75);
+
+        window->draw(sprite);
+
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf");
+        sf::Text text("SFML is awesome!", font, 50);
+        text.setFillColor(sf::Color::White);
+        text.setPosition(0, 300);
+        text.setScale(0.5, 0.5);
+        window->draw(text);
 
         // Display what was drawn
         window->display();
