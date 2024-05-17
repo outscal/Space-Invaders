@@ -1,19 +1,47 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+
+class Player {
+    
+private:
+    int playerScore;
+    int health;
+    int movementSpeed;
+    sf::Vector2f position= sf::Vector2f(200,100);
+
+public:
+
+    sf::Texture playerTexture;
+    sf::Sprite playerSprite;
+
+    int getScore() {
+        return playerScore;
+    }
+
+    void setScore(int newScore) {
+        this->playerScore = newScore;
+    }
+
+    void takeDamage() {
+
+    }
+
+    void move() {
+
+    }
+
+    void shootBullets() {
+
+    }
+};
+
+
 int main()
 {
     sf::VideoMode videoMode = *(new sf::VideoMode(800, 600));
 
     // Create a window object with specific dimensions and a title
     sf::RenderWindow* window = new sf::RenderWindow(videoMode, "My SFML Window");
-    sf::Texture outscalTexture;
-    outscalTexture.loadFromFile("assets/textures/outscal_logo.png");
-
-    sf::Sprite sprite;
-    sprite.setTexture(outscalTexture);
-
-    sf::Font font;
-    font.loadFromFile("assets/fonts/OpenSans.ttf");
 
 
     while (window->isOpen())
@@ -26,45 +54,12 @@ int main()
         }
 
         // Clear the window
-        window->clear(sf::Color::Black);
+        window->clear(sf::Color::Blue);
 
         // Draw your content here...
-        sf::CircleShape circle(50); // Radius 50
-        circle.setFillColor(sf::Color::Red);
-        circle.setPosition(300, 450); // Set position
-        window->draw(circle);
-
-        sf::CircleShape greenCircle(50); // Radius 50
-        greenCircle.setFillColor(sf::Color::Green);
-        greenCircle.setPosition(0, 0); // Set position
-        window->draw(greenCircle);
-
-        sf::RectangleShape redRectangle; // Radius 50
-        redRectangle.setSize(sf::Vector2f(100, 100));
-        redRectangle.setFillColor(sf::Color::Red);
-        redRectangle.setPosition(110, 0);
-        window->draw(redRectangle);
-
-        sf::CircleShape blueTraingle(50); // Radius 50
-        blueTraingle.setFillColor(sf::Color::Blue);
-        blueTraingle.setPosition(210, 0); // Set position
-        blueTraingle.setPointCount(3);
-        window->draw(blueTraingle);
-
+        
 
        
-        sprite.setPosition(200, 100);
-        sprite.setRotation(45);
-        sprite.setScale(0.75, 0.75);
-
-        window->draw(sprite);
-
-       
-        sf::Text text("SFML is awesome!", font, 50);
-        text.setFillColor(sf::Color::White);
-        text.setPosition(0, 300);
-        text.setScale(0.5, 0.5);
-        window->draw(text);
 
         // Display what was drawn
         window->display();
