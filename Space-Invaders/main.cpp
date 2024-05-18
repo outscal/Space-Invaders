@@ -38,11 +38,14 @@ int main()
 		}
 
 		//Clear the window
-		window->clear(sf::Color::Green);
+		window->clear(sf::Color::Black);
 		
 		//Draw your content here...
-		
-
+		//Draw a circle
+		sf::CircleShape circle(50);//Radius 50
+		circle.setFillColor(sf::Color::Green);
+		circle.setPosition(400, 300);// position
+		window->draw(circle);
 		//Display what was drawn
 		window->display();
 
