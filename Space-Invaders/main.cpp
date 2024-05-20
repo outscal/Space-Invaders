@@ -46,6 +46,15 @@ int main()
 		circle.setFillColor(sf::Color::Green);
 		circle.setPosition(400, 300);// position
 		window->draw(circle);
+		sf::RectangleShape square(sf::Vector2f(100, 100));
+		square.setFillColor(sf::Color::Red);
+		square.setPosition(400, 200);
+		window->draw(square);
+		sf::CircleShape triangle(80, 3); 
+		triangle.setFillColor(sf::Color::Blue);
+		triangle.setPosition(370, 78);
+		window->draw(triangle);
+		
 		//Display what was drawn
 		window->display();
 
