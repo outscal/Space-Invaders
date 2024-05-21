@@ -4,16 +4,25 @@ using namespace std;
 
 class Player
 {   //Properties
+    private:
+    int health=0;
+    int movementSpeed = 10;
+
     public:
     sf::Texture ship_Texture;
     sf::Sprite ship_Sprite;
-    int health;
-    int movementSpeed = 10;
+    
     sf::Vector2f position;//set position in window
 
+    //Getters and Setters
+    int GetMovementSpeed() { return movementSpeed; }
+    
     
     void TakeDamage(){}
-    void Move(){}
+    void Move(float offsetX) 
+    {
+        position.x += offsetX;
+    }
     void ShootBullets(){}
 
 };
@@ -58,12 +67,12 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             //call move here after player obj
-            playerObj.Move();
+            playerObj.Move(-1.0f *playerObj.GetMovementSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             //call move here after player obj
-            playerObj.Move();
+            playerObj.Move(1.0f * playerObj.GetMovementSpeed());
         }
         
         //Clear Window
