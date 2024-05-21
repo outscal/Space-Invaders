@@ -1,4 +1,22 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
+using namespace std;
+
+class Player
+{   //Properties
+    public:
+    sf::Texture ship_texture;
+    sf::Sprite ship_Sprite;
+    int health;
+    int movementSpeed = 10;
+    sf::Vector2f position;//set position in window
+
+    
+    void TakeDamage(){}
+    void Move(){}
+    void ShootBullets(){}
+
+};
 
 int main() {
 
@@ -15,7 +33,7 @@ int main() {
     // Game loop to keep the window open
     while (window->isOpen()) {
         //Set Framerate limit
-        //window->setFramerateLimit(60);
+        window->setFramerateLimit(60);
 
         //Set window position on screen
         //window->setPosition(sf::Vector2i(100, 100));
@@ -33,38 +51,14 @@ int main() {
        
 
         // Clear the window
-        window->clear(sf::Color::White);
+        window->clear(sf::Color::Blue);
 
-        // Draw your content here...
-        
-        // Draw a shape
-        sf::CircleShape circle(50); // Radius 50
-        circle.setFillColor(sf::Color::Green);
+        sf::Texture outscal_texture;
+        outscal_texture.loadFromFile("C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/outscal_logo.png");
+        Player player;
 
-        sf::RectangleShape square(sf::Vector2f(100, 100));
-        square.setFillColor(sf::Color::Red);
-
-        sf::ConvexShape triangle;
-        triangle.setPointCount(3);
-        triangle.setFillColor(sf::Color::Blue);
-        
-        // Set position
-        //circle.setPosition(640,360); 
-        circle.setPosition(window->getSize().x / 2 - circle.getRadius(), window->getSize().y / 2 - circle.getRadius());
-        
-        square.setPosition(300, 300);
-        
-        
-        triangle.setPoint(0, sf::Vector2f(100, 100));//left point
-        triangle.setPoint(1, sf::Vector2f(200, 300));//bottom point
-        triangle.setPoint(2, sf::Vector2f(300, 100));//right point
-
-        //Queue for display
-        window->draw(circle);
-        window->draw(square);
-        window->draw(triangle);
-
-        // Display what was drawn
+        std::cout << player.movementSpeed << endl;
+       
         window->display();
     }
 
