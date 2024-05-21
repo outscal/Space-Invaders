@@ -5,8 +5,8 @@ using namespace std;
 class Player
 {   //Properties
     private:
-    int health=0;
-    int movementSpeed = 10;
+    int health;
+    int movementSpeed;
 
     public:
     sf::Texture ship_Texture;
@@ -16,6 +16,25 @@ class Player
 
     //Getters and Setters
     int GetMovementSpeed() { return movementSpeed; }
+
+    //Default Constructor
+    Player()
+    {
+        cout << "Default Constructor Called"<<endl;
+    }
+    //Custom Constructor
+    Player(int hp,int moveSpeed)
+    {
+        health = hp;
+        movementSpeed = moveSpeed;
+    }
+
+    //Destructor
+    ~Player() 
+    {
+        std::cout << "Player destroyed. Health: " << health << ", Movement Speed: " << movementSpeed << std::endl;
+        // Perform cleanup operations here, e.g., save player data to a file or log a message.
+    }
     
     
     void TakeDamage(){}
@@ -37,7 +56,7 @@ int main()
     sf::RenderWindow* window = new sf::RenderWindow(videoMode, "My SFML Window");
 
     //Player Object
-    Player playerObj;
+    Player playerObj(3,10);
     playerObj.ship_Texture.loadFromFile("C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/player_ship.png");
     playerObj.ship_Sprite.setTexture(playerObj.ship_Texture);
     //Enable fullscreen mode:
