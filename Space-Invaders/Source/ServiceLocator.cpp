@@ -8,32 +8,52 @@
 // Private Constructor and Destructor:
 
 
-ServiceLocator(){/* Constructor for cleaning up resources upon object deletion.*/}
-~ServiceLocator(){/* Destructor for cleaning up resources upon object deletion.*/ }
-
-// Private Methods:
-void createServices()
+ServiceLocator::ServiceLocator()
 {
-	// Creates instances of all services.
+	/* Constructor for cleaning up resources upon object deletion.*/
+	graphic_service = nullptr;
+	CreateServices();
+}
+ServiceLocator::~ServiceLocator()
+{
+	/* Destructor for cleaning up resources upon object deletion.*/ 
+	ClearAllServices();
 }
 
-void clearAllServices(); 
+// Private Methods:
+void ServiceLocator::CreateServices()
+{
+	// Creates instances of all services.
+	graphic_service = new GraphicService(); //heap
+}
+
+void ServiceLocator::ClearAllServices();
 {
 	//	Deletes and deallocates memory for all services
+	delete(graphic_service); // Delete the graphic_service instance
+	graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
 }
 
 // Public Methods:
-static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
-
-void initialize() 
+ ServiceLocator* ServiceLocator::GetInstance()  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+{
+	static ServiceLocator sLInstance; // we will discuss what 'static' means at a later time.
+	return &sLInstance; // Return address of the instance
+}
+void ServiceLocator::Initialize()
 {
 	//	Initializes the ServiceLocator.
+	graphic_service->Initialize();
 }		
-void update() 
+void ServiceLocator::Update()
 {
 	//	Updates all services.
+	graphic_service->Update();
 } 				
-void render() 
+void ServiceLocator::Render()
 {
 	//	Renders using the services.
-} 				
+	graphic_service->Render();
+} 			
+
+GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }

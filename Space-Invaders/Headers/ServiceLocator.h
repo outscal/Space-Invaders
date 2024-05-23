@@ -1,27 +1,29 @@
 #pragma once
-// ServiceLocator Class Summary: This class manages access to various services in the application.
-// include relevant headers files
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\GraphicService.h"
 
 class ServiceLocator
 {
 private:
     // Private Attributes:
-
+    GraphicService* graphic_service;
     // Private Constructor and Destructor:
     ServiceLocator();
     ~ServiceLocator();
 
     // Private Methods:
-    void createServices();
-    void clearAllServices();
+    void CreateServices();
+    void ClearAllServices();
 
 public:
     // Public Methods:
-    static ServiceLocator* getInstance();
+    static ServiceLocator* GetInstance();
 
-    void initialize();
-    void update();
-    void render();
+    void Initialize();
+    void Update();
+    void Render();
+
+    // Methods to Get Specific Services: 
+    GraphicService* GetGraphicService();
 
 
 };

@@ -113,12 +113,11 @@
 
 int main()
 {
-	GameService gameServiceObj;
-	gameServiceObj.ignite();
-	while (gameServiceObj.isRunning())
+	GameService* game_service = new GameService();
+	game_service->Ignite();
+	while (game_service->isRunning())
 	{
-		gameServiceObj.update();
-		gameServiceObj.render();
-
+		game_service->Update();
+		game_service->Render();
 	}
 }

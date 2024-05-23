@@ -24,12 +24,18 @@
     <ClCompile Include="ServiceLocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GraphicService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\GameService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ServiceLocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GraphicService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
