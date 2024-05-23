@@ -25,6 +25,8 @@ int main()
 
 
         window->clear(sf::Color::Blue);
+
+
         sf::CircleShape circle(65);
         circle.setFillColor(sf::Color::Green);
         circle.setPosition(150, 150);
@@ -43,6 +45,8 @@ int main()
         triangle.setFillColor(sf::Color::Magenta);
         triangle.setPosition(550, 150);
         window->draw(triangle);
+
+
         window->display();
     }
 
