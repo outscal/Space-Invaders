@@ -35,6 +35,10 @@ void GameService::Ignite()
 // Updates the game logic and game state.
 void GameService::Update()
 {
+	// Process Events.
+	service_locator->GetEventService()->ProcessEvents();
+
+	// Update Game Logic.
 	service_locator->Update();
 }
 // Renders each frame of the game.

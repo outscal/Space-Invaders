@@ -10,13 +10,14 @@
 
 ServiceLocator::ServiceLocator()
 {
-	/* Constructor for cleaning up resources upon object deletion.*/
 	graphic_service = nullptr;
+	event_service = nullptr;
+	player_service = nullptr;
+
 	CreateServices();
 }
 ServiceLocator::~ServiceLocator()
 {
-	/* Destructor for cleaning up resources upon object deletion.*/ 
 	ClearAllServices();
 }
 
@@ -25,13 +26,11 @@ void ServiceLocator::CreateServices()
 {
 	// Creates instances of all services.
 	graphic_service = new GraphicService(); //heap
-}
-
-void ServiceLocator::ClearAllServices();
-{
-	//	Deletes and deallocates memory for all services
-	delete(graphic_service); // Delete the graphic_service instance
-	graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
+	cout << "Success1";
+	event_service = new EventService();		//heap
+	cout << "Success2";
+	player_service = new PlayerService();		//heap
+	cout << "Success3";
 }
 
 // Public Methods:
@@ -43,17 +42,33 @@ void ServiceLocator::ClearAllServices();
 void ServiceLocator::Initialize()
 {
 	//	Initializes the ServiceLocator.
+	event_service->Initialize();
 	graphic_service->Initialize();
+	player_service->Initialize();
+
 }		
 void ServiceLocator::Update()
 {
 	//	Updates all services.
+	event_service->Update();
 	graphic_service->Update();
+	player_service->Update();
+
 } 				
 void ServiceLocator::Render()
 {
-	//	Renders using the services.
+	//	Renders using the services
 	graphic_service->Render();
+	player_service->Render();
 } 			
+void ServiceLocator::ClearAllServices()
+{
+	//	Deletes and deallocates memory for all services
+	delete(event_service);
+	delete(graphic_service);
+	delete(player_service);
+}
 
 GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }
+EventService* ServiceLocator::GetEventService() { return event_service; }
+PlayerService* ServiceLocator::GetPlayerService() { return player_service; }

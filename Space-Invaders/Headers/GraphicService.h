@@ -5,7 +5,7 @@ class GraphicService
 {
 private:
 
-	const std::string game_window_title = "Outscal Presents - Alien Invader";
+	const std::string game_window_title = "Avnish Presents - Space Invasion";
 
 	const int game_window_width = 800;
 	const int game_window_height = 600;
@@ -32,5 +32,5 @@ public:
 	bool IsGameWindowOpen(); //check if the window is open
 
 	sf::RenderWindow* GetGameWindow(); //getter for the game window instance
-	sf::Color GetWindowColor();//get the color
+	sf::Color GetWindowColor() const;//get the color
 };

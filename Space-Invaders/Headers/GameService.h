@@ -6,9 +6,9 @@
 class GameService
 {
 private:
-	ServiceLocator* service_locator;
-	sf::RenderWindow* game_window;
-	void Initialize();		
+	ServiceLocator *service_locator;
+	sf::RenderWindow *game_window;
+	void Initialize();
 	void InitializeVariables(); // Handles game initialization.
 	void Destroy();			// Handles cleanup tasks.
 public:
