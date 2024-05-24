@@ -138,8 +138,10 @@
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\PlayerService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
+    <ClCompile Include="Source\TimeService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\TimeService.h" />
     <ClInclude Include="Headers\EventService.h" />
     <ClInclude Include="Headers\GameService.h" />
     <ClInclude Include="Headers\GraphicService.h" />

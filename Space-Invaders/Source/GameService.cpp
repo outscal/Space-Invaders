@@ -1,6 +1,5 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\GameService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\GraphicService.h"
-
 // Constructor for initializing the GameService object.
 GameService::GameService()
 {
@@ -13,8 +12,17 @@ GameService::~GameService()
 	Destroy();
 }
 void GameService::Initialize()	
-{
-	
+{	
+	service_locator = ServiceLocator::GetInstance();
+	service_locator->Initialize();
+
+	game_window = service_locator->GetGraphicService()->GetGameWindow(); // Initialize game_window
+	if (!game_window) {
+		std::cerr << "Failed to initialize game window in GameService::Initialize()." << std::endl;
+	}
+	else {
+		std::cout << "Game window initialized in GameService::Initialize()." << std::endl;
+	}
 }
 // Handles game initialization.
 void GameService::InitializeVariables()
@@ -29,8 +37,10 @@ void GameService::Destroy()
 // Initiates the game.
 void GameService::Ignite()
 {
-	service_locator = ServiceLocator::GetInstance();
-	Initialize();
+	
+	GameService::Initialize();
+	//InitializeVariables();
+	
 }
 // Updates the game logic and game state.
 void GameService::Update()

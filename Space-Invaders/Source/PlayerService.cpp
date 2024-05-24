@@ -20,7 +20,7 @@ void PlayerService::Update()
 	ship_Sprite.setPosition(GetPosition());
 }
 void PlayerService::Render()
-{
+{	
 	game_window->draw(ship_Sprite);
 }
 void PlayerService::ProcessPlayerInput()
@@ -29,17 +29,17 @@ void PlayerService::ProcessPlayerInput()
 	EventService* event_service = ServiceLocator::GetInstance()->GetEventService(); 
 	
 	// Handle keyboard input
-	if (event_service->IsKeyboardEvent()) 
-	{
-		if (event_service->PressedLeftKey())
+	
+	
+		if ( event_service->IsKeyboardEvent() && event_service->PressedLeftKey())
 		{
-			move(-1.0f * GetMovementSpeed());
+			Move(-1.0f * GetMovementSpeed());
 		}
-		if (event_service->PressedRightKey())
+		if (event_service->IsKeyboardEvent() && event_service->PressedRightKey())
 		{
-			move(1.0f * GetMovementSpeed());
+			Move(1.0f * GetMovementSpeed());
 		}
-	}
+	
 }
 void PlayerService::InitializePlayerSprite()
 {
@@ -47,6 +47,14 @@ void PlayerService::InitializePlayerSprite()
 	{
 		ship_Sprite.setTexture(ship_Texture);
 	}
+}
+void PlayerService::MoveLeft()
+{
+	position.x -= movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+}
+void PlayerService::MoveRight()
+{
+	position.x += movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 }
 //void PlayerService::TakeDamage() {}
 void PlayerService::Move(float offsetX) 
@@ -56,4 +64,4 @@ void PlayerService::Move(float offsetX)
 //void PlayerService::ShootBullets() {}
 
 sf::Vector2f PlayerService::GetPosition() { return position; }
-int PlayerService::GetMovementSpeed() { return movementSpeed; }
+float PlayerService::GetMovementSpeed() { return movementSpeed; }

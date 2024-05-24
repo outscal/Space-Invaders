@@ -5,7 +5,7 @@
 EventService::EventService() 
 { 
 	game_window = nullptr;
-	game_event.type = sf::Event::GainedFocus;
+	game_event.type = sf::Event::KeyPressed;
 }
 EventService::~EventService() = default;
 
@@ -19,7 +19,7 @@ void EventService::Update()
 }
 void EventService::ProcessEvents()
 {
-	if (IsGameWindowOpen())
+	if (IsGameWindowOpen()==true)
 	{
 		while (game_window->pollEvent(game_event))
 		{
@@ -28,19 +28,21 @@ void EventService::ProcessEvents()
 			{
 				game_window->close();
 			}
+
 		}
 			
 	}
 }
 bool EventService::HasQuitGame() { return (IsKeyboardEvent() && PressedEscapeKey()); }
 
-bool EventService::IsKeyboardEvent() { return game_event.type == sf::Event::KeyPressed; }
+bool EventService::IsKeyboardEvent() { if (game_event.type == sf::Event::KeyPressed) { return  true; } else return false; }
 
-bool EventService::PressedEscapeKey() { return game_event.key.code == sf::Keyboard::Escape; }
+bool EventService::PressedEscapeKey() { if (game_event.key.code == sf::Keyboard::Escape) { return true; } else return false; }
 
 bool EventService::IsGameWindowOpen()  { return game_window != nullptr; }
 
 bool EventService::GameWindowWasClosed() { return game_event.type == sf::Event::Closed; }
 
 bool EventService::PressedLeftKey(){ return game_event.key.code == sf::Keyboard::Left; }
+
 bool EventService::PressedRightKey() { return game_event.key.code == sf::Keyboard::Right; }

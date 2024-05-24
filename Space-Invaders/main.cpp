@@ -5,9 +5,11 @@ int main()
 {
 	GameService* game_service = new GameService();
 	game_service->Ignite();
+	
 	while (game_service->isRunning())
-	{
-		game_service->Update();
+	{	
 		game_service->Render();
+		game_service->Update();
+		
 	}
 }

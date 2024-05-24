@@ -1,59 +1,80 @@
-#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\GraphicService.h"
-#include<iostream>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\GraphicService.h"
+#include <iostream>
+
 // Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
-	game_window = nullptr; // Initializes game window pointer to null
-	video_mode = nullptr;
+    game_window = nullptr;
+    video_mode = nullptr;
 }
 
 // Destructor: Cleans up resources by calling onDestroy.
 GraphicService::~GraphicService() {
-	onDestroy(); // Calls onDestroy method to clean up resources
+    onDestroy();
 }
 
 // Initializes the graphic service by creating a new game window.
 void GraphicService::Initialize() {
-	game_window = CreateGameWindow(); // Assigns a new game window to the game_window pointer
+    game_window = CreateGameWindow();
 }
 
 // Creates a new SFML RenderWindow object with specified video mode and title.
 sf::RenderWindow* GraphicService::CreateGameWindow() {
-	SetVideoMode(); // Sets up the video mode for the window
-	game_window = new sf::RenderWindow(*video_mode, game_window_title);
-	if(game_window)
-	return game_window; // Creates and returns a new RenderWindow object
+    SetVideoMode(); // Sets up the video mode for the window
+    game_window = new sf::RenderWindow(*video_mode, game_window_title);
+    if (game_window->isOpen()) {
+        std::cout << "Success 4";
+        return game_window;
+    }
+    else
+    {   
+        std::cout << "Errrrorrr!!";
+        return nullptr;
+    }
+    
+        
 }
 
 // Sets up the video mode for the game window using specified dimensions and system's color depth.
 void GraphicService::SetVideoMode() {
-	video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel); // Allocates and sets the video mode
+    video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel);
 }
 
 // Cleans up allocated memory for video mode and game window to avoid memory leaks.
 void GraphicService::onDestroy() {
-	delete(video_mode); // Deletes the video mode object
-	video_mode = nullptr;
-	delete(game_window); // Deletes the game window object
-	game_window = nullptr;
+    delete video_mode;
+    video_mode = nullptr;
+    delete game_window;
+    game_window = nullptr;
 }
 
 // Placeholder function for game update logic.
 void GraphicService::Update() { }
 
 // Placeholder function for game rendering logic.
-void GraphicService::Render() { }
+void GraphicService::Render() 
+{
+    
+    /*game_window = nullptr;
+    video_mode = nullptr;*/
+    if (game_window) {
+        
+        // Use the window color
+        // Add rendering logic here (e.g., draw game objects)
+       // game_window->display();
+    }
+}
 
 // Checks if the game window is currently open.
 bool GraphicService::IsGameWindowOpen() {
-	return game_window&&game_window->isOpen(); // Returns the open status of the game window
+    return game_window && game_window->isOpen();
 }
 
 // Returns a pointer to the game window object.
 sf::RenderWindow* GraphicService::GetGameWindow() {
-	return game_window;
+    return game_window;
 }
 
 // Returns the configured window background color.
 sf::Color GraphicService::GetWindowColor() const {
-	return window_color;
+    return window_color;
 }

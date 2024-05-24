@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class GraphicService
 {
@@ -10,8 +11,6 @@ private:
 	const int game_window_width = 800;
 	const int game_window_height = 600;
 
-	const sf::Color window_color = sf::Color::Blue;
-
 	sf::VideoMode* video_mode; // ptr to video mode
 	sf::RenderWindow* game_window; // ptr to a RenderWindow
 
@@ -19,6 +18,7 @@ private:
 	void onDestroy(); // method to run when window is deleted
 
 public:
+	const sf::Color window_color = sf::Color::Blue;
 	GraphicService();
 	~GraphicService(); //cleanup
 
@@ -34,3 +34,4 @@ public:
 	sf::RenderWindow* GetGameWindow(); //getter for the game window instance
 	sf::Color GetWindowColor() const;//get the color
 };
+

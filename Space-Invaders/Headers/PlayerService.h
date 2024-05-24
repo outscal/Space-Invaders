@@ -7,7 +7,7 @@ class PlayerService
 private:
 	int health=3;
 	int playerScore = 0;
-	int movementSpeed=10;
+	float movementSpeed=0.1f;
 	sf::Vector2f position = sf::Vector2f(200, 100);//set position in window
 
 	const sf::String ship_Texture_path = "C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/player_ship.png";
@@ -31,7 +31,10 @@ public:
 	void Render();
 	
 	//other methods
-	int GetMovementSpeed();
+	float GetMovementSpeed();
+
+	void MoveLeft();
+	void MoveRight();
 	
 	//void TakeDamage();
 	void Move(float offsetX);
