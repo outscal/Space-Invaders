@@ -147,12 +147,12 @@
     <ClInclude Include="Headers\Player\PlayerController.h" />
     <ClInclude Include="Headers\Player\PlayerModel.h" />
     <ClInclude Include="Headers\Player\PlayerView.h" />
-    <ClInclude Include="Headers\TimeService.h" />
-    <ClInclude Include="Headers\EventService.h" />
-    <ClInclude Include="Headers\GameService.h" />
-    <ClInclude Include="Headers\GraphicService.h" />
-    <ClInclude Include="Headers\PlayerService.h" />
-    <ClInclude Include="Headers\ServiceLocator.h" />
+    <ClInclude Include="Headers\Time\TimeService.h" />
+    <ClInclude Include="Headers\Event\EventService.h" />
+    <ClInclude Include="Headers\Main\GameService.h" />
+    <ClInclude Include="Headers\Graphic\GraphicService.h" />
+    <ClInclude Include="Headers\Player\PlayerService.h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\bunker.png" />

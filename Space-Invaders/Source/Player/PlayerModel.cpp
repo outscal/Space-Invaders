@@ -30,11 +30,3 @@ int PlayerModel::GetPlayerScore() { return player_score; }
 void PlayerModel::SetPlayerScore(int score) { player_score = score; }
 PlayerState PlayerModel::GetPlayerState() { return player_state; }
 void PlayerModel::SetPLayerState(PlayerState state) { player_state = state; }
-//bool PlayerModel::GetPlayerAlive()
-//{
-//	return player_alive;
-//}
-//void PlayerModel::SetPlayerAlive(bool alive)
-//{
-//	player_alive = alive;
-//}

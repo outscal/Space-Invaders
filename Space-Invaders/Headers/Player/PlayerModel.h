@@ -18,7 +18,7 @@ public:
 	const sf::Vector2f left_most_position = sf::Vector2f(50.f, 0.f);
 	const sf::Vector2f right_most_position = sf::Vector2f(700.f, 0.f);
 
-	const float player_movement_speed = 200.f;
+	const float player_movement_speed = 400.f;
 
 	PlayerModel();
 	~PlayerModel();

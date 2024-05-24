@@ -47,22 +47,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\GameService.h">
+    <ClInclude Include="Headers\Main\GameService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\GraphicService.h">
+    <ClInclude Include="Headers\Graphic\GraphicService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\ServiceLocator.h">
+    <ClInclude Include="Headers\Global\ServiceLocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\EventService.h">
+    <ClInclude Include="Headers\Event\EventService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\PlayerService.h">
+    <ClInclude Include="Headers\Player\PlayerService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\TimeService.h">
+    <ClInclude Include="Headers\Time\TimeService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Player\PlayerModel.h">
