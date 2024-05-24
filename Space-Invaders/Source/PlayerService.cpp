@@ -1,67 +1,24 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\PlayerService.h"
-#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\ServiceLocator.h"
-
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerController.h"
 
 PlayerService::PlayerService()
 {
-	game_window = nullptr;
+	player_controller = new PlayerController();
 }
-	//PlayerService(int hp, int moveSpeed);
-PlayerService::~PlayerService() = default;
+PlayerService::~PlayerService()
+{
+	delete(player_controller);
+}
 //Life Cycle methods
 void PlayerService::Initialize()
 {
-	game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-	InitializePlayerSprite();
+	player_controller->Initialize();
 }
 void PlayerService::Update()
 {
-	ProcessPlayerInput();
-	ship_Sprite.setPosition(GetPosition());
+	player_controller->Update();
 }
 void PlayerService::Render()
 {	
-	game_window->draw(ship_Sprite);
+	player_controller->Render();
 }
-void PlayerService::ProcessPlayerInput()
-{	
-	//Get the event service object created in service locator
-	EventService* event_service = ServiceLocator::GetInstance()->GetEventService(); 
-	
-	// Handle keyboard input
-	
-	
-		if ( event_service->IsKeyboardEvent() && event_service->PressedLeftKey())
-		{
-			Move(-1.0f * GetMovementSpeed());
-		}
-		if (event_service->IsKeyboardEvent() && event_service->PressedRightKey())
-		{
-			Move(1.0f * GetMovementSpeed());
-		}
-	
-}
-void PlayerService::InitializePlayerSprite()
-{
-	if (ship_Texture.loadFromFile(ship_Texture_path))
-	{
-		ship_Sprite.setTexture(ship_Texture);
-	}
-}
-void PlayerService::MoveLeft()
-{
-	position.x -= movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-}
-void PlayerService::MoveRight()
-{
-	position.x += movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-}
-//void PlayerService::TakeDamage() {}
-void PlayerService::Move(float offsetX) 
-{
-	position.x += offsetX;
-}
-//void PlayerService::ShootBullets() {}
-
-sf::Vector2f PlayerService::GetPosition() { return position; }
-float PlayerService::GetMovementSpeed() { return movementSpeed; }
