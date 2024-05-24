@@ -1,8 +1,11 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Graphic\GraphicService.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Event\EventService.h"
+
 namespace Main
 {
 	using namespace Global;
+	GameState GameService::current_state = GameState::BOOT;
 	// Constructor for initializing the GameService object.
 	GameService::GameService()
 	{
@@ -66,4 +69,7 @@ namespace Main
 	{
 		return service_locator->GetGraphicService()->IsGameWindowOpen();
 	}
+	//Game State : BOOT
+	void GameService::SetGameState(GameState new_state) { current_state = new_state; }
+	GameState GameService::GetGameState() { return current_state; }
 }
