@@ -4,34 +4,37 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Time\TimeService.h"
 
-
-class ServiceLocator
+namespace Global
 {
-private:
-    // Private Attributes:
-    GraphicService* graphic_service;
-    EventService* event_service;
-    PlayerService* player_service;
-    TimeService* time_service;
-    // Private Constructor and Destructor:
-    ServiceLocator();
-    ~ServiceLocator();
+    class ServiceLocator
+    {
+    private:
+        // Private Attributes:
+        Graphic::GraphicService* graphic_service;
+        Event::EventService* event_service;
+        Player::PlayerService* player_service;
+        Time::TimeService* time_service;
+        // Private Constructor and Destructor:
+        ServiceLocator();
+        ~ServiceLocator();
 
-    // Private Methods:
-    void CreateServices();
-    void ClearAllServices();
+        // Private Methods:
+        void CreateServices();
+        void ClearAllServices();
 
-public:
-    // Public Methods:
-    static ServiceLocator* GetInstance();
+    public:
+        // Public Methods:
+        static ServiceLocator* GetInstance();
 
-    void Initialize();
-    void Update();
-    void Render();
+        void Initialize();
+        void Update();
+        void Render();
 
-    // Methods to Get Specific Services: 
-    GraphicService* GetGraphicService();
-    EventService* GetEventService();
-    PlayerService* GetPlayerService();
-    TimeService* GetTimeService();
-};
+        // Methods to Get Specific Services: 
+        Graphic::GraphicService* GetGraphicService();
+        Event::EventService* GetEventService();
+        Player::PlayerService* GetPlayerService();
+        Time::TimeService* GetTimeService();
+    };
+
+}
