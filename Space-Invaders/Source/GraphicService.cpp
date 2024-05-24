@@ -22,16 +22,14 @@ sf::RenderWindow* GraphicService::CreateGameWindow() {
     SetVideoMode(); // Sets up the video mode for the window
     game_window = new sf::RenderWindow(*video_mode, game_window_title);
     if (game_window->isOpen()) {
-        std::cout << "Success 4";
+        std::cout << "Game window is successfully open\n";
         return game_window;
     }
     else
-    {   
-        std::cout << "Errrrorrr!!";
+    {
+        std::cout << "Error : Game window closed returning null value.\n";
         return nullptr;
     }
-    
-        
 }
 
 // Sets up the video mode for the game window using specified dimensions and system's color depth.
@@ -40,7 +38,8 @@ void GraphicService::SetVideoMode() {
 }
 
 // Cleans up allocated memory for video mode and game window to avoid memory leaks.
-void GraphicService::onDestroy() {
+void GraphicService::onDestroy() 
+{
     delete video_mode;
     video_mode = nullptr;
     delete game_window;
@@ -48,33 +47,16 @@ void GraphicService::onDestroy() {
 }
 
 // Placeholder function for game update logic.
-void GraphicService::Update() { }
+void GraphicService::Update() {}
 
 // Placeholder function for game rendering logic.
-void GraphicService::Render() 
-{
-    
-    /*game_window = nullptr;
-    video_mode = nullptr;*/
-    if (game_window) {
-        
-        // Use the window color
-        // Add rendering logic here (e.g., draw game objects)
-       // game_window->display();
-    }
-}
+void GraphicService::Render() {}
 
 // Checks if the game window is currently open.
-bool GraphicService::IsGameWindowOpen() {
-    return game_window && game_window->isOpen();
-}
+bool GraphicService::IsGameWindowOpen() { return game_window && game_window->isOpen(); }
 
 // Returns a pointer to the game window object.
-sf::RenderWindow* GraphicService::GetGameWindow() {
-    return game_window;
-}
+sf::RenderWindow* GraphicService::GetGameWindow() {return game_window;}
 
 // Returns the configured window background color.
-sf::Color GraphicService::GetWindowColor() const {
-    return window_color;
-}
+sf::Color GraphicService::GetWindowColor() const {return window_color;}

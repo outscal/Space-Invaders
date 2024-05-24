@@ -18,12 +18,10 @@ ServiceLocator::~ServiceLocator()
 void ServiceLocator::CreateServices()
 {
 	// Creates instances of all services.
+	std::cout << "Creating Services...\n";
 	graphic_service = new GraphicService();
-	std::cout << "Success1"; 
 	event_service = new EventService();	
-	std::cout << "Success2";
 	player_service = new PlayerService();
-	std::cout << "Success3";
 	time_service = new TimeService();
 }
 
