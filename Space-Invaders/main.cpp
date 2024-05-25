@@ -9,7 +9,7 @@ private:
     // Private Properties
     int health = 3;
     sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
-    int movement_speed = 5;
+    int movement_speed = 1;
     int player_score = 0;
 
 public:
@@ -33,7 +33,14 @@ public:
 
 
     void takeDamage() {};
-    void move() {};
+    void move(float offsetX) {
+        position.x += offsetX;
+    };
+
+    int getMoveSpeed() {
+        return movement_speed;
+    }
+
     void shootBullets() {};
 
 };
@@ -46,9 +53,6 @@ int main() {
 
     Player player;  // Create the player object
 
-    player.player_texture.loadFromFile("assets/textures/player_ship.png"); // Load the player ship texture
-
-    player.player_sprite.setTexture(player.player_texture);  // Set the player sprite variable 
 
     while (window.isOpen()) {
         sf::Event event;
@@ -58,13 +62,18 @@ int main() {
                 window.close();
         }
 
-        // Handle keyboard input
+          // Handle keyboard input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            player.move();
+            player.move(-1.0f * player.getMoveSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            player.move();
+            player.move(1.0f * player.getMoveSpeed());
         }
+
+
+        player.player_texture.loadFromFile("assets/textures/player_ship.png"); // Load the player ship texture
+
+        player.player_sprite.setTexture(player.player_texture);  // Set the player sprite variable 
 
         // Clear the window
         window.clear(sf::Color::Blue); // this code will set a blue background color (optional)
