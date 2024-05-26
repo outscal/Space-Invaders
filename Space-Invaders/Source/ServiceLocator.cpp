@@ -59,11 +59,8 @@ namespace Global
 	{
 		//	Renders using the services
 		graphic_service->Render();
-		
-		ui_service->Render();
-
 		player_service->Render();
-		
+		ui_service->Render();
 	}
 	void ServiceLocator::ClearAllServices()
 	{

@@ -7,6 +7,7 @@
 namespace Player
 {
 	using namespace Global;
+	using namespace Event;
 	PlayerController::PlayerController()
 	{
 		player_model = new PlayerModel();
@@ -36,12 +37,13 @@ namespace Player
 		return player_model->GetPlayerPosition();
 	}
 	void PlayerController::ProcessPlayerInput()
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{	
+		EventService* event_service = ServiceLocator::GetInstance()->GetEventService();
+		if (event_service->PressedLeftKey()|| event_service->PressedAKey())
 		{
 			MoveLeft();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		if (event_service->PressedRightKey() || event_service->PressedDKey())
 		{
 			MoveRight();
 		}
