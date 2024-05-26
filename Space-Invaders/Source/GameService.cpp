@@ -29,6 +29,7 @@ namespace Main
 		else {
 			std::cout << "Game window initialized in GameService::Initialize()." << std::endl;
 		}
+		ShowMainMenu();
 	}
 	// Handles game initialization.
 	void GameService::InitializeVariables()
@@ -63,6 +64,10 @@ namespace Main
 		game_window->clear(service_locator->GetGraphicService()->GetWindowColor());
 		service_locator->Render();
 		game_window->display();
+	}
+	void GameService::ShowMainMenu()
+	{
+		SetGameState(GameState::MAIN_MENU);
 	}
 	// Checks if the game is currently running.
 	bool GameService::isRunning()

@@ -30,17 +30,19 @@ namespace UI
 
 			sf::Texture quit_button_texture;
 			sf::Sprite quit_button_sprite;
-			
+			//BG Image visual and init.
 			void InitializeBackgroundImage();
 			void ScaleBackgroundImage();
-
+			//Button visual and init.
 			void InitializeButtons();
 			bool LoadButtonTexturesFromFile();
 			void SetButtonSprites();
-			
 			void ScaleAllButtons();
 			void ScaleSpecificButton(sf::Sprite* button_to_scale);
 			void PositionButtons();
+			//Button Interactions
+			void ProcessButtonInteractions();
+			bool ClickedButton(sf::Sprite*, sf::Vector2f);
 		public:
 			MainMenuUIController();
 			void Initialize();

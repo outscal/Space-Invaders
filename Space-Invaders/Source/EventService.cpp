@@ -48,4 +48,13 @@ namespace Event
 	bool EventService::PressedLeftKey() { return game_event.key.code == sf::Keyboard::Left; }
 
 	bool EventService::PressedRightKey() { return game_event.key.code == sf::Keyboard::Right; }
+	
+	bool EventService::PressedLMB()
+	{
+		return game_event.type == sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Left;
+	}
+	bool EventService::PressedRMB()
+	{
+		return game_event.type == sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Right;
+	}
 }

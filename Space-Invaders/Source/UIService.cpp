@@ -26,12 +26,27 @@ namespace UI
 		main_menu_controller->Initialize();
 	}
 	void UIService::Update()
-	{
-		main_menu_controller->Update();
+	{	
+		switch (GameService::GetGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller->Update();
+			break;
+		/*default:
+			break;*/
+		}
 	}
 	void UIService::Render()
 	{
-		main_menu_controller->Render();
+		
+		switch (GameService::GetGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller->Render();
+			break;
+			/*default:
+				break;*/
+		}
 	}
 	void UIService::initializeControllers()
 	{

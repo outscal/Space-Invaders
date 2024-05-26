@@ -20,11 +20,14 @@ namespace Event
 		void Initialize();
 		void Update();
 		void ProcessEvents(); // while window is open we will check for events
+		//KeyBoard
 		bool PressedEscapeKey();
 		bool IsKeyboardEvent();
 		bool PressedLeftKey();
 		bool PressedRightKey();
-
+		//Mouse
+		bool PressedLMB();
+		bool PressedRMB();
 	};
 }
 

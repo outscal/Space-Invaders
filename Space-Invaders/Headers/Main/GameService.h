@@ -28,6 +28,10 @@ namespace Main
 		void Render();			// Renders each frame of the game.
 		bool isRunning();		// Checks if the game is currently running.
 
+		void ShowMainMenu();
+		void ShowGameplayScreen();
+		void ShowPauseMenu();
+
 		//Getters and setters
 		static void SetGameState(GameState new_state);
 		static GameState GetGameState();
