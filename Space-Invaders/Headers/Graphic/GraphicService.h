@@ -9,8 +9,8 @@ namespace Graphic
 
 		const std::string game_window_title = "Avnish Presents - Space Invasion";
 
-		const int game_window_width = 800;
-		const int game_window_height = 600;
+		const int game_window_width = 1920;
+		const int game_window_height = 1080;
 
 		sf::VideoMode* video_mode; // ptr to video mode
 		sf::RenderWindow* game_window; // ptr to a RenderWindow
