@@ -3,7 +3,7 @@
 
 
 namespace Global 
-{
+{	
 	using namespace Graphic;
 	using namespace Time;
 	using namespace Event;
@@ -11,6 +11,7 @@ namespace Global
 	using namespace UI;
 	using namespace Enemy;
 	using namespace Main;
+	using namespace Gameplay;
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
@@ -19,6 +20,7 @@ namespace Global
 		time_service = nullptr;
 		ui_service = nullptr;
 		enemy_service = nullptr;
+		gameplay_service = nullptr;
 		CreateServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -37,6 +39,7 @@ namespace Global
 		time_service = new TimeService();
 		ui_service = new UIService();
 		enemy_service = new EnemyService();
+		gameplay_service = new GameplayService();
 	}
 
 	// Public Methods:
@@ -54,6 +57,7 @@ namespace Global
 		player_service->Initialize();
 		ui_service->Initialize();
 		enemy_service->Initialize();
+		gameplay_service->Initialize();
 	}
 	void ServiceLocator::Update()
 	{	//	Updates all services.
@@ -62,7 +66,8 @@ namespace Global
 		event_service->Update();
 		//Gameplay Services
 		if (GameService::GetGameState() == GameState::GAMEPLAY)
-		{
+		{	
+			gameplay_service->Update();
 			player_service->Update();
 			enemy_service->Update();
 		}
@@ -74,7 +79,7 @@ namespace Global
 		//	Renders using the services
 		if (GameService::GetGameState() == GameState::GAMEPLAY)
 		{
-			
+			gameplay_service->Render();
 			player_service->Render();
 			enemy_service->Render();
 		}
@@ -93,7 +98,8 @@ namespace Global
 		time_service = nullptr;
 		delete(ui_service);
 		ui_service = nullptr;
-
+		delete(gameplay_service);
+		gameplay_service = nullptr;
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }
@@ -102,4 +108,5 @@ namespace Global
 	TimeService* ServiceLocator::GetTimeService() { return time_service; }
 	UIService* ServiceLocator::GetUIService() { return ui_service; }
 	EnemyService* ServiceLocator::GetEnemyService() { return enemy_service; }
+	GameplayService* ServiceLocator::GetGameplayService() { return gameplay_service; }
 }

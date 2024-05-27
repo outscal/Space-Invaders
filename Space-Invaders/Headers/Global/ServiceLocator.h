@@ -5,6 +5,8 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Time\TimeService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyService.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Gameplay\GameplayService.h"
+
 
 namespace Global
 {
@@ -19,6 +21,7 @@ namespace Global
         Time::TimeService* time_service;
         UI::UIService* ui_service;
         Enemy::EnemyService* enemy_service;
+        Gameplay::GameplayService* gameplay_service;
         // Private Constructor and Destructor:
         ServiceLocator();
         ~ServiceLocator();
@@ -42,6 +45,7 @@ namespace Global
         Time::TimeService* GetTimeService();
         UI::UIService* GetUIService();
         Enemy::EnemyService* GetEnemyService();
+        Gameplay::GameplayService* GetGameplayService();
     };
 
 }

@@ -139,6 +139,9 @@
     <ClCompile Include="Source\EventService.cpp">
       <DeploymentContent>true</DeploymentContent>
     </ClCompile>
+    <ClCompile Include="Source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayView.cpp" />
     <ClCompile Include="Source\GameService.cpp">
       <DeploymentContent>true</DeploymentContent>
     </ClCompile>
@@ -158,6 +161,9 @@
     <ClInclude Include="Headers\Enemy\EnemyModel.h" />
     <ClInclude Include="Headers\Enemy\EnemyService.h" />
     <ClInclude Include="Headers\Enemy\EnemyView.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayController.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayService.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayView.h" />
     <ClInclude Include="Headers\Global\ServiceLocator.h" />
     <ClInclude Include="Headers\Main\GameService.h" />
     <ClInclude Include="Headers\Player\PlayerController.h" />
