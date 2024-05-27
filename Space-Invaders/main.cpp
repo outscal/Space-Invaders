@@ -13,18 +13,17 @@ public: //Public Access Modifier
      sf::Texture player_texture;
      sf::Sprite player_sprite;
      int movement_speed = 5;
+    
+     //Public Getter & Setter methods
+     int getScore() {
+         return player_score;
+     };
 
-   
-     //// Public Getter & Setter methods
-   //  int getScore() {
-   //      return player_score;
-   //  }
-  
-   //  void setScore(int newScoer) {
-   //  
-   //      player_score = newScoer;
-   //  
-   //  }
+     void setScore(int newScore) {
+         player_score = newScore;
+     };
+
+
 
 
      //New methods
@@ -32,10 +31,7 @@ public: //Public Access Modifier
      void move() {};
      void shootBullets() {};
 
-     
-
 };
-
 
 
 
@@ -45,16 +41,9 @@ int main()
     // A Player Object
     Player player;
 
-    //// Accessing the private variables using the public getter
-    //std::cout << " Players Score " << player.getScore() << "\n";
-    //
-    //// Modifying the variables using the public setter
-    //player.setScore(100);
+    player.player_texture.loadFromFile("assets/textures/player_ship.png");
 
-    ////Acessing the modified variable using the public getter
-    //std::cout << " Player Modified scosre. " << player.getScore() << "\n";
-
-
+    player.player_sprite.setTexture(player.player_texture);
     //Difining the video mode dimensions
     sf::VideoMode videoMode = sf::VideoMode(800, 600);
     
@@ -63,7 +52,7 @@ int main()
 
     while (window.isOpen())
     {
-    sf::Event event;
+        sf::Event event;
 
         while (window.pollEvent(event))
         {
@@ -72,24 +61,33 @@ int main()
                 window.close();
         }
 
+
+
+        // Handle  input
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+
+            // call move() here after the player object is created     
+
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+
+
+        }
+
+
         // Clear the  window
         window.clear(sf::Color::Blue);
+
+        
+
+       window.draw(player.player_sprite);
 
         // Display whatever you draw
         window.display();
 
-
-
-
-
-
-
-
-
     }
-
-
-    
 
 
 
