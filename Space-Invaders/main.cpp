@@ -1,3 +1,27 @@
+#include "Header/GameSevice.h"
+
+int main() {
+
+    GameService gameService;
+
+    gameService.ignite();
+
+    while (gameService.isRunning())
+    {
+
+        gameService.update();
+        gameService.render();
+
+    }
+
+}
+
+
+
+
+
+/*
+
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
@@ -100,3 +124,5 @@ int main() {
 
     return 0;
 }
+
+*/
