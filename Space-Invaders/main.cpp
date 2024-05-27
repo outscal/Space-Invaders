@@ -35,8 +35,14 @@ public:
     void takeDamage() {};
     void move(float offsetX) {
         position.x += offsetX;
+        
     };
 
+    void move1(float offsetY) {
+        position.y += offsetY;
+
+    };
+    
     int getMoveSpeed() {
         return movement_speed;
     }
@@ -68,6 +74,12 @@ int main() {
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             player.move(1.0f * player.getMoveSpeed());
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+                player.move1(-1.0f * player.getMoveSpeed());
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+                player.move1(1.0f * player.getMoveSpeed());
         }
 
 
