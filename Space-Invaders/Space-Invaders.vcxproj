@@ -132,8 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\EventService.cpp" />
-    <ClCompile Include="Source\GameService.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyController.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyService.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyView.cpp" />
+    <ClCompile Include="Source\EventService.cpp">
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Source\GameService.cpp">
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\MainMenuUIController.cpp" />
@@ -141,20 +149,24 @@
     <ClCompile Include="Source\Player\PlayerController.cpp" />
     <ClCompile Include="Source\Player\PlayerModel.cpp" />
     <ClCompile Include="Source\Player\PlayerView.cpp" />
-    <ClCompile Include="Source\ServiceLocator.cpp" />
+    <ClCompile Include="Source\Global\ServiceLocator.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Enemy\EnemyController.h" />
+    <ClInclude Include="Headers\Enemy\EnemyModel.h" />
+    <ClInclude Include="Headers\Enemy\EnemyService.h" />
+    <ClInclude Include="Headers\Enemy\EnemyView.h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
+    <ClInclude Include="Headers\Main\GameService.h" />
     <ClInclude Include="Headers\Player\PlayerController.h" />
     <ClInclude Include="Headers\Player\PlayerModel.h" />
     <ClInclude Include="Headers\Player\PlayerView.h" />
     <ClInclude Include="Headers\Time\TimeService.h" />
     <ClInclude Include="Headers\Event\EventService.h" />
-    <ClInclude Include="Headers\Main\GameService.h" />
     <ClInclude Include="Headers\Graphic\GraphicService.h" />
     <ClInclude Include="Headers\Player\PlayerService.h" />
-    <ClInclude Include="Headers\Global\ServiceLocator.h" />
     <ClInclude Include="Headers\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="Headers\UI\UIService.h" />
   </ItemGroup>

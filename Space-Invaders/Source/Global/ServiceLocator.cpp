@@ -1,4 +1,7 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
+
+
 namespace Global 
 {
 	using namespace Graphic;
@@ -6,6 +9,8 @@ namespace Global
 	using namespace Event;
 	using namespace Player;
 	using namespace UI;
+	using namespace Enemy;
+	using namespace Main;
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
@@ -13,6 +18,7 @@ namespace Global
 		player_service = nullptr;
 		time_service = nullptr;
 		ui_service = nullptr;
+		enemy_service = nullptr;
 		CreateServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -30,6 +36,7 @@ namespace Global
 		player_service = new PlayerService();
 		time_service = new TimeService();
 		ui_service = new UIService();
+		enemy_service = new EnemyService();
 	}
 
 	// Public Methods:
@@ -46,20 +53,31 @@ namespace Global
 		event_service->Initialize();
 		player_service->Initialize();
 		ui_service->Initialize();
+		enemy_service->Initialize();
 	}
 	void ServiceLocator::Update()
 	{	//	Updates all services.
 		graphic_service->Update();
 		time_service->Update();
 		event_service->Update();
-		player_service->Update();
+		//Gameplay Services
+		if (GameService::GetGameState() == GameState::GAMEPLAY)
+		{
+			player_service->Update();
+			enemy_service->Update();
+		}
 		ui_service->Update();
 	}
 	void ServiceLocator::Render()
 	{
-		//	Renders using the services
 		graphic_service->Render();
-		player_service->Render();
+		//	Renders using the services
+		if (GameService::GetGameState() == GameState::GAMEPLAY)
+		{
+			
+			player_service->Render();
+			enemy_service->Render();
+		}
 		ui_service->Render();
 	}
 	void ServiceLocator::ClearAllServices()
@@ -75,6 +93,7 @@ namespace Global
 		time_service = nullptr;
 		delete(ui_service);
 		ui_service = nullptr;
+
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }
@@ -82,4 +101,5 @@ namespace Global
 	PlayerService* ServiceLocator::GetPlayerService() { return player_service; }
 	TimeService* ServiceLocator::GetTimeService() { return time_service; }
 	UIService* ServiceLocator::GetUIService() { return ui_service; }
+	EnemyService* ServiceLocator::GetEnemyService() { return enemy_service; }
 }

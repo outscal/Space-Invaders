@@ -1,9 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
-
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
 namespace Main 
 {
+	//class ServiceLocator;
+	//using namespace Global;
 	enum class GameState
 	{
 		BOOT,
@@ -29,8 +30,8 @@ namespace Main
 		bool isRunning();		// Checks if the game is currently running.
 
 		void ShowMainMenu();
-		void ShowGameplayScreen();
-		void ShowPauseMenu();
+		/*void ShowGameplayScreen();
+		void ShowPauseMenu();*/
 
 		//Getters and setters
 		static void SetGameState(GameState new_state);

@@ -1,10 +1,11 @@
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Graphic\GraphicService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Event\EventService.h"
 
 namespace Main
 {
-	using namespace Global;
+	
 	GameState GameService::current_state = GameState::BOOT;
 	// Constructor for initializing the GameService object.
 	GameService::GameService()
@@ -19,7 +20,7 @@ namespace Main
 	}
 	void GameService::Initialize()
 	{
-		service_locator = ServiceLocator::GetInstance();
+		service_locator = Global::ServiceLocator::GetInstance();
 		service_locator->Initialize();
 
 		game_window = service_locator->GetGraphicService()->GetGameWindow(); // Initialize game_window

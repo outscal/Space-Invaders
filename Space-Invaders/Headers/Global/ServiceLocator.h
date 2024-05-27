@@ -4,9 +4,11 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Time\TimeService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIService.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyService.h"
 
 namespace Global
 {
+    
     class ServiceLocator
     {
     private:
@@ -16,6 +18,7 @@ namespace Global
         Player::PlayerService* player_service;
         Time::TimeService* time_service;
         UI::UIService* ui_service;
+        Enemy::EnemyService* enemy_service;
         // Private Constructor and Destructor:
         ServiceLocator();
         ~ServiceLocator();
@@ -38,6 +41,7 @@ namespace Global
         Player::PlayerService* GetPlayerService();
         Time::TimeService* GetTimeService();
         UI::UIService* GetUIService();
+        Enemy::EnemyService* GetEnemyService();
     };
 
 }
