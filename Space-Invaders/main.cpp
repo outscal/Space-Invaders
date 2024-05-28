@@ -2,9 +2,8 @@
 #include<SFML/Graphics.hpp>
 
 class Player {
-
+private:
     // Player properties
-   //Private Access Modifiers
      int player_score = 0;
      sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
      int health = 3;
@@ -13,47 +12,42 @@ public: //Public Access Modifier
      sf::Texture player_texture;
      sf::Sprite player_sprite;
      int movement_speed = 5;
-    
-     //Public Getter & Setter methods
-     int getScore() {
-         return player_score;
-     };
-
-     void setScore(int newScore) {
-         player_score = newScore;
-     };
-
-
-
-
+   
      //New methods
      void takeDamage() {};
-     void move() {};
+     void move(float offsetX) {
+         position.x += offsetX;
+     }
+     int getMoveSpeed() {
+         return movement_speed;
+     }
+     sf::Vector2f getPosition() {
+         return position;
+     }
      void shootBullets() {};
 
 };
 
-
-
-
 int main()
 {
-    // A Player Object
-    Player player;
-
-    player.player_texture.loadFromFile("assets/textures/player_ship.png");
-
-    player.player_sprite.setTexture(player.player_texture);
-    //Difining the video mode dimensions
+   //Difining the video mode dimensions
     sf::VideoMode videoMode = sf::VideoMode(800, 600);
     
     // creating a window object with specific dimensions and a title
     sf::RenderWindow window(videoMode, " SFML Window ");
 
+    // A Player Object
+    Player player;
+
+    //Loading player ship texture
+    player.player_texture.loadFromFile("assets/textures/player_ship.png");
+    //setintg the player ship texture
+    player.player_sprite.setTexture(player.player_texture);
+
+
     while (window.isOpen())
     {
         sf::Event event;
-
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -61,37 +55,26 @@ int main()
                 window.close();
         }
 
-
-
-        // Handle  input
-
+        // Handle  inpu
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-
-            // call move() here after the player object is created     
-
+            player.move(-1.0f * player.getMoveSpeed());
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-
-
+           player.move(1.0f * player.getMoveSpeed());
         }
-
 
         // Clear the  window
         window.clear(sf::Color::Blue);
-
         
-
+        //setting the the player sptite position
+        player.player_sprite.setPosition(player.getPosition());
+        
+        //Draw the player sprite
        window.draw(player.player_sprite);
 
         // Display whatever you draw
         window.display();
-
     }
-
-
-
-
-
     return 0;
 }
