@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Enemy\Controllers\SubZeroController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
     <ClCompile Include="Source\Enemy\EnemyService.cpp" />
@@ -157,6 +159,9 @@
     <ClCompile Include="Source\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Enemy\Controllers\SubZeroController.h" />
+    <ClInclude Include="Headers\Enemy\Controllers\ZapperController.h" />
+    <ClInclude Include="Headers\Enemy\EnemyConfig.h" />
     <ClInclude Include="Headers\Enemy\EnemyController.h" />
     <ClInclude Include="Headers\Enemy\EnemyModel.h" />
     <ClInclude Include="Headers\Enemy\EnemyService.h" />

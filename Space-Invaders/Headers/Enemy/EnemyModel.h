@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 namespace Enemy
 {
+	enum class EnemyType;
+	enum class EnemyState;
 	enum class MovementDirection
 	{
 		LEFT,RIGHT,DOWN
@@ -12,8 +14,11 @@ namespace Enemy
 		sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
 		sf::Vector2f enemy_position;
 		MovementDirection movement_direction;
+		EnemyType enemy_type;
+		EnemyState enemy_state;
+
 	public:
-		EnemyModel();
+		EnemyModel(EnemyType type);
 		~EnemyModel();
 		
 		//const data related to movement and bounds
@@ -33,6 +38,12 @@ namespace Enemy
 
 		MovementDirection GetMovementDirection();
 		void SetMovementDirection(MovementDirection direction);
+
+		EnemyType GetEnemyType();
+		void SetEnemyType(EnemyType type);
+
+		EnemyState GetEnemyState();
+		void SetEnemyState(EnemyState state);
 
 	};
 }

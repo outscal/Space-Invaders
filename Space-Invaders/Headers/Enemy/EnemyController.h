@@ -12,16 +12,16 @@ namespace Enemy
 		EnemyView* enemy_view;
 		EnemyModel* enemy_model;
 		//manage movement methods
-		void Move();
+		virtual void Move();
 		void MoveLeft();
 		void MoveRight();
 		void MoveDown();
 	public:
 		EnemyController();
-		~EnemyController();
+		virtual ~EnemyController();
 	
 		//Lifecycle Methods
-		void Initialize();
+		virtual void Initialize();
 		void Update();
 		void Render();
 
