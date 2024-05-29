@@ -3,14 +3,15 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyModel.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
 
+
 namespace Enemy
 {
 	using namespace Global;
-
-	EnemyController::EnemyController()
+	
+	EnemyController::EnemyController(EnemyType type)
 	{
 		enemy_view = new EnemyView();
-		enemy_model = new EnemyModel();
+		enemy_model = new EnemyModel(type);
 	}
 	EnemyController::~EnemyController()
 	{
@@ -18,7 +19,7 @@ namespace Enemy
 		delete (enemy_model);
 	}
 	//Enemy movement state handler
-	void EnemyController::Move()
+	/*void EnemyController::Move()
 	{
 		switch (enemy_model->GetMovementDirection())
 		{
@@ -34,7 +35,7 @@ namespace Enemy
 			MoveDown();
 			break;
 		}
-	}
+	}*/
 	//Enemy Movement
 	void EnemyController::MoveRight()
 	{
@@ -104,5 +105,9 @@ namespace Enemy
 	sf::Vector2f EnemyController::GetEnemyPosition()
 	{
 		return enemy_model->GetEnemyPosition();
+	}
+	EnemyType EnemyController::GetEnemyType()
+	{
+		return enemy_model->GetEnemyType();
 	}
 }
