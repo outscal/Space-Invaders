@@ -12,6 +12,7 @@ namespace Global
 	using namespace Enemy;
 	using namespace Main;
 	using namespace Gameplay;
+	using namespace Element;
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
@@ -21,6 +22,7 @@ namespace Global
 		ui_service = nullptr;
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
+		element_service = nullptr;
 		CreateServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -40,6 +42,7 @@ namespace Global
 		ui_service = new UIService();
 		enemy_service = new EnemyService();
 		gameplay_service = new GameplayService();
+		element_service = new ElementService();
 	}
 
 	// Public Methods:
@@ -58,6 +61,7 @@ namespace Global
 		ui_service->Initialize();
 		enemy_service->Initialize();
 		gameplay_service->Initialize();
+		element_service->Initialize();
 	}
 	void ServiceLocator::Update()
 	{	//	Updates all services.
@@ -70,6 +74,7 @@ namespace Global
 			gameplay_service->Update();
 			player_service->Update();
 			enemy_service->Update();
+			element_service->Update();
 		}
 		ui_service->Update();
 	}
@@ -82,6 +87,7 @@ namespace Global
 			gameplay_service->Render();
 			player_service->Render();
 			enemy_service->Render();
+			element_service->Render();
 		}
 		ui_service->Render();
 	}
@@ -100,6 +106,8 @@ namespace Global
 		ui_service = nullptr;
 		delete(gameplay_service);
 		gameplay_service = nullptr;
+		delete(element_service);
+		element_service = nullptr;
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }
@@ -109,4 +117,5 @@ namespace Global
 	UIService* ServiceLocator::GetUIService() { return ui_service; }
 	EnemyService* ServiceLocator::GetEnemyService() { return enemy_service; }
 	GameplayService* ServiceLocator::GetGameplayService() { return gameplay_service; }
+	ElementService* ServiceLocator::GetElementService() { return element_service; }
 }
