@@ -165,6 +165,7 @@
     <ClCompile Include="Source\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Bullet\BulletService.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerController.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Headers\Player\PlayerController.h" />
     <ClInclude Include="Headers\Player\PlayerModel.h" />
     <ClInclude Include="Headers\Player\PlayerView.h" />
+    <ClInclude Include="Headers\Projectile\IProjectile.h" />
     <ClInclude Include="Headers\Sound\SoundService.h" />
     <ClInclude Include="Headers\Time\TimeService.h" />
     <ClInclude Include="Headers\Event\EventService.h" />
