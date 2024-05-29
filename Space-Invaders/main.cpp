@@ -48,7 +48,26 @@ public:
 
     void Movement()
     {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            cout << "Left Key is pressed";
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            cout << "Right Key is pressed";
+        }
+    }
 
+
+
+    sf::Vector2f getPosition()
+    {
+        return postion;
+    }
+
+    void  SetPosition(sf::Vector2f newPosition)
+    {
+        postion = newPosition;
     }
 
 
@@ -71,8 +90,14 @@ int main()
 
     //Object of Player
     Player playerObj;
-    playerObj.setScore(20);
-    cout << "Player Score : " << playerObj.getScore()<<"\n";
+
+    //Loading texture
+    playerObj.texture.loadFromFile("assets/textures/player_ship.png");
+    playerObj.sprite.setTexture(playerObj.texture);
+
+    //setting and getting player position
+    playerObj.SetPosition(sf::Vector2f(400, 300));
+    playerObj.sprite.setPosition(playerObj.getPosition());
 
 
     while (window.isOpen())
@@ -85,8 +110,15 @@ int main()
                 window.close();
             }
         }
+
+        //Player Ship Movement
+        playerObj.Movement();
+
         //Clear Window and set color
         window.clear(sf::Color::Blue);
+
+        //Draw Player Ship
+        window.draw(playerObj.sprite);
 
         //Render to the screen
         window.display();
