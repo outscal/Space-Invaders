@@ -5,8 +5,17 @@ namespace Element
 	class ElementService
 	{
 	public:
-		void Initialize();
-		void Update();
-		void Render();
+		void Initialize()
+		{
+
+		}
+		void Update()
+		{
+
+		}
+		void Render()
+		{
+
+		}
 	};
 }

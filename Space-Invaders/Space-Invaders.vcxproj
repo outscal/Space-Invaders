@@ -132,6 +132,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Element\Bunker\BunkerController.cpp" />
+    <ClCompile Include="Source\Element\Bunker\BunkerModel.cpp" />
+    <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
     <ClCompile Include="Source\Element\ElementService.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\SubZeroController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
