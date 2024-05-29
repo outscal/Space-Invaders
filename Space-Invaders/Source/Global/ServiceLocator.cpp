@@ -122,4 +122,5 @@ namespace Global
 	EnemyService* ServiceLocator::GetEnemyService() { return enemy_service; }
 	GameplayService* ServiceLocator::GetGameplayService() { return gameplay_service; }
 	ElementService* ServiceLocator::GetElementService() { return element_service; }
+	SoundService* ServiceLocator::GetSoundService() { return sound_service; }
 }

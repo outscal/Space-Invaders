@@ -19,7 +19,7 @@ namespace Sound
 
 	void SoundService::LoadSoundFromFile()
 	{
-		if(!buffer_button_click.loadFromFile(Config::button_click_sound_path))
+		if (!buffer_button_click.loadFromFile(Config::button_click_sound_path))
 			printf("Error loading background music file");
 	}
 
@@ -44,3 +44,4 @@ namespace Sound
 		background_music.setVolume(background_music_volume);
 		background_music.play();
 	}
+}
