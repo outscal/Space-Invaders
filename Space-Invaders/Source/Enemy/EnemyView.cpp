@@ -31,10 +31,10 @@ namespace Enemy
 				ScaleEnemySprite();
 			}
 			break;
-		case Enemy::EnemyType::UFO:
+		/*case Enemy::EnemyType::UFO:
 			break;
 		case Enemy::EnemyType::THUNDER_SNAKE:
-			break;
+			break;*/
 		}
 		
 	}

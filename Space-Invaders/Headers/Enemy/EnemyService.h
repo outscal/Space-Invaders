@@ -3,15 +3,18 @@
 namespace Enemy
 {
 	class EnemyController;
+	enum class EnemyType;
 
 	class EnemyService
 	{
 	private:
-		const float spawn_interval = 3.f;
+		const float spawn_interval = 2.f;
 		std::vector<EnemyController*>enemy_list;
 		float spawn_timer;
 		void UpdateSpawnTimer();
 		void ProcessEnemySpawn();
+		EnemyType GetRandomEnemyType();
+		EnemyController* CreateEnemy(EnemyType enemy_type);
 		void Destroy();
 		//EnemyController* enemy;
 
@@ -23,7 +26,8 @@ namespace Enemy
 		void Update();
 		void Render();
 
-		void SpawnEnemy();
+		EnemyController* SpawnEnemy();
+		void DestroyEnemy(EnemyController* enemy_controller);
 	};
 
 }

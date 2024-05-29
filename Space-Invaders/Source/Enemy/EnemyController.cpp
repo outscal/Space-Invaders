@@ -18,84 +18,45 @@ namespace Enemy
 		delete (enemy_view);
 		delete (enemy_model);
 	}
-	//Enemy movement state handler
-	/*void EnemyController::Move()
+	sf::Vector2f EnemyController::GetRandomInitialPosition()
 	{
-		switch (enemy_model->GetMovementDirection())
-		{
-		case::Enemy::MovementDirection::LEFT:
-			MoveLeft();
-			break;
+		// Calculate the distance between the leftmost and rightmost positions of the enemy.
+		float x_offset_distance = (std::rand() % static_cast<int>(enemy_model->right_most_position.x - enemy_model->left_most_position.x));
 
-		case::Enemy::MovementDirection::RIGHT:
-			MoveRight();
-			break;
+		// Calculate the x position by adding the x offset distance to the leftmost position.
+		float x_position = enemy_model->left_most_position.x + x_offset_distance;
 
-		case::Enemy::MovementDirection::DOWN:
-			MoveDown();
-			break;
-		}
-	}*/
-	//Enemy Movement
-	void EnemyController::MoveRight()
-	{
-		sf::Vector2f currentPosition = enemy_model->GetEnemyPosition();
-		currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-		if (currentPosition.x >= enemy_model->right_most_position.x)
-		{
-			enemy_model->SetMovementDirection(MovementDirection::DOWN); // move
-			enemy_model->SetReferencePosition(currentPosition);// set ref pos
-		}
-		else enemy_model->SetEnemyPosition(currentPosition);
+		// The y position remains the same.
+		float y_position = enemy_model->left_most_position.y;
+
+		// Return the calculated position as a 2D vector.
+		return sf::Vector2f(x_position, y_position);
 	}
-	void EnemyController::MoveLeft()
-	{	
-		// Get current pos
-		// Move left by multiplying by speed and delta time
-		sf::Vector2f currentPosition = enemy_model->GetEnemyPosition();
-		currentPosition.x -= enemy_model->enemy_movement_speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-
-		//check for bounds
-		if (currentPosition.x <= enemy_model->left_most_position.x)
-		{
-			//if reached the left most pos
-			//start moving down
-			//set ref pos for the downwards movement
-			enemy_model->SetMovementDirection(MovementDirection::DOWN);
-			enemy_model->SetReferencePosition(currentPosition);
-		}
-		else enemy_model->SetEnemyPosition(currentPosition);
-	}
-
-	void EnemyController::MoveDown()
+	void EnemyController::HandleOutOfBounds()
 	{
-		sf::Vector2f currentPosition = enemy_model->GetEnemyPosition();
-		currentPosition.y += enemy_model->enemy_movement_speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+		sf::Vector2f enemyPosition = GetEnemyPosition();
+		sf::Vector2u windowSize = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow()->getSize();
 
-		if (currentPosition.y >= enemy_model->GetReferencePosition().y + enemy_model->vertical_travel_distance)
+		// Destroy the enemy if it goes out of bounds.
+		if (enemyPosition.x < 0 || enemyPosition.x > windowSize.x ||
+			enemyPosition.y < 0 || enemyPosition.y > windowSize.y)
 		{
-			if (enemy_model->GetReferencePosition().x <= enemy_model->left_most_position.x)
-			{
-				enemy_model->SetMovementDirection(MovementDirection::RIGHT);
-			}
-				
-			if(enemy_model->GetReferencePosition().x >= enemy_model->right_most_position.x)
-			{ 
-				enemy_model->SetMovementDirection(MovementDirection::LEFT); 
-			}
+			ServiceLocator::GetInstance()->GetEnemyService()->DestroyEnemy(this);
+			std::cout << "Out of bounds:Destroyed";
 		}
-		else { enemy_model->SetEnemyPosition(currentPosition); }
 	}
 	//Lifecycle Methods
 	void EnemyController::Initialize()
 	{
 		enemy_model->Initialize();
+		enemy_model->SetEnemyPosition(GetRandomInitialPosition());
 		enemy_view->Initialize(this);
 	}
 	void EnemyController::Update()
 	{	
 		Move();
 		enemy_view->Update();
+		HandleOutOfBounds();
 	}
 	void EnemyController::Render()
 	{

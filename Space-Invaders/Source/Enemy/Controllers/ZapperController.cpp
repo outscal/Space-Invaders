@@ -61,7 +61,7 @@ namespace Enemy
 			sf::Vector2f currentPosition = enemy_model->GetEnemyPosition();
 
 			// Update the position to move right
-			currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			// Check if the enemy reached the rightmost position
 			if (currentPosition.x >= enemy_model->right_most_position.x)
