@@ -160,6 +160,7 @@
     <ClCompile Include="Source\Player\PlayerModel.cpp" />
     <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="Source\Global\ServiceLocator.cpp" />
+    <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
   </ItemGroup>
@@ -184,6 +185,7 @@
     <ClInclude Include="Headers\Player\PlayerController.h" />
     <ClInclude Include="Headers\Player\PlayerModel.h" />
     <ClInclude Include="Headers\Player\PlayerView.h" />
+    <ClInclude Include="Headers\Sound\SoundService.h" />
     <ClInclude Include="Headers\Time\TimeService.h" />
     <ClInclude Include="Headers\Event\EventService.h" />
     <ClInclude Include="Headers\Graphic\GraphicService.h" />
