@@ -50,7 +50,6 @@ namespace Global
         Enemy::EnemyService* GetEnemyService();
         Gameplay::GameplayService* GetGameplayService();
         Element::ElementService* GetElementService();
-        Element::ElementService* GetElementService();
     };
 
 }
