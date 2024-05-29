@@ -13,6 +13,7 @@ namespace Global
 	using namespace Main;
 	using namespace Gameplay;
 	using namespace Element;
+	using namespace Sound;
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
@@ -23,6 +24,7 @@ namespace Global
 		enemy_service = nullptr;
 		gameplay_service = nullptr;
 		element_service = nullptr;
+		sound_service = nullptr;
 		CreateServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -43,6 +45,7 @@ namespace Global
 		enemy_service = new EnemyService();
 		gameplay_service = new GameplayService();
 		element_service = new ElementService();
+		sound_service = new SoundService();
 	}
 
 	// Public Methods:
@@ -62,6 +65,7 @@ namespace Global
 		enemy_service->Initialize();
 		gameplay_service->Initialize();
 		element_service->Initialize();
+		sound_service->Initialize();
 	}
 	void ServiceLocator::Update()
 	{	//	Updates all services.
