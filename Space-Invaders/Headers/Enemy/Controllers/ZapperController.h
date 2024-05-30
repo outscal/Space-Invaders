@@ -9,12 +9,13 @@ namespace Enemy
         {
         private:
             float vertical_travel_distance = 100.f;
+            float zapper_rate_of_fire = 2.f;
 
             void Move() override;
             void MoveLeft();
             void MoveRight();
             void MoveDown();
-
+            void FireBullet() override;
         public:
             ZapperController(EnemyType type);
             ~ZapperController();

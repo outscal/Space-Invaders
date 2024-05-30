@@ -8,6 +8,7 @@ namespace Player
 {
 	using namespace Global;
 	using namespace Event;
+	using namespace Bullet;
 	PlayerController::PlayerController()
 	{
 		player_model = new PlayerModel();
@@ -47,6 +48,13 @@ namespace Player
 		{
 			MoveRight();
 		}
+		if (event_service->PressedLMB()) FireBullet();
+	}
+	void PlayerController::FireBullet()
+	{
+		ServiceLocator::GetInstance()->GetBulletService()->SpawnBullet(BulletType::LASER_BULLET,
+			player_model->GetPlayerPosition() + player_model->barrel_position_offset,
+			Bullet::MovementDirection::UP);
 	}
 	void PlayerController::MoveLeft()
 	{

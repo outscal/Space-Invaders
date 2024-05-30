@@ -9,12 +9,12 @@ namespace Enemy
         {
         private:
             float vertical_movement_speed = 100.f;
-
+            float subzero_rate_of_fire = 3.f;
             void Move() override;
             void MoveDown();
+            void FireBullet() override;
 
         public:
-            SubzeroController();
             SubzeroController(EnemyType type);
             ~SubzeroController();
 

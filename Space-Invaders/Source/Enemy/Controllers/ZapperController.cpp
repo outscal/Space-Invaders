@@ -5,6 +5,7 @@
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Bullet;
 	namespace Controller
 	{
 		ZapperController::ZapperController(EnemyType type):EnemyController(type) {}
@@ -13,7 +14,9 @@ namespace Enemy
 
 		void ZapperController::Initialize()
 		{
-			EnemyController::Initialize();;
+			EnemyController::Initialize();
+			enemy_model->SetMovementDirection(MovementDirection::DOWN);
+			rate_of_fire = zapper_rate_of_fire;
 		}
 
 		void ZapperController::Move()
@@ -105,6 +108,13 @@ namespace Enemy
 				// Update the enemy position
 				enemy_model->SetEnemyPosition(currentPosition);
 			}
+		}
+		void ZapperController::FireBullet()
+		{
+			// we spawn the bullet and pass the needed parameters
+			ServiceLocator::GetInstance()->GetBulletService()->SpawnBullet(BulletType::LASER_BULLET,
+				enemy_model->GetEnemyPosition() + enemy_model->barrel_position_offset,
+				Bullet::MovementDirection::DOWN);
 		}
 	}
 }

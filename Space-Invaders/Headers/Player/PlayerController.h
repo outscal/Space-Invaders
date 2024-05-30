@@ -15,6 +15,7 @@ namespace Player
 		void ProcessPlayerInput();
 		void MoveRight();
 		void MoveLeft();
+		void FireBullet();
 	public:
 		PlayerController();
 		~PlayerController();

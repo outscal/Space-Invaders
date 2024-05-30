@@ -6,6 +6,7 @@
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Bullet;
 	namespace Controller
 	{
 		SubzeroController::SubzeroController(EnemyType type):EnemyController(type){}
@@ -35,6 +36,19 @@ namespace Enemy
 			sf::Vector2f currentPosition = enemy_model->GetEnemyPosition();
 			currentPosition.y += vertical_movement_speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 			enemy_model->SetEnemyPosition(currentPosition);
+		}
+		void SubzeroController::FireBullet()
+		{
+			// we spawn the bullet and pass the needed parameters
+			ServiceLocator::GetInstance()->GetBulletService()->SpawnBullet(BulletType::LASER_BULLET,
+				enemy_model->GetEnemyPosition() + enemy_model->barrel_position_offset,
+				Bullet::MovementDirection::DOWN);
+		}
+		void SubzeroController::Initialize()
+		{
+			EnemyController::Initialize();
+			enemy_model->SetMovementDirection(MovementDirection::DOWN);
+			rate_of_fire = subzero_rate_of_fire; 
 		}
 	}
 }

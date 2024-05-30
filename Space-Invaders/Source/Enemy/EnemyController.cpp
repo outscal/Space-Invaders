@@ -1,12 +1,16 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyController.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyView.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyModel.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyConfig.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Bullet\BulletConfig.h"
 
 
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Time;
+	using namespace Bullet;
 	
 	EnemyController::EnemyController(EnemyType type)
 	{
@@ -55,6 +59,8 @@ namespace Enemy
 	void EnemyController::Update()
 	{	
 		Move();
+		UpdateFireTimer(); 
+		ProcessBulletFire(); 
 		enemy_view->Update();
 		HandleOutOfBounds();
 	}
@@ -62,10 +68,27 @@ namespace Enemy
 	{
 		enemy_view->Render();
 	}
+	void EnemyController::UpdateFireTimer()
+	{
+		elapsed_fire_duration += ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime(); //update the elapsed duration
+	}
+	void EnemyController::ProcessBulletFire() 
+	{
+		//if elapsed duration >= the amount of time we want to wait until firing than call the fire method.
+		if (elapsed_fire_duration >= rate_of_fire)
+		{
+			FireBullet();
+			elapsed_fire_duration = 0.f; //set elapsed duration back to 0.
+		}
+	}
 	//Getters and Setters
 	sf::Vector2f EnemyController::GetEnemyPosition()
 	{
 		return enemy_model->GetEnemyPosition();
+	}
+	EnemyState EnemyController::GetEnemyState()
+	{
+		return enemy_model->GetEnemyState();
 	}
 	EnemyType EnemyController::GetEnemyType()
 	{
