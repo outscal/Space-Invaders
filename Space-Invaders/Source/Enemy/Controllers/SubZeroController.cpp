@@ -14,13 +14,6 @@ namespace Enemy
 
 		SubzeroController::~SubzeroController() { }
 
-		void SubzeroController::Initialize()
-		{
-			EnemyController::Initialize();
-			enemy_model->SetMovementDirection(MovementDirection::DOWN);
-			
-		}
-
 		void SubzeroController::Move()
 		{
 			switch (enemy_model->GetMovementDirection())

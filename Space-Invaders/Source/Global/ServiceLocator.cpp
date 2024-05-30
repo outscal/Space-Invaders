@@ -119,7 +119,9 @@ namespace Global
 		gameplay_service = nullptr;
 		delete(element_service);
 		element_service = nullptr;
-		delete(this);
+		delete(bullet_service);
+		bullet_service = nullptr;
+		//delete(this);
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }

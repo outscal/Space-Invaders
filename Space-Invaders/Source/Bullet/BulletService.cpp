@@ -56,8 +56,9 @@ namespace Bullet
 	}
 
 	void BulletService::DestroyBullet(BulletController* bullet_controller)
-	{
+	{	
 		bullet_list.erase(std::remove(bullet_list.begin(), bullet_list.end(), bullet_controller), bullet_list.end());
 		delete(bullet_controller);
+		//printf("Bullet Destroyed");
 	}
 }
