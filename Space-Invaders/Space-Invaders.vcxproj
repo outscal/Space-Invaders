@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Bullet\BulletController.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerController.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerModel.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
@@ -165,7 +166,11 @@
     <ClCompile Include="Source\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Bullet\BulletConfig.h" />
+    <ClInclude Include="Headers\Bullet\BulletController.h" />
+    <ClInclude Include="Headers\Bullet\BulletModel.h" />
     <ClInclude Include="Headers\Bullet\BulletService.h" />
+    <ClInclude Include="Headers\Bullet\BulletView.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerController.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
