@@ -178,6 +178,7 @@
     <ClInclude Include="Headers\Bullet\BulletView.h" />
     <ClInclude Include="Headers\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Headers\Bullet\Controllers\TorpedoController.h" />
+    <ClInclude Include="Headers\Collectible\ICollectible.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerController.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
