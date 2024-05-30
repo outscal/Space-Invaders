@@ -14,6 +14,7 @@ namespace Global
 	using namespace Gameplay;
 	using namespace Element;
 	using namespace Sound;
+	using namespace Bullet;
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
@@ -25,6 +26,7 @@ namespace Global
 		gameplay_service = nullptr;
 		element_service = nullptr;
 		sound_service = nullptr;
+		bullet_service = nullptr;
 		CreateServices();
 	}
 	ServiceLocator::~ServiceLocator()
@@ -45,7 +47,9 @@ namespace Global
 		enemy_service = new EnemyService();
 		gameplay_service = new GameplayService();
 		element_service = new ElementService();
+		bullet_service = new BulletService();
 		sound_service = new SoundService();
+		
 	}
 
 	// Public Methods:
@@ -65,6 +69,7 @@ namespace Global
 		enemy_service->Initialize();
 		gameplay_service->Initialize();
 		element_service->Initialize();
+		bullet_service->Initialize();
 		sound_service->Initialize();
 	}
 	void ServiceLocator::Update()
@@ -78,6 +83,7 @@ namespace Global
 			gameplay_service->Update();
 			player_service->Update();
 			enemy_service->Update();
+			bullet_service->Update();
 			element_service->Update();
 		}
 		ui_service->Update();
@@ -91,6 +97,7 @@ namespace Global
 			gameplay_service->Render();
 			player_service->Render();
 			enemy_service->Render();
+			bullet_service->Render();
 			element_service->Render();
 		}
 		ui_service->Render();
@@ -112,6 +119,7 @@ namespace Global
 		gameplay_service = nullptr;
 		delete(element_service);
 		element_service = nullptr;
+		delete(this);
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService() { return graphic_service; }
@@ -123,4 +131,5 @@ namespace Global
 	GameplayService* ServiceLocator::GetGameplayService() { return gameplay_service; }
 	ElementService* ServiceLocator::GetElementService() { return element_service; }
 	SoundService* ServiceLocator::GetSoundService() { return sound_service; }
+	BulletService* ServiceLocator::GetBulletService() { return bullet_service; }
 }

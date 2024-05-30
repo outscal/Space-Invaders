@@ -111,6 +111,9 @@
     <ClCompile Include="Source\Bullet\Controllers\TorpedoController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Bullet\BulletService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Graphic\GraphicService.h">
