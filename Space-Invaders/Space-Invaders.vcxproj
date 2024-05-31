@@ -177,7 +177,8 @@
     <ClCompile Include="Source\Powerups\PowerupView.cpp" />
     <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
-    <ClCompile Include="Source\UIService.cpp" />
+    <ClCompile Include="Source\UI\UIService.cpp" />
+    <ClCompile Include="Source\UI\UIElement\ImageView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Bullet\BulletConfig.h" />
@@ -226,6 +227,7 @@
     <ClInclude Include="Headers\Player\PlayerService.h" />
     <ClInclude Include="Headers\UI\Interface\IUIController.h" />
     <ClInclude Include="Headers\UI\MainMenu\MainMenuUIController.h" />
+    <ClInclude Include="Headers\UI\UIElement\ImageView.h" />
     <ClInclude Include="Headers\UI\UIService.h" />
   </ItemGroup>
   <ItemGroup>

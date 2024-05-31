@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIElement\ImageView.h"
 
 namespace Enemy
 {   
@@ -14,13 +15,17 @@ namespace Enemy
         const float enemy_sprite_height = 60.f;
 
         EnemyController* enemy_controller;
+        UI::UIElement::ImageView* enemy_image;
 
         sf::RenderWindow* game_window;
         sf::Texture enemy_texture;
         sf::Sprite enemy_sprite;
 
-        void InitializeEnemySprite(EnemyType type);
-        void ScaleEnemySprite();
+        void CreateUIElements();
+        void InitializeImage();
+        sf::String GetEnemyTexturePath();
+
+        void Destroy();
 
     public:
         EnemyView();

@@ -9,59 +9,48 @@ namespace Enemy
 {
 	using namespace Global;
 	using namespace Graphic;
+	using namespace UI::UIElement;
 	
-	EnemyView::EnemyView() { }
-	EnemyView::~EnemyView() { }
-
-	void EnemyView::InitializeEnemySprite(EnemyType type)
-	{
-		switch (type)
-		{
-		case Enemy::EnemyType::ZAPPER:
-			if (enemy_texture.loadFromFile(Global::Config::zapper_texture_path))
-			{
-				enemy_sprite.setTexture(enemy_texture);
-				ScaleEnemySprite();
-			}
-			break;
-		case Enemy::EnemyType::SUBZERO:
-			if (enemy_texture.loadFromFile(Global::Config::subzero_texture_path))
-			{
-				enemy_sprite.setTexture(enemy_texture);
-				ScaleEnemySprite();
-			}
-			break;
-		case Enemy::EnemyType::UFO:
-			if (enemy_texture.loadFromFile(Global::Config::ufo_texture_path))
-			{
-				enemy_sprite.setTexture(enemy_texture);
-				ScaleEnemySprite();
-			}
-			break;
-			/*case Enemy::EnemyType::THUNDER_SNAKE:
-			break;*/
-		}
-		
-	}
-	void EnemyView::ScaleEnemySprite()
-	{
-		enemy_sprite.setScale(
-			static_cast<float>(enemy_sprite_width) / enemy_sprite.getTexture()->getSize().x,
-			static_cast<float>(enemy_sprite_height) / enemy_sprite.getTexture()->getSize().y
-		);
-	}
+	EnemyView::EnemyView() { CreateUIElements(); }
+	EnemyView::~EnemyView() { Destroy(); }
 	void EnemyView::Initialize(EnemyController* controller)
 	{
 		enemy_controller = controller;
-		game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializeEnemySprite(enemy_controller->GetEnemyType());//Get the specific enemy type
+		//game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
+		InitializeImage();//Get the specific enemy type
+	}
+	void EnemyView::CreateUIElements()
+	{
+		enemy_image = new ImageView();
+	}
+	void EnemyView::InitializeImage()
+	{
+		enemy_image->Initialize(GetEnemyTexturePath(), enemy_sprite_width, enemy_sprite_height, enemy_controller->GetEnemyPosition());
+	}
+	sf::String EnemyView::GetEnemyTexturePath()
+	{
+		switch (enemy_controller->GetEnemyType())
+		{
+		case Enemy::EnemyType::ZAPPER:
+			return Config::zapper_texture_path;
+		case Enemy::EnemyType::SUBZERO:
+			return Config::subzero_texture_path;
+		case Enemy::EnemyType::UFO:
+			return Config::ufo_texture_path;
+		}
 	}
 	void EnemyView::Update()
 	{
-		enemy_sprite.setPosition(enemy_controller->GetEnemyPosition());
+		enemy_image->SetPosition(enemy_controller->GetEnemyPosition());
+		enemy_image->Update();
 	}
 	void EnemyView::Render()
 	{
-		game_window->draw(enemy_sprite);
+		//game_window->draw(enemy_sprite);
+		enemy_image->Render();
+	}
+	void EnemyView::Destroy()
+	{
+		delete(enemy_image);
 	}
 }

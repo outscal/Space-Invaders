@@ -7,11 +7,6 @@ namespace UI
 		class MainMenuUIController
 		{
 		private:
-			const sf::String background_texture_path = "C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/space_invaders_bg.png";
-			const sf::String play_button_texture_path = "C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/play_button.png";
-			const sf::String instructions_button_texture_path = "C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/instructions_button.png";
-			const sf::String quit_button_texture_path = "C:/Users/avnis/OneDrive/Desktop/Avnish Space Invaders/Space-Invaders-SFML/Space-Invaders/assets/textures/quit_button.png";
-			
 			// Constants:
 			const float button_width = 400.f;
 			const float button_height = 140.f;

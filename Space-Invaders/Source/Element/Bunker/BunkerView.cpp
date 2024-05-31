@@ -8,39 +8,42 @@ namespace Element
 	namespace Bunker
 	{
 		using namespace Global;
+		using namespace UI::UIElement;
 
-		BunkerView::BunkerView() { }
+		BunkerView::BunkerView() { CreateUIElements(); }
 
-		BunkerView::~BunkerView() { }
+		BunkerView::~BunkerView() { Destroy(); }
 		void BunkerView::Initialize(BunkerController* controller)
 		{
 			bunker_controller = controller;
-			game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
+			//game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
 			InitializeImage();
+		}
+		void BunkerView::CreateUIElements()
+		{
+			bunker_image = new ImageView();
 		}
 		void BunkerView::InitializeImage()
 		{
-			if (bunker_texture.loadFromFile(Global::Config::bunker_texture_path))
-			{
-				bunker_sprite.setTexture(bunker_texture);
-				ScaleSprite();
-			}
-		}
-		void BunkerView::ScaleSprite()
-		{
-			bunker_sprite.setScale(
-				static_cast<float>(bunker_sprite_width) / bunker_sprite.getTexture()->getSize().x,
-				static_cast<float>(bunker_sprite_height) / bunker_sprite.getTexture()->getSize().y
-			);
+			bunker_image->Initialize(GetBunkerTexturePath(), bunker_sprite_width, bunker_sprite_height, bunker_controller->GetBunkerPosition());
 		}
 		void BunkerView::Update()
 		{
-			bunker_sprite.setPosition(bunker_controller->GetBunkerPosition());
+			bunker_image->SetPosition(bunker_controller->GetBunkerPosition());
+			bunker_image->Update();
 		}
-
 		void BunkerView::Render()
 		{
-			game_window->draw(bunker_sprite);
+			//game_window->draw(bunker_sprite);
+			bunker_image->Render();
+		}
+		sf::String BunkerView::GetBunkerTexturePath()
+		{
+			return Config::bunker_texture_path;
+		}
+		void BunkerView::Destroy()
+		{
+			delete(bunker_image);
 		}
 	}
 }

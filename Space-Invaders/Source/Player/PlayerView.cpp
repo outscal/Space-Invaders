@@ -5,36 +5,36 @@
 namespace Player
 {
 	using namespace Global;
-	PlayerView::PlayerView() {}
-	PlayerView::~PlayerView() {}
+	using namespace UI::UIElement;
+	PlayerView::PlayerView() { CreateUIElements(); }
+	PlayerView::~PlayerView() { Destroy(); }
 
 	void PlayerView::Initialize(PlayerController* controller)
 	{
 		player_controller = controller;
-		game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializePlayerSprite();
+		//game_window = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
+		InitializeImage();
 	}
-	void PlayerView::InitializePlayerSprite()
+	void PlayerView::CreateUIElements()
 	{
-		if (player_texture.loadFromFile(Config::player_texture_path))
-		{
-			player_sprite.setTexture(player_texture);
-			ScalePlayerSprite();
-		}
+		player_image = new ImageView();
 	}
-	void PlayerView::ScalePlayerSprite()
+	void PlayerView::InitializeImage()
 	{
-		player_sprite.setScale(
-			static_cast<float>(player_sprite_width) / player_sprite.getTexture()->getSize().x,
-			static_cast<float>(player_sprite_height) / player_sprite.getTexture()->getSize().y);
+		player_image->Initialize(GetPlayerTexturePath(), player_sprite_width, player_sprite_height, player_controller->GetPlayerPosition());
+	}
+	sf::String PlayerView::GetPlayerTexturePath()
+	{
+		return Config::player_texture_path;
 	}
 	void PlayerView::Update()
 	{
-		player_sprite.setPosition(player_controller->GetPlayerPosition());
+		player_image->SetPosition(player_controller->GetPlayerPosition());
 	}
 	void PlayerView::Render()
 	{
-		game_window->draw(player_sprite);
+		//game_window->draw(player_sprite);
+		player_image->Render();
 	}
-
+	void PlayerView::Destroy() { delete player_image; }
 }

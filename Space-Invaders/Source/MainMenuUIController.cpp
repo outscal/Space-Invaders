@@ -1,7 +1,3 @@
-//#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\MainMenu\MainMenuUIController.h"
-//#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
-//#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Graphic\GraphicService.h"
-//#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Graphic\GraphicService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Event\EventService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerService.h"
@@ -11,6 +7,7 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\MainMenu\MainMenuUIController.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\Config.h"
 namespace UI
 {
 	namespace MainMenu
@@ -32,7 +29,7 @@ namespace UI
 		}
 		void MainMenuUIController::InitializeBackgroundImage()
 		{
-			if (background_texture.loadFromFile(background_texture_path))
+			if (background_texture.loadFromFile(Config::background_texture_path))
 			{
 				background_sprite.setTexture(background_texture);
 				ScaleBackgroundImage();
@@ -56,9 +53,9 @@ namespace UI
 		// only returns true if all tectures are loaded
 		bool MainMenuUIController::LoadButtonTexturesFromFile()
 		{
-			return play_button_texture.loadFromFile(play_button_texture_path) &&
-				instructions_button_texture.loadFromFile(instructions_button_texture_path) &&
-				quit_button_texture.loadFromFile(quit_button_texture_path);
+			return play_button_texture.loadFromFile(Config::play_button_texture_path) &&
+				instructions_button_texture.loadFromFile(Config::instructions_button_texture_path) &&
+				quit_button_texture.loadFromFile(Config::quit_button_texture_path);
 		}
 		void MainMenuUIController::SetButtonSprites()
 		{

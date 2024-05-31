@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIElement\ImageView.h"
 namespace Powerup
 {
     class PowerupController;
@@ -17,9 +17,11 @@ namespace Powerup
         sf::Sprite powerup_sprite;
 
         PowerupController* powerup_controller;
+        UI::UIElement::ImageView* powerup_image;
 
-        void InitializeImage(PowerupType);
-        void ScaleImage();
+        void CreateUIElements();
+        void InitializeImage();
+        sf::String GetPowerupTexturePath();
 
         void Destroy();
 

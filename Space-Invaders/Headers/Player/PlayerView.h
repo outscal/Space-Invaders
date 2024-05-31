@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerController.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIElement\ImageView.h"
+
 namespace Player
 {
 	class PlayerView
@@ -14,10 +16,14 @@ namespace Player
 		sf::Texture player_texture;
 		sf::Sprite player_sprite;
 
-		void InitializePlayerSprite();
-		void ScalePlayerSprite();
-
 		PlayerController* player_controller;
+		UI::UIElement::ImageView* player_image;
+
+		void CreateUIElements();
+		void InitializeImage();
+		sf::String GetPlayerTexturePath();
+
+		void Destroy();
 	public:
 		PlayerView();
 		~PlayerView();
