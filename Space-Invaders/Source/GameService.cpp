@@ -12,7 +12,7 @@ void GameService::destroy()
 
 GameService::GameService()
 {
-	////Calling contructor
+	//Calling contructor
 }
 
 GameService::~GameService()

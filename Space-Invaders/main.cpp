@@ -91,6 +91,15 @@ using namespace std;
 
 int main()
 {   
+    GameService gameserviceObj;
+    gameserviceObj.ignite();
+
+    while (gameserviceObj.isRunning()){}
+    {
+        gameserviceObj.update();
+        gameserviceObj.isRunning();
+    }
+   
     ////Define Video Dimension
     //sf::VideoMode videoMode = sf::VideoMode(800, 600);
 
@@ -142,10 +151,4 @@ int main()
     //    window.display();
     //   
     //}
-
-  
-    
-
- 
-    return 0;
 }
