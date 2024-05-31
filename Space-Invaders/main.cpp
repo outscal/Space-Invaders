@@ -97,7 +97,7 @@ int main()
 
     //Object of Player
     Player playerObj1;
-    //Player playerObj2(50,2);
+    Player playerObj2(50,2);
 
     //Loading texture
     playerObj1.texture.loadFromFile("assets/textures/player_ship.png");
