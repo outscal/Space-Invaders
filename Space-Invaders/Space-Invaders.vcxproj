@@ -224,6 +224,7 @@
     <ClInclude Include="Headers\Event\EventService.h" />
     <ClInclude Include="Headers\Graphic\GraphicService.h" />
     <ClInclude Include="Headers\Player\PlayerService.h" />
+    <ClInclude Include="Headers\UI\Interface\IUIController.h" />
     <ClInclude Include="Headers\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="Headers\UI\UIService.h" />
   </ItemGroup>
