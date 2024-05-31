@@ -5,6 +5,8 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Time\TimeService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\Controllers\ZapperController.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\Controllers\SubzeroController.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\Controllers\UFOController.h"
+
 
 
 namespace Enemy
@@ -55,21 +57,24 @@ namespace Enemy
 		switch (enemy_type)
 		{
 		case::Enemy::EnemyType::ZAPPER:
+			std::cout << "ZAPPER\n";
 			return new ZapperController(Enemy::EnemyType::ZAPPER);
 
 			/*case::Enemy::EnemyType::THUNDER_SNAKE:
 				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
 
 		case::Enemy::EnemyType::SUBZERO:
+			std::cout << "SUBZERO\n";
 			return new SubzeroController(Enemy::EnemyType::SUBZERO);
 
-			/*case::Enemy::EnemyType::UFO:
-				return new UFOController(Enemy::EnemyType::UFO);*/
+			case::Enemy::EnemyType::UFO:
+				std::cout << "UFO\n";
+				return new UFOController(Enemy::EnemyType::UFO);
 		}
 	}
 	EnemyType EnemyService::GetRandomEnemyType()
 	{
-		int randomType = std::rand() % 2;  //since we only have 2 enemies right now
+		int randomType = (std::rand() % 3)+1;  //random between 1-3.
 		return static_cast<Enemy::EnemyType>(randomType); //cast int to EnemyType enum class
 	}
 	

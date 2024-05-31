@@ -1,6 +1,8 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Element\Bunker\BunkerController.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Element\Bunker\BunkerView.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\Config.h"
+
 namespace Element
 {
 	namespace Bunker
@@ -18,7 +20,7 @@ namespace Element
 		}
 		void BunkerView::InitializeImage()
 		{
-			if (bunker_texture.loadFromFile(bunker_texture_path))
+			if (bunker_texture.loadFromFile(Global::Config::bunker_texture_path))
 			{
 				bunker_sprite.setTexture(bunker_texture);
 				ScaleSprite();

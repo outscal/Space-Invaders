@@ -1,5 +1,7 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerView.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\Config.h"
+
 namespace Player
 {
 	using namespace Global;
@@ -14,7 +16,7 @@ namespace Player
 	}
 	void PlayerView::InitializePlayerSprite()
 	{
-		if (player_texture.loadFromFile(player_texture_path))
+		if (player_texture.loadFromFile(Config::player_texture_path))
 		{
 			player_sprite.setTexture(player_texture);
 			ScalePlayerSprite();

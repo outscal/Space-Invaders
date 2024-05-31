@@ -9,6 +9,7 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Element\ElementService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Sound\SoundService.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Bullet\BulletService.h"
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Powerups\PowerupService.h"
 
 
 
@@ -29,6 +30,7 @@ namespace Global
         Element::ElementService* element_service;
         Sound::SoundService* sound_service;
         Bullet::BulletService* bullet_service;
+        Powerup::PowerupService* powerup_service;
         // Private Constructor and Destructor:
         ServiceLocator();
         ~ServiceLocator();
@@ -56,6 +58,7 @@ namespace Global
         Element::ElementService* GetElementService();
         Sound::SoundService* GetSoundService();
         Bullet::BulletService* GetBulletService();
+        Powerup::PowerupService* GetPowerupService();
     };
 
 }

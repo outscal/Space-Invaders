@@ -16,7 +16,6 @@ namespace Enemy
 		EnemyType GetRandomEnemyType();
 		EnemyController* CreateEnemy(EnemyType enemy_type);
 		void Destroy();
-		//EnemyController* enemy;
 
 	public:
 		EnemyService();

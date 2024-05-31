@@ -143,6 +143,7 @@
     <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
     <ClCompile Include="Source\Element\ElementService.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\SubZeroController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
     <ClInclude Include="Headers\Element\ElementService.h" />
     <ClInclude Include="Headers\Enemy\Controllers\SubZeroController.h" />
+    <ClInclude Include="Headers\Enemy\Controllers\UFOController.h" />
     <ClInclude Include="Headers\Enemy\Controllers\ZapperController.h" />
     <ClInclude Include="Headers\Enemy\EnemyConfig.h" />
     <ClInclude Include="Headers\Enemy\EnemyController.h" />

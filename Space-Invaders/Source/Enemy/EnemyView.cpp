@@ -1,5 +1,6 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyView.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\Config.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Graphic\GraphicService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyController.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Enemy\EnemyConfig.h"
@@ -8,9 +9,8 @@ namespace Enemy
 {
 	using namespace Global;
 	using namespace Graphic;
-
+	
 	EnemyView::EnemyView() { }
-
 	EnemyView::~EnemyView() { }
 
 	void EnemyView::InitializeEnemySprite(EnemyType type)
@@ -18,22 +18,27 @@ namespace Enemy
 		switch (type)
 		{
 		case Enemy::EnemyType::ZAPPER:
-			if (enemy_texture.loadFromFile(zapper_texture_path))
+			if (enemy_texture.loadFromFile(Global::Config::zapper_texture_path))
 			{
 				enemy_sprite.setTexture(enemy_texture);
 				ScaleEnemySprite();
 			}
 			break;
 		case Enemy::EnemyType::SUBZERO:
-			if (enemy_texture.loadFromFile(subzero_texture_path))
+			if (enemy_texture.loadFromFile(Global::Config::subzero_texture_path))
 			{
 				enemy_sprite.setTexture(enemy_texture);
 				ScaleEnemySprite();
 			}
 			break;
-		/*case Enemy::EnemyType::UFO:
+		case Enemy::EnemyType::UFO:
+			if (enemy_texture.loadFromFile(Global::Config::ufo_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				ScaleEnemySprite();
+			}
 			break;
-		case Enemy::EnemyType::THUNDER_SNAKE:
+			/*case Enemy::EnemyType::THUNDER_SNAKE:
 			break;*/
 		}
 		
