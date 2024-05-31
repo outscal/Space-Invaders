@@ -46,16 +46,9 @@ public:
 
     }
 
-    void Movement()
+    void Movement(float offsetX)
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            cout << "Left Key is pressed";
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            cout << "Right Key is pressed";
-        }
+        postion.x += offsetX;
     }
 
 
@@ -65,9 +58,9 @@ public:
         return postion;
     }
 
-    void  SetPosition(sf::Vector2f newPosition)
+    int getmovementSpeed()
     {
-        postion = newPosition;
+        return movementSpeed;
     }
 
 
@@ -95,9 +88,7 @@ int main()
     playerObj.texture.loadFromFile("assets/textures/player_ship.png");
     playerObj.sprite.setTexture(playerObj.texture);
 
-    //setting and getting player position
-    playerObj.SetPosition(sf::Vector2f(400, 300));
-    playerObj.sprite.setPosition(playerObj.getPosition());
+   
 
 
     while (window.isOpen())
@@ -112,10 +103,20 @@ int main()
         }
 
         //Player Ship Movement
-        playerObj.Movement();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            playerObj.Movement(-1.0 * playerObj.getmovementSpeed());
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            playerObj.Movement(1.0 * playerObj.getmovementSpeed());
+        }
 
         //Clear Window and set color
         window.clear(sf::Color::Blue);
+
+        //Setting the position of Sprite
+        playerObj.sprite.setPosition(playerObj.getPosition());
 
         //Draw Player Ship
         window.draw(playerObj.sprite);
