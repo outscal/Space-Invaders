@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,7 +132,123 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Bullet\BulletController.cpp" />
+    <ClCompile Include="Source\Bullet\BulletModel.cpp" />
+    <ClCompile Include="Source\Bullet\BulletService.cpp" />
+    <ClCompile Include="Source\Bullet\BulletView.cpp" />
+    <ClCompile Include="Source\Bullet\Controllers\LaserBulletController.cpp" />
+    <ClCompile Include="Source\Bullet\Controllers\TorpedoController.cpp" />
+    <ClCompile Include="Source\Element\Bunker\BunkerController.cpp" />
+    <ClCompile Include="Source\Element\Bunker\BunkerModel.cpp" />
+    <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
+    <ClCompile Include="Source\Element\ElementService.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\SubZeroController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyController.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyService.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyView.cpp" />
+    <ClCompile Include="Source\EventService.cpp">
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayView.cpp" />
+    <ClCompile Include="Source\GameService.cpp">
+      <DeploymentContent>true</DeploymentContent>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\Global\Config.cpp" />
+    <ClCompile Include="Source\GraphicService.cpp" />
+    <ClCompile Include="Source\MainMenuUIController.cpp" />
+    <ClCompile Include="Source\PlayerService.cpp" />
+    <ClCompile Include="Source\Player\PlayerController.cpp" />
+    <ClCompile Include="Source\Player\PlayerModel.cpp" />
+    <ClCompile Include="Source\Player\PlayerView.cpp" />
+    <ClCompile Include="Source\Global\ServiceLocator.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\OutscalBombController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\RapidFireController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\ShieldController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\TrippleLaserController.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupController.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupModel.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupService.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupView.cpp" />
+    <ClCompile Include="Source\Sound\SoundService.cpp" />
+    <ClCompile Include="Source\TimeService.cpp" />
+    <ClCompile Include="Source\UIService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Bullet\BulletConfig.h" />
+    <ClInclude Include="Headers\Bullet\BulletController.h" />
+    <ClInclude Include="Headers\Bullet\BulletModel.h" />
+    <ClInclude Include="Headers\Bullet\BulletService.h" />
+    <ClInclude Include="Headers\Bullet\BulletView.h" />
+    <ClInclude Include="Headers\Bullet\Controllers\LaserBulletController.h" />
+    <ClInclude Include="Headers\Bullet\Controllers\TorpedoController.h" />
+    <ClInclude Include="Headers\Collectible\ICollectible.h" />
+    <ClInclude Include="Headers\Element\Bunker\BunkerController.h" />
+    <ClInclude Include="Headers\Element\Bunker\BunkerModel.h" />
+    <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
+    <ClInclude Include="Headers\Element\ElementService.h" />
+    <ClInclude Include="Headers\Enemy\Controllers\SubZeroController.h" />
+    <ClInclude Include="Headers\Enemy\Controllers\UFOController.h" />
+    <ClInclude Include="Headers\Enemy\Controllers\ZapperController.h" />
+    <ClInclude Include="Headers\Enemy\EnemyConfig.h" />
+    <ClInclude Include="Headers\Enemy\EnemyController.h" />
+    <ClInclude Include="Headers\Enemy\EnemyModel.h" />
+    <ClInclude Include="Headers\Enemy\EnemyService.h" />
+    <ClInclude Include="Headers\Enemy\EnemyView.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayController.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayService.h" />
+    <ClInclude Include="Headers\Gameplay\GameplayView.h" />
+    <ClInclude Include="Headers\Global\Config.h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
+    <ClInclude Include="Headers\Main\GameService.h" />
+    <ClInclude Include="Headers\Player\PlayerController.h" />
+    <ClInclude Include="Headers\Player\PlayerModel.h" />
+    <ClInclude Include="Headers\Player\PlayerView.h" />
+    <ClInclude Include="Headers\Powerups\Controllers\OutscalBombController.h" />
+    <ClInclude Include="Headers\Powerups\Controllers\RapidFireController.h" />
+    <ClInclude Include="Headers\Powerups\Controllers\ShieldController.h" />
+    <ClInclude Include="Headers\Powerups\Controllers\TrippleLaserController.h" />
+    <ClInclude Include="Headers\Powerups\PowerupConfig.h" />
+    <ClInclude Include="Headers\Powerups\PowerupController.h" />
+    <ClInclude Include="Headers\Powerups\PowerupModel.h" />
+    <ClInclude Include="Headers\Powerups\PowerupService.h" />
+    <ClInclude Include="Headers\Powerups\PowerupView.h" />
+    <ClInclude Include="Headers\Projectile\IProjectile.h" />
+    <ClInclude Include="Headers\Sound\SoundService.h" />
+    <ClInclude Include="Headers\Time\TimeService.h" />
+    <ClInclude Include="Headers\Event\EventService.h" />
+    <ClInclude Include="Headers\Graphic\GraphicService.h" />
+    <ClInclude Include="Headers\Player\PlayerService.h" />
+    <ClInclude Include="Headers\UI\MainMenu\MainMenuUIController.h" />
+    <ClInclude Include="Headers\UI\UIService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\bunker.png" />
+    <Image Include="assets\textures\circle_animation.png" />
+    <Image Include="assets\textures\explosion.png" />
+    <Image Include="assets\textures\frost_beam.png" />
+    <Image Include="assets\textures\instructions_button.png" />
+    <Image Include="assets\textures\laser_bullet.png" />
+    <Image Include="assets\textures\menu_button.png" />
+    <Image Include="assets\textures\outscal_bomb.png" />
+    <Image Include="assets\textures\outscal_logo.png" />
+    <Image Include="assets\textures\player_ship.png" />
+    <Image Include="assets\textures\play_button.png" />
+    <Image Include="assets\textures\quit_button.png" />
+    <Image Include="assets\textures\rapid_fire.png" />
+    <Image Include="assets\textures\shield.png" />
+    <Image Include="assets\textures\space_invaders_bg.png" />
+    <Image Include="assets\textures\subzero.png" />
+    <Image Include="assets\textures\thunder_snake.png" />
+    <Image Include="assets\textures\torpedoe.png" />
+    <Image Include="assets\textures\tripple_laser.png" />
+    <Image Include="assets\textures\ufo.png" />
+    <Image Include="assets\textures\zapper.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
