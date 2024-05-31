@@ -1,16 +1,18 @@
 #pragma once
 
-class GameService {
+class GameService
+{
 private:
-	void initialize(); // initializing the game
-	void destroy(); //clean up the game
+	void initialize(); //Intialize the game		
+	void destroy();	//Clean up the memory
+
 
 public:
-	GameService(); //Constructor
-	~GameService(); //Destructor
+	GameService();  //Constructor
+	~GameService();	    //Destructor
 
-	void ignite(); // initiates the game
-	void update(); //update the game logic and game state 
-	void render(); // render each frame of the game
-	bool isRunning(); //check if game is running
+	void ignite();	//Intialize the game
+	void update();	//update the game logic and game state
+	void render();		//render game in each frame
+	bool isRunning();  //check if game is running or not
 };
