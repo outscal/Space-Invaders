@@ -3,8 +3,8 @@
 class GameService
 {
 private:
-	void initialize(); //Intialize the game		
-	void destroy();	//Clean up the memory
+	void initialize(); // Handles Intialize the game		
+	void destroy();	// Handles Clean up the memory
 
 
 public:

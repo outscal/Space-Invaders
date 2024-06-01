@@ -2,22 +2,22 @@
 
 void GameService::initialize()
 {
-	//initializing the game 
+	// Handles initializing the game 
 }
 
 void GameService::destroy()
 {
-	//Cleaninng up the memory
+	//Handle Cleaninng up the memory
 }
 
 GameService::GameService()
 {
-	//Calling contructor
+	//Calling contructor for the Game service object
 }
 
 GameService::~GameService()
 {
-	//destory constructor
+	//destory constructor for the Game service object
 }
 
 void GameService::ignite()
