@@ -2,6 +2,8 @@
 #include <SFML/System.hpp>
 #include <stdio.h>
 #include<iostream>
+
+
 using namespace std;
 
 class Player {
