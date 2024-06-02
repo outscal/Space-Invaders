@@ -7,16 +7,16 @@ using namespace std;
 class Player {
 private:
 
-    int health ;
-    
-    int player_score ;
-    int movement_speed ;
+    int health = 3 ;
+    sf::Vector2f player_position = sf::Vector2f(200.0f,100.0f);
+    int player_score = 0 ;
+    int movement_speed = 1;
 
 public:
     sf::Texture player_texture;
     sf::Sprite player_sprite;
-    sf::Vector2f player_position ;
-    float position;
+    
+    
 
     int getScore()
     {
@@ -26,20 +26,21 @@ public:
     {
         player_score = newScore;
     }
-    float getPosition()
+    sf::Vector2f getPosition()
     {
-        inline sf::Vector2f::Vector2(float X,float Y);
+        return player_position;
     }
-    void setPosition()
+    
+    int getMoveSpeed()
     {
-        position = getPosition();
+        return movement_speed;
     }
     void takeDamage() 
     {
     }
-    void move()
+    void move(float offsetX)
     {
-        cout << "is moving" << endl;
+        player_position.x += offsetX;
     }
 
     void shootBullets()
@@ -72,16 +73,16 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            player.move();
+            player.move(-1.0f* player.getMoveSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            player.move();
+            player.move(1.0f* player.getMoveSpeed());
         }
 
         window.clear(sf::Color::Blue);
 
-        player.player_sprite.setPosition(400.0f,200.0f);
+        player.player_sprite.setPosition(player.getPosition());
         window.draw(player.player_sprite);
 
         window.display();
