@@ -20,7 +20,23 @@ int main() {
         // Clear the window
         window->clear(sf::Color::Black);
 
-        // Draw your content here...
+        // Draw a circle
+        sf::CircleShape circle(50); // Radius 50
+        circle.setFillColor(sf::Color::Green);
+        circle.setPosition(400, 400); // Set position
+        window->draw(circle);
+
+        // Draw a Red Square
+        sf::RectangleShape rectangle(sf::Vector2f(40, 40)); // Radius is 80, has 4 points
+        rectangle.setFillColor(sf::Color::Red);
+        rectangle.setPosition(400, 300); // Set position
+        window->draw(rectangle);
+       
+        // Draw a triangle
+        sf::CircleShape triangle(80, 3); // Radius 50
+        triangle.setFillColor(sf::Color::Blue);
+        triangle.setPosition(10, 200); // Set position
+        window->draw(triangle);
 
         // Display what was drawn
         window->display();
