@@ -37,6 +37,32 @@ int main()
     blueTriangle.setFillColor(sf::Color::Blue);
     blueTriangle.setPosition(3 * window.getSize().x / 4 - 50, window.getSize().y / 2 - 50);
 
+    // Load the Outscal logo texture
+    sf::Texture outscal_texture;
+    if (!outscal_texture.loadFromFile("assets/textures/outscal_logo.png")) {
+        std::cerr << "Failed to load texture" << std::endl;
+        return -1;
+    }
+
+    // Create sprite and set texture
+    sf::Sprite outscal_sprite;
+    outscal_sprite.setTexture(outscal_texture);
+    outscal_sprite.setPosition(100, 100); // Position
+    outscal_sprite.setRotation(45); // Rotation in degrees
+    outscal_sprite.setScale(0.5, 0.5); // Scale factor
+
+    // Load font from file
+    sf::Font font;
+    if (!font.loadFromFile("assets/fonts/OpenSans.ttf")) {
+        std::cerr << "Failed to load font" << std::endl;
+        return -1;
+    }
+
+    // Create text object
+    sf::Text text("SFML is Awesome", font, 50);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(400, 600); // Position text to avoid overlapping
+
     // Main loop that continues until the window is closed
     while (window.isOpen())
     {
@@ -63,6 +89,12 @@ int main()
         window.draw(greenCircle);
         window.draw(redSquare);
         window.draw(blueTriangle);
+
+        // Draw the sprite
+        window.draw(outscal_sprite);
+
+        // Draw the text
+        window.draw(text);
 
         // Update the window
         window.display();
