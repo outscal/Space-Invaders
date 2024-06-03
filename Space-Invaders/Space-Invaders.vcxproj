@@ -177,6 +177,7 @@
     <ClCompile Include="Source\Powerups\PowerupView.cpp" />
     <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
+    <ClCompile Include="Source\UI\UIElement\Text\TextView.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
     <ClCompile Include="Source\UI\UIElement\ImageView.cpp" />
   </ItemGroup>
@@ -228,6 +229,7 @@
     <ClInclude Include="Headers\UI\Interface\IUIController.h" />
     <ClInclude Include="Headers\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="Headers\UI\UIElement\ImageView.h" />
+    <ClInclude Include="Headers\UI\UIElement\Text\TextView.h" />
     <ClInclude Include="Headers\UI\UIService.h" />
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Main\GameService.h"
 #include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\MainMenu\MainMenuUIController.h"
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Global\ServiceLocator.h"
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\UI\UIElement\Text\TextView.h"
 
 
 namespace UI
@@ -11,6 +12,7 @@ namespace UI
 	using namespace Main;
 	using namespace MainMenu;
 	using namespace Interface;
+	using namespace UIElement;
 
 	UIService::UIService()
 	{
@@ -28,11 +30,13 @@ namespace UI
 	void UIService::Initialize()
 	{
 		InitializeControllers();
+		TextView::InitializeTextView();
 		//main_menu_controller->Initialize();
 	}
 	void UIService::Update()
 	{	
 		IUIController* ui_controller = GetCurrentUIController();
+		if (ui_controller) ui_controller->Update();
 	}
 	void UIService::Render()
 	{	
