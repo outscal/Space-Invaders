@@ -147,6 +147,9 @@
     <ClCompile Include="Source\UI\UIElement\Text\TextView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UI\UIElement\Button\ButtonView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Graphic\GraphicService.h">
@@ -294,6 +297,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\UI\UIElement\Text\TextView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\UI\UIElement\Button\ButtonView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

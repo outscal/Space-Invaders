@@ -177,6 +177,7 @@
     <ClCompile Include="Source\Powerups\PowerupView.cpp" />
     <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
+    <ClCompile Include="Source\UI\UIElement\Button\ButtonView.cpp" />
     <ClCompile Include="Source\UI\UIElement\Text\TextView.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
     <ClCompile Include="Source\UI\UIElement\ImageView.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Headers\UI\UIElement\ImageView.h" />
     <ClInclude Include="Headers\UI\UIElement\Text\TextView.h" />
     <ClInclude Include="Headers\UI\UIService.h" />
+    <ClInclude Include="Headers\UI\UIElement\Button\ButtonView.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\bunker.png" />
