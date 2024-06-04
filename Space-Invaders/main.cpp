@@ -7,7 +7,7 @@ using namespace sf;
 int main()
 {
     // Define the video mode (dimensions)
-    sf::VideoMode videoMode = *(new sf::VideoMode(800, 600));
+    sf::VideoMode videoMode = *(new sf::VideoMode(1080, 720));
 
 
     // Create a window object with specific dimensions and a title
@@ -34,16 +34,27 @@ int main()
             if (event.type == sf::Event::Closed)
                 window->close();
         }
+
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf");
+        sf::Text text("SFML is Awesome", font, 50);
+        text.setFillColor(sf::Color::White);
+
+        sf::Texture outscal_texture;
+        outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
+
+        sf::Sprite outscal_sprite;
+        outscal_sprite.setTexture(outscal_texture);
        
         // Draw a circle
         sf::CircleShape circle(50); // Radius 50
         circle.setFillColor(sf::Color::Green);
-        circle.setPosition(150, 250); // Set position
+        circle.setPosition(170, 400); // Set position
 
         // Draw a rectangle
         sf::RectangleShape retangle(sf::Vector2f(100, 100)); // height and width
         retangle.setFillColor(sf::Color::Red);
-        retangle.setPosition(350, 250); // Set position
+        retangle.setPosition(370, 400); // Set position
 
         // Draw triangle
         sf::ConvexShape triangle(3); // Triângulo com 3 vértices
@@ -51,10 +62,16 @@ int main()
         triangle.setPoint(1, sf::Vector2f(0, 100));
         triangle.setPoint(2, sf::Vector2f(100, 100));
         triangle.setFillColor(sf::Color::Blue);
-        triangle.setPosition(550, 250); // Define a posição
+        triangle.setPosition(570, 400); // Define a posição
+
+        //Draw Sprite
+        outscal_sprite.setPosition(200, 100); // Position
+        outscal_sprite.setRotation(45); // Rotation in degrees
+        outscal_sprite.setScale(0.5, 0.5); // Scale factor
+
 
         // Clear the window
-        window->clear(sf::Color::White);
+        window->clear(sf::Color::Magenta);
         
         // Draw your content here...
 
@@ -63,6 +80,10 @@ int main()
 		window->draw(retangle);
 
 		window->draw(triangle);
+
+        window->draw(outscal_sprite);
+
+        window->draw(text);
 
 
         // Display what was drawn
