@@ -13,5 +13,5 @@ public:
 	void ignite();  //initiates the game logic game state.
 	void update();  //Updats the game logic and game state.
 	void render();  //Renders each frame of the game.
-	bool isRuning(); //Checks if the game is currently runing
+	bool isRunning(); //Checks if the game is currently running.
 };
