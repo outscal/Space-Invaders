@@ -1,7 +1,7 @@
 
 #include <SFML/Graphics.hpp>
-//using namespace std;
-//using namespace sf;
+using namespace std;
+using namespace sf;
 
 
 int main()
@@ -34,11 +34,36 @@ int main()
             if (event.type == sf::Event::Closed)
                 window->close();
         }
+       
+        // Draw a circle
+        sf::CircleShape circle(50); // Radius 50
+        circle.setFillColor(sf::Color::Green);
+        circle.setPosition(150, 250); // Set position
+
+        // Draw a rectangle
+        sf::RectangleShape retangle(sf::Vector2f(100, 100)); // height and width
+        retangle.setFillColor(sf::Color::Red);
+        retangle.setPosition(350, 250); // Set position
+
+        // Draw triangle
+        sf::ConvexShape triangle(3); // Triângulo com 3 vértices
+        triangle.setPoint(0, sf::Vector2f(50, 0));
+        triangle.setPoint(1, sf::Vector2f(0, 100));
+        triangle.setPoint(2, sf::Vector2f(100, 100));
+        triangle.setFillColor(sf::Color::Blue);
+        triangle.setPosition(550, 250); // Define a posição
 
         // Clear the window
-        window->clear(sf::Color::Blue);
-
+        window->clear(sf::Color::White);
+        
         // Draw your content here...
+
+        window->draw(circle);
+
+		window->draw(retangle);
+
+		window->draw(triangle);
+
 
         // Display what was drawn
         window->display();
