@@ -1,47 +1,54 @@
+#include <iostream>
 #include "../Header/ServiceLocator.h"
-
+using namespace std;
 
 ServiceLocator* ServiceLocator::getInstance()
 {
-	return nullptr;
+    static ServiceLocator instance;
+    return &instance;
 }
 
 ServiceLocator::ServiceLocator()
 {
-	//Calling Constructor for the service locator object
+    graphic_service = new GraphicService();
+    cout << "ServiceLocator: Created" << ::endl;
 }
 
 ServiceLocator::~ServiceLocator()
 {
-	//Calling Destructor for the service locator object
+    clearAllServices();
+    cout << "ServiceLocator: Destroyed" << endl;
 }
 
 void ServiceLocator::createGameService()
 {
-	//Handles the initializing of create game service
+    graphic_service->initialize();
+    cout << "ServiceLocator: GraphicService initialized" << endl;
 }
 
 void ServiceLocator::clearAllServices()
 {
-	// Handles the initializing of clearing game service
+    delete graphic_service;
+    graphic_service = nullptr;
+    cout << "ServiceLocator: All services cleared" << ::endl;
 }
-
-
 
 void ServiceLocator::initilize()
 {
-	//Intilize the Service locator
+    createGameService();
 }
 
 void ServiceLocator::update()
 {
-	// Update the code logic  and service state
+    graphic_service->update();
 }
 
 void ServiceLocator::render()
 {
-	//Render the service locator in each frame
+    graphic_service->render();
 }
 
-
-
+GraphicService* ServiceLocator::getGraphicService()
+{
+    return graphic_service;
+}

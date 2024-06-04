@@ -1,9 +1,12 @@
 #pragma once
+#include "../Header/GraphicService.h"
 
 class ServiceLocator
 {
 private:
 	
+	GraphicService* graphic_service;
+
 	//Constructor
 	ServiceLocator();
 
@@ -19,6 +22,8 @@ public:
 	void initilize(); //Intialize the service locator
 	void update();  //service locator code and its state
 	void render(); //render the service locator aatch to the game service
+
+	GraphicService* getGraphicService();
 
 };
 
