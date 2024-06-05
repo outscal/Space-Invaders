@@ -2,53 +2,50 @@
 #include "../Header/ServiceLocator.h"
 using namespace std;
 
-ServiceLocator* ServiceLocator::getInstance()
-{
-    static ServiceLocator instance;
-    return &instance;
-}
-
 ServiceLocator::ServiceLocator()
 {
-    graphic_service = new GraphicService();
-    cout << "ServiceLocator: Created" << ::endl;
+	graphic_service = nullptr;
+	createServices();
 }
 
 ServiceLocator::~ServiceLocator()
 {
-    clearAllServices();
-    cout << "ServiceLocator: Destroyed" << endl;
+	clearAllServices();
 }
 
-void ServiceLocator::createGameService()
+ServiceLocator* ServiceLocator::getInstance()
 {
-    graphic_service->initialize();
-    cout << "ServiceLocator: GraphicService initialized" << endl;
+	static ServiceLocator instance;
+	return &instance;
 }
 
-void ServiceLocator::clearAllServices()
+void ServiceLocator::initialize()
 {
-    delete graphic_service;
-    graphic_service = nullptr;
-    cout << "ServiceLocator: All services cleared" << ::endl;
-}
-
-void ServiceLocator::initilize()
-{
-    createGameService();
+	graphic_service->initialize();
 }
 
 void ServiceLocator::update()
 {
-    graphic_service->update();
+	graphic_service->update();
 }
 
 void ServiceLocator::render()
 {
-    graphic_service->render();
+	graphic_service->render();
 }
 
 GraphicService* ServiceLocator::getGraphicService()
 {
-    return graphic_service;
+	return graphic_service;
+}
+
+void ServiceLocator::createServices()
+{
+	graphic_service = new GraphicService();
+}
+
+void ServiceLocator::clearAllServices()
+{
+	delete(graphic_service);
+	graphic_service = nullptr;
 }
