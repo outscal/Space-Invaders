@@ -132,15 +132,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\GameService.cpp" />
+=======
+    <ClCompile Include="Source\GameService.cpp" />
+    <ClCompile Include="Source\GraphicService.cpp" />
+    <ClCompile Include="Source\ServiceLocator.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\GameService.h" />
     <ClInclude Include="Header\GraphicService.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="Header\Header.h" />
+=======
+>>>>>>> Stashed changes
     <ClInclude Include="Header\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
