@@ -1,3 +1,4 @@
+#pragma
 #include<SFML/Graphics.hpp>
 #include "../Header/ServiceLocator.h"
 #include "../Header/GraphicService.h"

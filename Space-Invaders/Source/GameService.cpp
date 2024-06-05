@@ -32,6 +32,8 @@ void GameService::ignite()
 void GameService::update()
 {
 	service_locator->update();
+	service_locator->getEventService()->processEvent();
+	service_locator->update();
 }
 
 void GameService::render()
