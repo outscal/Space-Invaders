@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #include <iostream>
 #include "../Header/GameService.h"
 #include "../Header/ServiceLocator.h"
@@ -20,20 +19,10 @@ GameService::GameService()
     serviceLocator = ServiceLocator::getInstance();
     game_window = nullptr;
     cout << "GameService: Constructor called" << ::endl;
-=======
-#include "../Header/GameService.h"
-#include "../Header/ServiceLocator.h"
-
-GameService::GameService()
-{
-	service_locator = nullptr;
-	game_window = nullptr;
->>>>>>> Stashed changes
 }
 
 GameService::~GameService()
 {
-<<<<<<< Updated upstream
     destroy();
     cout << "GameService: Destructor called" << ::endl;
 }
@@ -68,54 +57,10 @@ bool GameService::isRunning()
     }
     cerr << "GameService::isRunning: game_window is null" << ::endl;
     return false;
-=======
-	destroyGameService();
-}
-
-void GameService::createGameService()
-{
-	service_locator->initialize();
-	initializeVariables();
->>>>>>> Stashed changes
 }
 
 void GameService::initializeVariables()
 {
-<<<<<<< Updated upstream
     serviceLocator->initilize();
     game_window = serviceLocator->getGraphicService()->getGameWindow();
-=======
-	game_window = service_locator->getGraphicService()->getGameWindow();
-}
-
-void GameService::destroyGameService()
-{
-	delete(service_locator);
-	delete(game_window);
-	service_locator = nullptr;
-	game_window = nullptr;
-}
-
-void GameService::ignite()
-{
-	service_locator = ServiceLocator::getInstance();
-	createGameService();
-}
-
-void GameService::update()
-{
-	service_locator->update();
-}
-
-void GameService::render()
-{
-	game_window->clear(service_locator->getGraphicService()->gameWindowColor());
-	service_locator->render();
-	game_window->display();
-}
-
-bool GameService::isRunning()
-{
-	return service_locator->getGraphicService()->isGameWindowOpen();
->>>>>>> Stashed changes
 }
