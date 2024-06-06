@@ -17,7 +17,7 @@ namespace Enemy
             void MoveDown();
             void FireBullet() override;
         public:
-            ZapperController(EnemyType type);
+            ZapperController(EnemyType type, Entity::EntityType owner_type);
             ~ZapperController();
 
             void Initialize() override;

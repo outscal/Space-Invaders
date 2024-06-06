@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
 
 namespace Enemy
 {	
@@ -29,7 +30,7 @@ namespace Enemy
 		sf::Vector2f GetRandomInitialPosition();
 		void HandleOutOfBounds();
 	public:
-		EnemyController(EnemyType type);
+		EnemyController(EnemyType type, Entity::EntityType owner_type);
 		virtual ~EnemyController();
 		
 		//Lifecycle Methods
@@ -40,5 +41,6 @@ namespace Enemy
 		sf::Vector2f GetEnemyPosition();
 		EnemyState GetEnemyState();
 		EnemyType GetEnemyType();
+		Entity::EntityType GetEntityOwnerType();
 	};
 }

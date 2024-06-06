@@ -12,10 +12,10 @@ namespace Enemy
 	using namespace Time;
 	using namespace Bullet;
 	
-	EnemyController::EnemyController(EnemyType type)
+	EnemyController::EnemyController(EnemyType type, Entity::EntityType owner_type)
 	{
 		enemy_view = new EnemyView();
-		enemy_model = new EnemyModel(type);
+		enemy_model = new EnemyModel(type,Entity::EntityType::ENEMY);
 	}
 	EnemyController::~EnemyController()
 	{
@@ -93,5 +93,9 @@ namespace Enemy
 	EnemyType EnemyController::GetEnemyType()
 	{
 		return enemy_model->GetEnemyType();
+	}
+	Entity::EntityType EnemyController::GetEntityOwnerType()
+	{
+		return enemy_model->GetEntityOwnerType();
 	}
 }

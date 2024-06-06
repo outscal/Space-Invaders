@@ -1,7 +1,7 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerModel.h"
 namespace Player
 {
-	PlayerModel::PlayerModel()
+	PlayerModel::PlayerModel(Entity::EntityType owner_type)
 	{
 
 	}
@@ -31,5 +31,6 @@ namespace Player
 	void PlayerModel::SetPlayerScore(int score) { player_score = score; }
 	PlayerState PlayerModel::GetPlayerState() { return player_state; }
 	void PlayerModel::SetPLayerState(PlayerState state) { player_state = state; }
+	Entity::EntityType PlayerModel::GetEntityOwnerType() { return owner_type; }
 }
 

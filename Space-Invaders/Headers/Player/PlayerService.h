@@ -8,7 +8,7 @@ namespace Player
 	private:
 		PlayerController* player_controller;
 	public:
-		PlayerService();
+		PlayerService(Entity::EntityType owner_type);
 		~PlayerService();
 		void Initialize();
 		void Update();

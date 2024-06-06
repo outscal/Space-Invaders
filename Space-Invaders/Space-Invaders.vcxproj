@@ -203,6 +203,7 @@
     <ClInclude Include="Headers\Enemy\EnemyModel.h" />
     <ClInclude Include="Headers\Enemy\EnemyService.h" />
     <ClInclude Include="Headers\Enemy\EnemyView.h" />
+    <ClInclude Include="Headers\Entity\EntityConfig.h" />
     <ClInclude Include="Headers\Gameplay\GameplayController.h" />
     <ClInclude Include="Headers\Gameplay\GameplayService.h" />
     <ClInclude Include="Headers\Gameplay\GameplayView.h" />

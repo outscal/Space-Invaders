@@ -46,7 +46,6 @@ namespace Enemy
 	}
 	void EnemyView::Render()
 	{
-		//game_window->draw(enemy_sprite);
 		enemy_image->Render();
 	}
 	void EnemyView::Destroy()

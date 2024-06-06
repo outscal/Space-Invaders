@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
 
 namespace Bullet
 {
@@ -13,11 +14,12 @@ namespace Bullet
         sf::Vector2f bullet_position;
 
         BulletType bullet_type;
+        Entity::EntityType owner_type;
         MovementDirection movement_direction;
 
     public:
 
-        BulletModel(BulletType type);
+        BulletModel(BulletType type, Entity::EntityType owner_type);
         ~BulletModel();
 
         void Initialize(sf::Vector2f position, MovementDirection direction);
@@ -33,5 +35,6 @@ namespace Bullet
 
         float GetMovementSpeed();
         void SetMovementSpeed(float speed);
+        Entity::EntityType GetEntityOwner();
     };
 }

@@ -10,7 +10,7 @@ namespace Enemy
     {
         using namespace Global;
 
-        UFOController::UFOController(EnemyType type) : EnemyController(type) {}
+        UFOController::UFOController(EnemyType type, Entity::EntityType owner_type) :EnemyController(type, owner_type) {}
         UFOController::~UFOController() {}
 
         void UFOController::Initialize()
@@ -71,7 +71,7 @@ namespace Enemy
                 enemy_model->SetEnemyPosition(currentPosition);
             }
         }
-        Powerup::PowerupType GetRandomPowerupType()
+        Powerup::PowerupType UFOController::GetRandomPowerupType()
         {
             std::srand(static_cast<unsigned int>(std::time(nullptr)));
 

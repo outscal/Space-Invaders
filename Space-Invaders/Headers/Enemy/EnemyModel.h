@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
+
 namespace Enemy
 {
 	enum class EnemyType;
@@ -13,9 +15,10 @@ namespace Enemy
 		MovementDirection movement_direction;
 		EnemyType enemy_type;
 		EnemyState enemy_state;
+		Entity::EntityType owner_type;
 
 	public:
-		EnemyModel(EnemyType type);
+		EnemyModel(EnemyType type, Entity::EntityType owner_type);
 		~EnemyModel();
 		
 		//const data related to movement and bounds
@@ -42,5 +45,6 @@ namespace Enemy
 
 		EnemyState GetEnemyState();
 		void SetEnemyState(EnemyState state);
+		Entity::EntityType GetEntityOwnerType();
 	};
 }

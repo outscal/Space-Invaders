@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
 
 namespace Player
 {
@@ -17,11 +18,12 @@ namespace Player
 		void MoveLeft();
 		void FireBullet();
 	public:
-		PlayerController();
+		PlayerController(Entity::EntityType owner_type);
 		~PlayerController();
 		void Initialize();
 		void Update();
 		void Render();
 		sf::Vector2f GetPlayerPosition();
+		Entity::EntityType GetEntityOwnerType();
 	};
 }

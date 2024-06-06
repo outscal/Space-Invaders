@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
+
 namespace Player
 {
 	enum class PlayerState
@@ -16,13 +18,14 @@ namespace Player
 		sf::Vector2f player_position;
 		PlayerState player_state;
 		int player_score;
+		Entity::EntityType owner_type;
 	public:
 		const sf::Vector2f left_most_position = sf::Vector2f(50.f, 950.f);
 		const sf::Vector2f right_most_position = sf::Vector2f(1800.f, 950.f);
 		const sf::Vector2f barrel_position_offset = sf::Vector2f(20.f, 50.f);
 		const float player_movement_speed = 350.f;
 
-		PlayerModel();
+		PlayerModel(Entity::EntityType owner_type);
 		~PlayerModel();
 
 		//LifeCycle Methods
@@ -37,5 +40,6 @@ namespace Player
 
 		PlayerState GetPlayerState();
 		void SetPLayerState(PlayerState state);
+		Entity::EntityType GetEntityOwnerType();
 	};
 }

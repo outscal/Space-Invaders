@@ -40,36 +40,36 @@ namespace Enemy
 	{
 		if (spawn_timer >= spawn_interval)
 		{
-			SpawnEnemy();
+			SpawnEnemy(Entity::EntityType::ENEMY);
 			spawn_timer = 0.0f;
 		}
 	}
-	EnemyController* EnemyService::SpawnEnemy()
+	EnemyController* EnemyService::SpawnEnemy(Entity::EntityType owner_type)
 	{
 		
-		EnemyController* enemy_controller = CreateEnemy(GetRandomEnemyType());
+		EnemyController* enemy_controller = CreateEnemy(GetRandomEnemyType(), owner_type);
 		enemy_controller->Initialize();
 		enemy_list.push_back(enemy_controller);
 		return enemy_controller;
 	}
-	EnemyController* EnemyService::CreateEnemy(EnemyType enemy_type)
+	EnemyController* EnemyService::CreateEnemy(EnemyType enemy_type, Entity::EntityType owner_type)
 	{
 		switch (enemy_type)
 		{
 		case::Enemy::EnemyType::ZAPPER:
 			std::cout << "ZAPPER\n";
-			return new ZapperController(Enemy::EnemyType::ZAPPER);
+			return new ZapperController(Enemy::EnemyType::ZAPPER,owner_type);
 
 			/*case::Enemy::EnemyType::THUNDER_SNAKE:
 				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
 
 		case::Enemy::EnemyType::SUBZERO:
 			std::cout << "SUBZERO\n";
-			return new SubzeroController(Enemy::EnemyType::SUBZERO);
+			return new SubzeroController(Enemy::EnemyType::SUBZERO, owner_type);
 
 			case::Enemy::EnemyType::UFO:
 				std::cout << "UFO\n";
-				return new UFOController(Enemy::EnemyType::UFO);
+				return new UFOController(Enemy::EnemyType::UFO, owner_type);
 		}
 	}
 	EnemyType EnemyService::GetRandomEnemyType()

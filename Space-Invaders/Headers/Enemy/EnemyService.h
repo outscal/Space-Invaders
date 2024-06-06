@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include "C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Entity\EntityConfig.h"
+
 namespace Enemy
 {
 	class EnemyController;
@@ -14,7 +16,7 @@ namespace Enemy
 		void UpdateSpawnTimer();
 		void ProcessEnemySpawn();
 		EnemyType GetRandomEnemyType();
-		EnemyController* CreateEnemy(EnemyType enemy_type);
+		EnemyController* CreateEnemy(EnemyType enemy_type, Entity::EntityType owner_type);
 		void Destroy();
 
 	public:
@@ -25,7 +27,7 @@ namespace Enemy
 		void Update();
 		void Render();
 
-		EnemyController* SpawnEnemy();
+		EnemyController* SpawnEnemy(Entity::EntityType owner_type);
 		void DestroyEnemy(EnemyController* enemy_controller);
 	};
 

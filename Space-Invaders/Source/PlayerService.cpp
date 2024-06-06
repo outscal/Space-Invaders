@@ -2,9 +2,9 @@
 #include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerController.h"
 namespace Player
 {
-	PlayerService::PlayerService()
+	PlayerService::PlayerService(Entity::EntityType owner_type)
 	{
-		player_controller = new PlayerController();
+		player_controller = new PlayerController(Entity::EntityType::PLAYER);
 	}
 	PlayerService::~PlayerService()
 	{

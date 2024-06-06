@@ -9,7 +9,7 @@ namespace Enemy
 	using namespace Bullet;
 	namespace Controller
 	{
-		SubzeroController::SubzeroController(EnemyType type):EnemyController(type){}
+		SubzeroController::SubzeroController(EnemyType type, Entity::EntityType owner_type):EnemyController(type, owner_type){}
 		
 
 		SubzeroController::~SubzeroController() { }
