@@ -45,6 +45,17 @@ bool EventService::isKeyboardEvent()
 	return game_event.type == sf::Event::KeyPressed;
 }
 
+bool EventService::pressLeftKey()
+{
+	//cout << ( game_event.type == sf::Keyboard::Left);
+	return game_event.key.code == sf::Keyboard::Left;
+}
+
+bool EventService::pressRightKey()
+{
+	return game_event.key.code == sf::Keyboard::Right;
+}
+
 bool EventService::isGameWindowOpen()
 {
 	return  game_window != nullptr;

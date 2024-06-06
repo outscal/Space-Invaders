@@ -13,6 +13,8 @@ public:
 	void processEvent();
 	bool pressEscapeKey();
 	bool isKeyboardEvent();
+	bool pressLeftKey();
+	bool pressRightKey();
 
 private:
 	sf::Event game_event;
