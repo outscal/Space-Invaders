@@ -13,12 +13,8 @@ PlayerService::~PlayerService() = default;
 
 void PlayerService::initialize()
 {
-
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializePlayerSprite();
-
-
-	
+	game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+	initializePlayerSprite();
 }
 
 void PlayerService::update()
@@ -32,9 +28,15 @@ void PlayerService::render()
 	game_window->draw(player_sprite);
 }
 
-void PlayerService::move(float offsetX)
+void PlayerService::moveLeft()
 {
-	player_position.x += offsetX;
+	player_position.x -= movespeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void PlayerService::moveRight()
+{
+	player_position.x += movespeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
 }
 
 int PlayerService::getMoveSpeed()
@@ -64,11 +66,11 @@ void PlayerService::processPlayerInput()
 	{
 		if (game_event->pressLeftKey())
 		{
-			move(-1.f * getMoveSpeed());
+			moveLeft();
 		}
 		if (game_event->pressRightKey())
 		{
-			move(1.f * getMoveSpeed());
+			moveRight();
 		}
 	}
 
