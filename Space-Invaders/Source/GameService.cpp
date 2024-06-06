@@ -27,7 +27,7 @@ void GameService::initializeVariables()
 
 void GameService::destroy()
 {
-
+	
 }
 
 void GameService::Ignite()
@@ -37,6 +37,7 @@ void GameService::Ignite()
 }
 void GameService::update()
 {
+	service_locator->getEventService()->processEvents();
 	service_locator->update();
 }
 
