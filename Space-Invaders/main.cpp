@@ -32,17 +32,22 @@ public:
 		return position;
     };
 
-    //New methods
-    void takeDamage() {};
-    void moveLeft() {
-        position.x -= movement_speed;
-
+    float getMoveSpeed() {
+        return movement_speed;
     };
 
-	void moveRight() {
-        position.x += movement_speed;
+    //New methods
+    void takeDamage() {};
 
-	};
+    //void moveLeft() { position.x -= movement_speed; };
+	//void moveRight() { position.x += movement_speed;};
+
+    void move(float offsetX) {
+		position.x += offsetX;
+    };
+
+
+
 
     void shootBullets() {};
 
@@ -79,20 +84,23 @@ int main() {
 
         // Handle input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || Keyboard::isKeyPressed(Keyboard::Left) ) {
-            player.moveLeft();
+            //player.moveLeft();
+            player.move(-1.0* player.getMoveSpeed());
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || Keyboard::isKeyPressed(Keyboard::Right)) {
-            player.moveRight();
+            player.move(1.0f* player.getMoveSpeed());
         }
 
 
         // Clear the window
         window.clear(sf::Color::Blue);
 
+        player.player_sprite.setPosition(player.getPosition()); // Set the position of the player sprite
+
+
         window.draw(player.player_sprite); // Draw the player sprite
 
-        player.player_sprite.setPosition(player.getPosition());
 
 
 
