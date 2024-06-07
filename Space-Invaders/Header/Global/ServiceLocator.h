@@ -7,31 +7,40 @@
 #include "../../Header/Time/TimeService.h"
 
 
-class ServiceLocator
+namespace Global
 {
-public:
-	ServiceLocator();
-	~ServiceLocator();
+	class GraphicService;
+	class EventService;
+	class PlayerService;
+	class TimeService;
 
-	static ServiceLocator* getInstance();
+	class ServiceLocator
+	{
+	public:
+		ServiceLocator();
+		~ServiceLocator();
+
+		static ServiceLocator* getInstance();
 
 
-	void initialize();
-	void update();
-	void render();
+		void initialize();
+		void update();
+		void render();
 
-	GraphicService* getGraphicService();
-	EventService* getEventService();
-	PlayerService* getPlayerService();
-	TimeService* getTimeService();
+		Graphic::GraphicService* getGraphicService();
+		Event::EventService* getEventService();
+		Player::PlayerService* getPlayerService();
+		Time::TimeService* getTimeService();
 
-private:
-	GraphicService* graphic_service;
-	EventService* event_service;
-	PlayerService* player_service;
-	TimeService* time_service;
+	private:
+		Graphic::GraphicService* graphic_service;
+		Event::EventService* event_service;
+		Player::PlayerService* player_service;
+		Time::TimeService* time_service;
 
-	void createServices();
-	void clearAllServices();
+		void createServices();
+		void clearAllServices();
 
 	};
+
+}

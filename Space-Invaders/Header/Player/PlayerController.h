@@ -1,35 +1,41 @@
 #pragma once
 
-#include "../../Header/Graphic/GraphicService.h"
+//#include "../../Header/Graphic/GraphicService.h"
 //#include "../Player/PlayerView.h"
 //#include "../Player/PlayerModel.h"
 
-enum class PlayerState;
-class PlayerModel;
-class PlayerView;
 
-class PlayerController
+namespace Player
 {
-public:
-	PlayerController();
-	~PlayerController();
+	class GraphicService;
+	enum class PlayerState;
+	class PlayerModel;
+	class PlayerView;
 
-	void initialize();
-	void update();
-	void render();
+	class PlayerController
+	{
+	public:
+		PlayerController();
+		~PlayerController();
 
-	sf::Vector2f getPosition();
+		void initialize();
+		void update();
+		void render();
 
-private:
+		sf::Vector2f getPosition();
 
-	PlayerModel* player_model;
-	PlayerView* player_view;
+	private:
 
-	void processInput();
-	void moveLeft();
-	void moveRight();
+		PlayerModel* player_model;
+		PlayerView* player_view;
+
+		void processInput();
+		void moveLeft();
+		void moveRight();
 
 
 
-};
+	};
+
+}
 

@@ -3,7 +3,7 @@
 #include "../../Header/Main/GameService.h"
 
 using namespace std;
-
+using namespace Main;
 int main()
 {
     GameService* game_service = new GameService();
