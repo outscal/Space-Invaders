@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Header/EventService.h"
+#include "../../Header/Player/PlayerController.h"
 
 class PlayerService
 {
@@ -12,26 +13,28 @@ public:
 	void update();
 	void render();
 
-	void moveLeft();
-	void moveRight();
-	int getMoveSpeed();
-	sf::Vector2f getposition();
+	//void moveLeft();
+	//void moveRight();
+	//int getMoveSpeed();
+	//sf::Vector2f getposition();
 
 
 private:
-	 int player_score = 3;
-	 int health = 10;
-	 float movespeed = 350.f;
-	 sf::Vector2f player_position =  sf::Vector2f(200,100);
 
-	const sf::String player_texture_path = "assets/textures/player_ship.png";
+	PlayerController* player_controller;
+	// int player_score = 3;
+	// int health = 10;
+	// float movespeed = 350.f;
+	// sf::Vector2f player_position =  sf::Vector2f(200,100);
 
-	 sf::Texture player_texure;
-	 sf::Sprite player_sprite;
+	//const sf::String player_texture_path = "assets/textures/player_ship.png";
 
-	 void initializePlayerSprite();
-	 void processPlayerInput();
+	// sf::Texture player_texure;
+	// sf::Sprite player_sprite;
 
-	 sf::RenderWindow* game_window;
-	 EventService* game_event;
+	// void initializePlayerSprite();
+	// void processPlayerInput();
+
+	// sf::RenderWindow* game_window;
+	// EventService* game_event;
 };
