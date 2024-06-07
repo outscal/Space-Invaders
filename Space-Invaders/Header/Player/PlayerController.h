@@ -1,8 +1,12 @@
 #pragma once
 
-#include "../../Header/GraphicService.h"
-#include "../Player/PlayerView.h"
-#include "../Player/PlayerModel.h"
+#include "../../Header/Graphic/GraphicService.h"
+//#include "../Player/PlayerView.h"
+//#include "../Player/PlayerModel.h"
+
+enum class PlayerState;
+class PlayerModel;
+class PlayerView;
 
 class PlayerController
 {

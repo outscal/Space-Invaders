@@ -1,17 +1,12 @@
 #include "../../Header/Player/PlayerView.h"
-#include "../../Header/ServiceLocator.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerController.h"
 
 PlayerView::PlayerView()
 {
-	game_window = nullptr;
-	player_controller = nullptr;
 }
 
-PlayerView::~PlayerView()
-{
-	delete(game_window);
-	delete(player_controller);
-}
+PlayerView::~PlayerView() {};
 
 void PlayerView::initialize(PlayerController* controller)
 {

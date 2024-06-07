@@ -1,5 +1,7 @@
 #include "../../Header/Player/PlayerController.h"
-#include "../../Header/ServiceLocator.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerModel.h"
+#include "../../Header/Player/PlayerView.h"
 #include <algorithm>
 
 PlayerController::PlayerController()
@@ -48,7 +50,7 @@ void PlayerController::moveLeft()
 	sf::Vector2f current_position = player_model->getPlayerPosition();
 
 	current_position.x -= player_model->player_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-	current_position.x = std::min(current_position.x, player_model->left_window.x);
+	current_position.x = std::max(current_position.x, player_model->left_window.x);
 	player_model->setPlayerPosition(current_position);
 }
 
@@ -57,7 +59,8 @@ void PlayerController::moveRight()
 	sf::Vector2f current_position = player_model->getPlayerPosition();
 
 	current_position.x += player_model->player_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-	current_position.x = std::max(current_position.x, player_model->right_window.x);
+	current_position.x = std::min(current_position.x, player_model->right_window.x);
+	cout << "current : " << current_position.x << endl;
 	player_model->setPlayerPosition(current_position);
 }
 

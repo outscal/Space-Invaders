@@ -1,5 +1,5 @@
-#include "../Header/GameService.h"
-#include "../Header/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 GameService::GameService()
 {

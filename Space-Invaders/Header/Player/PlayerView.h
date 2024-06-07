@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Header/Player/PlayerController.h"
+
+
+class PlayerController;
 
 
 class PlayerView
