@@ -31,17 +31,16 @@ namespace Global
 
 		Graphic::GraphicService* getGraphicService();
 		Event::EventService* getEventService();
+		UI::UIService* uiService();
 		Player::PlayerService* getPlayerService();
 		Time::TimeService* getTimeService();
-		UI::UIService* uiService();
 
 	private:
 		Graphic::GraphicService* graphic_service;
 		Event::EventService* event_service;
+		UI::UIService* ui_service;
 		Player::PlayerService* player_service;
 		Time::TimeService* time_service;
-		UI::UIService* ui_service;
-
 		void createServices();
 		void clearAllServices();
 

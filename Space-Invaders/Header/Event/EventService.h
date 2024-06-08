@@ -5,6 +5,7 @@
 
 namespace Event
 {
+
 	class EventService
 	{
 	public:

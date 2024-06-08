@@ -4,6 +4,7 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
+#include "../../Header/Main/GameService.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ namespace Global
 	using namespace Event;
 	using namespace Player;
 	using namespace UI;
+	using namespace Main;
 
 
 	ServiceLocator::ServiceLocator()
@@ -56,14 +58,23 @@ namespace Global
 		time_service->update();
 		event_service->update();
 		ui_service->update();
-		player_service->update();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+
+		}
 	}
 
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
 		ui_service->render();
-		player_service->render();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+
+		}
+		
 	}
 
 	Graphic::GraphicService* ServiceLocator::getGraphicService()
