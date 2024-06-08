@@ -1,4 +1,6 @@
 #include "../../Header/UIService/UIService.h"
+#include <iostream>
+using namespace std;
 
 
 namespace UI
@@ -17,6 +19,7 @@ namespace UI
 
 	void UIService::initialize()
 	{
+
 		initializeController();
 	}
 
@@ -37,6 +40,7 @@ namespace UI
 
 	void UIService::initializeController()
 	{
+		cout << "initializing";
 		main_menu_controller->initialize();
 	}
 

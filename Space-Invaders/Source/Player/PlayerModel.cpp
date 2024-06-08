@@ -27,7 +27,7 @@ namespace Player {
 	void PlayerModel::reset()
 	{
 		player_state = PlayerState::ALIVE;
-		current_position = initial_positon;
+		current_position = initial_position;
 		player_score = 0;
 	}
 

@@ -64,7 +64,7 @@ namespace Player
 
 		current_position.x += player_model->player_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 		current_position.x = std::min(current_position.x, player_model->right_window.x);
-		cout << "current : " << current_position.x << endl;
+		//cout << "current : " << current_position.x << endl;
 		player_model->setPlayerPosition(current_position);
 	}
 

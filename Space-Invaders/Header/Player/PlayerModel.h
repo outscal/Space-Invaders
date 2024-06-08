@@ -15,8 +15,8 @@ namespace Player
 
 		const float player_movement_speed = 200.0f;
 		int player_score = 0;
-		const sf::Vector2f left_window = sf::Vector2f(50.f, 0.f);
-		const sf::Vector2f right_window = sf::Vector2f(700.f, 0.f);
+		const sf::Vector2f left_window = sf::Vector2f(50.f, 950.f);
+		const sf::Vector2f right_window = sf::Vector2f(1800.f, 950.f);
 
 		PlayerState player_state;
 		sf::Vector2f getPlayerPosition();
@@ -28,7 +28,7 @@ namespace Player
 		PlayerState getPlayerAlive();
 		void setPlayerAlive(PlayerState state);
 	private:
-		const sf::Vector2f initial_positon = sf::Vector2f(500.f, 500.f);
+		const sf::Vector2f initial_position = sf::Vector2f(950.f, 950.f);
 
 
 		sf::Vector2f current_position;
