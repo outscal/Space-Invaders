@@ -4,7 +4,6 @@
 
 namespace Main
 {
-	class ServiceLocator;
 
 	enum class GameState
 	{

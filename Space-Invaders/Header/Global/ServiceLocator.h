@@ -5,6 +5,7 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
+#include "../../Header/UIService/UIService.h"
 
 
 namespace Global
@@ -13,6 +14,7 @@ namespace Global
 	class EventService;
 	class PlayerService;
 	class TimeService;
+	class UIService;
 
 	class ServiceLocator
 	{
@@ -31,12 +33,14 @@ namespace Global
 		Event::EventService* getEventService();
 		Player::PlayerService* getPlayerService();
 		Time::TimeService* getTimeService();
+		UI::UIService* uiService();
 
 	private:
 		Graphic::GraphicService* graphic_service;
 		Event::EventService* event_service;
 		Player::PlayerService* player_service;
 		Time::TimeService* time_service;
+		UI::UIService* ui_service;
 
 		void createServices();
 		void clearAllServices();
