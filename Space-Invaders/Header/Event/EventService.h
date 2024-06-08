@@ -18,6 +18,8 @@ namespace Event
 		bool isKeyboardEvent();
 		bool pressLeftKey();
 		bool pressRightKey();
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
 
 	private:
 		sf::Event game_event;

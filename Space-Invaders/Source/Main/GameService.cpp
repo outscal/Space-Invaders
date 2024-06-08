@@ -1,5 +1,5 @@
-#include "../../Header/Main/GameService.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
 
 namespace Main
 {
@@ -20,6 +20,7 @@ namespace Main
 	{
 		service_locator->initialize();
 		initializeVariables();
+		showMainMenu();
 	}
 
 	void GameService::initializeVariables()
@@ -60,7 +61,12 @@ namespace Main
 
 	void GameService::setGameState(GameState state)
 	{
-		state = currentState;
+		currentState = state;
+	}
+
+	void GameService::showMainMenu()
+	{
+		setGameState(GameState::MAIN_MENU);
 	}
 
 

@@ -3,6 +3,8 @@
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Main/GameService.h";
 
+#include "../../Header/Event/EventService.h"
+
 
 namespace UI
 {
@@ -27,9 +29,11 @@ namespace UI
 		}
 		void MainMenuUIController::update()
 		{
+			processButtonInput();
 		}
 		void MainMenuUIController::render()
 		{
+			cout << "Render";
 			game_window->draw(background_sprite);
 			game_window->draw(play_button_sprite);
 			game_window->draw(instruction_button_sprite);
@@ -95,6 +99,33 @@ namespace UI
 			quit_button_sprite.setPosition(sf::Vector2f(x_position, 900));
 
 		}
+
+		void MainMenuUIController::processButtonInput()
+		{
+			sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+			if (buttonClick(&play_button_sprite, mouse_position))
+			{
+				GameService::setGameState(GameState::GAMEPLAY);
+			}
+			if (buttonClick(&instruction_button_sprite, mouse_position))
+			{
+				printf("Instruction Button Clicked \\n");
+			}
+			if (buttonClick(&quit_button_sprite, mouse_position))
+			{
+				game_window->close();
+			}
+			
+		}
+
+		bool MainMenuUIController::buttonClick(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+		{
+			Event::EventService* event_service = ServiceLocator::getInstance()->getEventService();
+			return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
+		}
+
+
+
 	}
 
 }

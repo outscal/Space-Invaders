@@ -29,6 +29,8 @@ namespace Main
 		static GameState getGameState();
 		static void setGameState(GameState state);
 
+		void showMainMenu();
+
 	private:
 		Global::ServiceLocator* service_locator;
 		sf::RenderWindow* game_window;

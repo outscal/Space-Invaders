@@ -26,6 +26,10 @@ namespace UI
 			void setButtonScale(sf::Sprite* button_to_scale);
 			void positionButton();
 
+
+			void processButtonInput();
+			bool buttonClick(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
+
 		private:
 
 			const float button_width = 400.f;
