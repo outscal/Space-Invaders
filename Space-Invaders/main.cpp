@@ -15,22 +15,23 @@ int main() {
 				window->close();
 		}
 
-		window->clear(sf::Color::White);
+		window->clear(sf::Color::Yellow);
 
 
+		//circle
 		sf::CircleShape circle(50); 
 		circle.setFillColor(sf::Color::Green);
 		circle.setPosition(300	, 100);
-
 		window->draw(circle);
 
+		//square
 		sf::RectangleShape square(sf::Vector2f(100, 100));
 		square.setFillColor(sf::Color::Red);
 		square.setPosition(100, 100);
 		window->draw(square);
 
 
-
+		//triangle
 		sf::ConvexShape triangle;
 		triangle.setPointCount(3);
 		triangle.setPoint(0,sf::Vector2f(0, 100));
@@ -38,8 +39,26 @@ int main() {
 		triangle.setPoint(2, sf::Vector2f(100, 100));
 		triangle.setFillColor(sf::Color::Blue);
 		triangle.setPosition(500, 100);
-
 		window->draw(triangle);
+
+
+		//image
+		sf::Texture outscal_texture;
+		outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
+		sf::Sprite outscal_sprite;
+		outscal_sprite.setTexture(outscal_texture);
+		outscal_sprite.setPosition(300, 300);
+		outscal_sprite.setRotation(45);
+		outscal_sprite.setScale(0.5, 0.5);
+		window->draw(outscal_sprite);
+
+		//text
+		sf::Font font;
+		font.loadFromFile("assets/fonts/OpenSans.ttf");
+		sf::Text text("SFML is Awesome", font, 50);
+		text.setFillColor(sf::Color::Red);
+		window->draw(text);
+
 
 		window->display();
 	}
