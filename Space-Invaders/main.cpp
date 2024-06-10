@@ -45,7 +45,26 @@ int main()
         Triangle.setPosition(700, 300); // set position (x, y)
         window->draw(Triangle);
 
+        // displaying an image
+        sf::Texture outscal_texture;
+        outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
+
+        sf::Sprite outscal_sprite;
+        outscal_sprite.setTexture(outscal_texture);
+
+        outscal_sprite.setPosition(200, 100);
+        outscal_sprite.setRotation(45);
+        outscal_sprite.setScale(0.5, 0.5);
        
+        window->draw(outscal_sprite);
+
+        // displaying text
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf");
+        sf::Text text("SFML is awesome!", font, 50);
+        text.setFillColor(sf::Color::Red);
+        text.setPosition(300, 200);
+        window->draw(text);
 
         // ------------------
      
