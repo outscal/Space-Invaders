@@ -1,4 +1,4 @@
-#include "Header/GameSevice.h"
+#include "../Space-Invaders/Header/GameService.h"
 
 int main() {
 
@@ -62,10 +62,7 @@ public:
         
     };
 
-    void move1(float offsetY) {
-        position.y += offsetY;
-
-    };
+    
     
     int getMoveSpeed() {
         return movement_speed;
@@ -99,12 +96,7 @@ int main() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             player.move(1.0f * player.getMoveSpeed());
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-                player.move1(-1.0f * player.getMoveSpeed());
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-                player.move1(1.0f * player.getMoveSpeed());
-        }
+        
 
 
         player.player_texture.loadFromFile("assets/textures/player_ship.png"); // Load the player ship texture
