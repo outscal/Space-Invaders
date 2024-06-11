@@ -1,5 +1,28 @@
 #include <SFML/Graphics.hpp>
 
+class Player {
+private:
+	sf::Texture playerTexture;
+	sf::Sprite playerSprite;
+	int player_score = 0;
+	int health = 3;
+	int movement_speed=10;
+	sf::Vector2f position = sf::Vector2f(200,200);
+
+public:
+	void takeDamage(int amt) {
+
+	}
+
+	void shootBullets() {
+
+	}
+
+	void move() {
+
+	}
+};
+
 int main() {
 
 
