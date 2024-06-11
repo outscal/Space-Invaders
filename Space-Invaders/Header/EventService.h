@@ -21,5 +21,7 @@ public:
 	void processEvents();
 	bool pressedEscapeKey();
 	bool isKeyboardEvent();
+	bool pressedLeftKey();
+	bool pressedRightKey();
 
 };
