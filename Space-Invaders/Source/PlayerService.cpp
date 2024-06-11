@@ -35,11 +35,11 @@ void PlayerService::processPlayerInput()
 	{
 		if (event_service->pressedLeftKey())
 		{
-			move(-1.0f * getMoveSpeed());
+			moveLeft();
 		}
 		if(event_service->pressedRightKey())
 		{
-			move(1.0f * getMoveSpeed());
+			moveRight();
 		}
 	}
 }
@@ -52,10 +52,19 @@ void PlayerService::initalizePlayerSprite()
 	}
 }
 
-void PlayerService::move(float offsetX) {
-	position.x += offsetX;
+/*void PlayerService::move(float offsetX) {
+position.x += offsetX;
+}*/
+
+void PlayerService::moveLeft()
+{
+	position.x -= movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 }
 
+void PlayerService::moveRight()
+{
+	position.x += movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
 
 sf::Vector2f PlayerService::getPosition() { return position; }
-int PlayerService::getMoveSpeed() { return movement_speed; }
+float PlayerService::getMoveSpeed() { return movement_speed; }
