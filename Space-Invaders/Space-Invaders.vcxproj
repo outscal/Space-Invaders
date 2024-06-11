@@ -155,6 +155,7 @@
     <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
+    <ClCompile Include="Source\PlayerModel.cpp" />
     <ClCompile Include="Source\PlayerService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Header\GameService.h" />
     <ClInclude Include="Header\GraphicService.h" />
     <ClInclude Include="Header\Header.h" />
+    <ClInclude Include="Header\PlayerModel.h" />
     <ClInclude Include="Header\PlayerService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
     <ClInclude Include="Header\TimeService.h" />
