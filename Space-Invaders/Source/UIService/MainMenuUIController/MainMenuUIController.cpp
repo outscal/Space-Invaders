@@ -33,7 +33,7 @@ namespace UI
 		}
 		void MainMenuUIController::render()
 		{
-			cout << "Render";
+			//cout << "Render";
 			game_window->draw(background_sprite);
 			game_window->draw(play_button_sprite);
 			game_window->draw(instruction_button_sprite);
@@ -43,7 +43,7 @@ namespace UI
 		{
 			if (background_texture.loadFromFile(background_texture_path))
 			{
-				cout << "Background loaded" <<endl;
+				//cout << "Background loaded" <<endl;
 				background_sprite.setTexture(background_texture);
 				setBackgroundScale();
 			}
@@ -58,7 +58,7 @@ namespace UI
 		{
 			if (loadFromTexture())
 			{
-				cout << "Button loaded" << endl;
+				//cout << "Button loaded" << endl;
 
 				setButtonSprite();
 				scaleAllButton();
@@ -105,6 +105,7 @@ namespace UI
 			sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 			if (buttonClick(&play_button_sprite, mouse_position))
 			{
+				
 				GameService::setGameState(GameState::GAMEPLAY);
 			}
 			if (buttonClick(&instruction_button_sprite, mouse_position))
@@ -121,6 +122,7 @@ namespace UI
 		bool MainMenuUIController::buttonClick(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
 		{
 			Event::EventService* event_service = ServiceLocator::getInstance()->getEventService();
+			printf("Button click");
 			return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
 		}
 

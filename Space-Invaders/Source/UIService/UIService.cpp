@@ -41,7 +41,7 @@ namespace UI
 		switch (GameService::getGameState())
 		{
 		case GameState::MAIN_MENU:
-			cout << "Current State";
+			//cout << "Current State";
 			return main_menu_controller->render();
 			break;
 		}
@@ -56,7 +56,7 @@ namespace UI
 
 	void UIService::initializeController()
 	{
-		cout << "initializing";
+		//cout << "initializing";
 		main_menu_controller->initialize();
 	}
 
