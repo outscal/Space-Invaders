@@ -1,7 +1,12 @@
 
+#include<iostream>
+#include "../Header/GameService.h"
+#include "../Header/GraphicService.h"
+
 void GameService::initialize()
 {
-	//... Get things running
+	service_locator = nullptr; // Set service locator to null
+	game_window = nullptr; // Set game window to null
 }
 
 void GameService::destroy()
@@ -11,7 +16,7 @@ void GameService::destroy()
 
 GameService::GameService()
 {
-	//constructor
+	destroy(); // Clean up and release resources
 }
 
 GameService::~GameService()
@@ -21,21 +26,33 @@ GameService::~GameService()
 
 void GameService::ignite()
 {
-	//starts the game
+	service_locator = ServiceLocator::getInstance(); // Get ServiceLocator
+	initialize(); // Initialize services
 }
 
 void GameService::update()
 {
-	// Updates the game logic and game state.
+	// Updates the game logic and game state
+	service_locator->update(); // Call update on the service locator which then updates all its managed service
 }
 
 void GameService::render()
 {
 	// Renders each frame of the game.
+
+	// Clears the game window with the background color provided by the graphic service
+	game_window->clear(service_locator->getGraphicService()->getWindowColor());
+	service_locator->render(); // Render the current frame using the service locator
+	game_window->display(); // Display the rendered frame on the game window
+
+
+
 }
 
 bool GameService::isRunning()
 {
 	// Checks if the game is currently running.
-	return false; //default return
+	// Returns true if the game window is open, indicating the game is still running
+	return service_locator->getGraphicService()->isGameWindowOpen();
+	//return false; //default return
 }

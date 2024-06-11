@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Header/GameService.h"
+#include "Header/GraphicService.h"
 #include<SFML/Graphics.hpp>
 
 //class Player {
@@ -82,16 +83,26 @@
 
 int main()
 {
-	GameService game_service; // created an object
-	game_service.ignite();  // this will start the flow of our game
+	//GameService game_service; // created an object
+	//game_service.ignite();  // this will start the flow of our game
 
-	// game loop
-	while(game_service.isRunning())
+	//// game loop
+	//while(game_service.isRunning())
+	//{
+	//
+	//	game_service.ignite();
+	//	game_service.render();
+	//
+	//}
+
+	GameService* game_service = new GameService();
+
+	game_service->ignite();
+
+	while (game_service->isRunning())
 	{
-	
-		game_service.ignite();
-		game_service.render();
-	
+		game_service->update();
+		game_service->render();
 	}
 
 	return 0;
