@@ -2,7 +2,7 @@
 
 // Constructor: Initializes the graphic_service pointer to null and creates services.
 ServiceLocator::ServiceLocator() {
-	graphic_service = nullptr; // Initialize graphic_service to null
+	graphic_service = nullptr; // Initialize graphic_service to null 
 	createServices(); // Call createServices to instantiate services
 }
 
