@@ -32,8 +32,13 @@ void GameService::ignite()
 
 void GameService::update()
 {
+	// Process Events.
+	service_locator->getEventService()->processEvents();
+
 	// Updates the game logic and game state
 	service_locator->update(); // Call update on the service locator which then updates all its managed service
+
+
 }
 
 void GameService::render()
