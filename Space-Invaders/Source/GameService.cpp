@@ -1,6 +1,7 @@
 #include "../Header/GameService.h"
 #include "../Header/GraphicService.h"
 
+
 // Constructor: Initializes pointers to null.
 GameService::GameService() {
 	service_locator = nullptr; // Set service locator to null
@@ -38,7 +39,11 @@ void GameService::destroy()
 // Updates the game logic by delegating to the service locator's update method.
 void GameService::update() {
 
-	service_locator->update(); // Call update on the service locator which then updates all its managed services
+	service_locator->update(); 
+	service_locator->getEventService()->processEvents();
+
+	// Update Game Logic.
+	service_locator->update();// Call update on the service locator which then updates all its managed services
 }
 
 // Clears the window then display it.

@@ -1,5 +1,8 @@
 #include "../Header/GraphicService.h"
 
+
+
+
 // Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
 	game_window = nullptr; // Initializes game window pointer to null
