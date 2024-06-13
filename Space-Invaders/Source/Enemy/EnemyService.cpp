@@ -23,6 +23,7 @@ namespace Enemy
 
 	void EnemyService::update()
 	{
+		enemy_controller->update();
 	}
 
 	void EnemyService::render()

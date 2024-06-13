@@ -55,7 +55,7 @@ namespace Player
 
 		if (eventService->pressRightKey() || eventService->pressAKey())
 		{
-			moveLeft();
+			moveRight();
 		}
 	}
 

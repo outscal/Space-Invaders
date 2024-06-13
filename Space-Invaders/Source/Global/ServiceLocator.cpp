@@ -132,7 +132,7 @@ namespace Global
 		delete(player_service);
 		delete(enemy_service);
 
-		//player_service = nullptr;
+		
 
 	}
 
