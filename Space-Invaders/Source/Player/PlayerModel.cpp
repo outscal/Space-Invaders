@@ -1,0 +1,36 @@
+#include"C:\Users\avnis\OneDrive\Desktop\Avnish Space Invaders\Space-Invaders-SFML\Space-Invaders\Headers\Player\PlayerModel.h"
+namespace Player
+{
+	PlayerModel::PlayerModel(Entity::EntityType owner_type)
+	{
+
+	}
+	PlayerModel::~PlayerModel()
+	{
+
+	}
+	void PlayerModel::Initialize() { Reset(); }
+
+	void PlayerModel::Reset()
+	{
+		player_state = PlayerState::ALIVE;
+		player_position = initial_player_position;
+		player_score = 0;
+	}
+
+	sf::Vector2f PlayerModel::GetPlayerPosition()
+	{
+		return player_position;
+	}
+
+	void PlayerModel::SetPlayerPosition(sf::Vector2f position)
+	{
+		player_position = position;
+	}
+	int PlayerModel::GetPlayerScore() { return player_score; }
+	void PlayerModel::SetPlayerScore(int score) { player_score = score; }
+	PlayerState PlayerModel::GetPlayerState() { return player_state; }
+	void PlayerModel::SetPLayerState(PlayerState state) { player_state = state; }
+	Entity::EntityType PlayerModel::GetEntityOwnerType() { return owner_type; }
+}
+
