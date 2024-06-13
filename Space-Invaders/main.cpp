@@ -1,13 +1,15 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
+
     // Define the video mode (dimensions)
-    sf::VideoMode videoMode(1920, 1080);
+    sf::VideoMode videoMode = sf::VideoMode(800, 600);
 
     // Create a window object with specific dimensions and a title
-    sf::RenderWindow window(videoMode, "Draw some shapes");
+    sf::RenderWindow window(videoMode, "SFML Window");
 
-    // Game loop to keep the window open
+
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -16,32 +18,36 @@ int main() {
                 window.close();
         }
 
+
         // Clear the window
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Blue);
+
 
         // Draw a circle
-        sf::CircleShape circle(80); // Radius 60
+        sf::CircleShape circle(50); // Radius 50
         circle.setFillColor(sf::Color::Red);
-        circle.setPosition(900, 200); // Set position
+        circle.setPosition(300, 300); // Set position
         window.draw(circle);
 
-        // Draw a triangle
-        sf::ConvexShape triangle;
-        triangle.setPointCount(3); // Define 3 points for the triangle
-        triangle.setPoint(0, sf::Vector2f(0, 0));
-        triangle.setPoint(1, sf::Vector2f(200, 0));
-        triangle.setPoint(2, sf::Vector2f(100, 200));
-        triangle.setFillColor(sf::Color::Green);
-        triangle.setPosition(500, 600); // Set position
-        window.draw(triangle);
+        sf::Texture outscal_texture;
+        outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
 
-        // Draw a rectangle
-        sf::RectangleShape rectangle(sf::Vector2f(280, 160)); // Size 120x60
-        rectangle.setFillColor(sf::Color::Blue);
-        rectangle.setPosition(800, 800); // Set position
-        window.draw(rectangle);
+        sf::Sprite outscal_sprite;
+        outscal_sprite.setTexture(outscal_texture);
 
-        // Draw your content here...
+        outscal_sprite.setPosition(200, 100); // Position
+        outscal_sprite.setRotation(45); // Rotation in degrees
+        outscal_sprite.setScale(0.5, 0.5); // Scale factor
+
+        window.draw(outscal_sprite);
+
+        // adding text
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf");
+        sf::Text text("Hello SFML!", font, 50);
+        text.setFillColor(sf::Color::Red);
+        window.draw(text);
+
 
         // Display what was drawn
         window.display();
