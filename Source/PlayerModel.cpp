@@ -8,7 +8,7 @@ void PlayerModel::initialize() { reset(); }
 
 void PlayerModel::reset()
 {
-	player_alive = true;
+	player_state = PlayerState::ALIVE;
 	player_position = initial_player_position;
 }
 
@@ -22,12 +22,12 @@ void PlayerModel::setPlayerPosition(sf::Vector2f position)
 	player_position = position;
 }
 
-bool PlayerModel::getPlayerAlive()
+PlayerState PlayerModel::getPlayerState()
 {
-	return player_alive;
+	return player_state;
 }
 
-void PlayerModel::setPlayerAlive(bool alive)
+void PlayerModel::setPlayerState(PlayerState state)
 {
-	player_alive = alive;
+	player_state = state;
 }
