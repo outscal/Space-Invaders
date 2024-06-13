@@ -41,6 +41,7 @@ void GameService::update() {
 
 	service_locator->update(); 
 	service_locator->getEventService()->processEvents();
+	service_locator->getPlayerService();
 
 	// Update Game Logic.
 	service_locator->update();// Call update on the service locator which then updates all its managed services

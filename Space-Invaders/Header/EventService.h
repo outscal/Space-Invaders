@@ -16,6 +16,9 @@ public:
     EventService();
     ~EventService();
 
+    bool pressedLeftKey();
+    bool pressedRightKey();
+
     void initialize();
     void update();
     void processEvents(); // While the window is open, we will check for events

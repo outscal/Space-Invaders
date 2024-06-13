@@ -6,7 +6,7 @@ class GraphicService
 {
 private:
 
-	const std::string game_window_title = "War";
+	const std::string game_window_title = "Space_Invaders";
 
 	const int game_window_width = 800;
 	const int game_window_height = 600;

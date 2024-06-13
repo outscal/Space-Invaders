@@ -47,6 +47,6 @@ void ServiceLocator::render()
 	graphic_service->render();
 	//no event service because nothing to render
 }
-
+PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 EventService* ServiceLocator::getEventService() { return event_service; }

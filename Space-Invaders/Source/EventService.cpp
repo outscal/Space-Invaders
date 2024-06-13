@@ -35,6 +35,15 @@ bool EventService::hasQuitGame() const
 {
     return isKeyboardEvent() && pressedEscapeKey(); // Only true if the ESC key is pressed and a keyboard event has been registered
 }
+bool EventService::pressedLeftKey()
+{
+    return game_event.key.code = sf::Keyboard::Left;
+}
+bool EventService::pressedRightKey()
+{
+    return game_event.key.code = sf::Keyboard::Right;
+}
+
 
 // Checks if a keyboard key has been pressed
 bool EventService::isKeyboardEvent() const
