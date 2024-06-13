@@ -7,6 +7,7 @@
 #include "../../Header/Time/TimeService.h"
 #include "../../Header/UIService/UIService.h"
 #include "../../Header/Enemy/EnemyService.h";
+#include "../../Header/Gameplay/GameplayService.h"
 
 
 namespace Global
@@ -17,6 +18,7 @@ namespace Global
 	class TimeService;
 	class UIService;
 	class EnemyService;
+	class GameplayService;
 
 	class ServiceLocator
 	{
@@ -37,6 +39,7 @@ namespace Global
 		Player::PlayerService* getPlayerService();
 		Time::TimeService* getTimeService();
 		Enemy::EnemyService* getEnemyService();
+		Gameplay::GameplayService* getGameplayService();
 
 	private:
 		Graphic::GraphicService* graphic_service;
@@ -44,6 +47,7 @@ namespace Global
 		UI::UIService* ui_service;
 		Player::PlayerService* player_service;
 		Enemy::EnemyService* enemy_service;
+		Gameplay::GameplayService* gameplay_service;
 		Time::TimeService* time_service;
 		void createServices();
 		void clearAllServices();
