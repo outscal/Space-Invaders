@@ -3,16 +3,13 @@
 
 namespace Enemy
 {
-	enum class MovementDirection
-	{
-		LEFT,
-		RIGHT,
-		DOWN
-	};
+	enum class EnemyType;
+	enum class MovementDirection;
+	enum class EnemyState;
 	class EnemyModel
 	{
 	public:
-		EnemyModel();
+		EnemyModel(EnemyType enemy_type);
 		~EnemyModel();
 
 		float move_speed = 250.f;
@@ -31,12 +28,19 @@ namespace Enemy
 		MovementDirection getMovementDirection();
 		void setMovementDirection(MovementDirection direction);
 
+		EnemyType getEnemyType();
+		void setEnemyType(EnemyType type);
+
+		EnemyState getEnemyState();
+		void setEnemyState(EnemyState state);
+
 
 
 	private:
 		sf::Vector2f initial_position = sf::Vector2f(50.f, 50.f);
 		sf::Vector2f current_position;
-
+		EnemyType enemy_type;
+		EnemyState enemy_state;
 		MovementDirection movement_direction;
 
 	
