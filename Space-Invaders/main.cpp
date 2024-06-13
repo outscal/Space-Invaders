@@ -1,9 +1,13 @@
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "header/GameService.h"
+
+
+
 using namespace std;
 using namespace sf;
 
+/*
 class Player {
 
 private:
@@ -52,11 +56,21 @@ public:
     void shootBullets() {};
 
 };
-
+*/
 
 
 int main() {
-    Player player;
+    GameService game_service;
+
+    game_service.ignite();
+
+    while (game_service.isRunning())
+    {
+        game_service.update();
+		game_service.render();
+    }
+
+   /* Player player;
 
 
     // Define the video mode (dimensions)
@@ -107,7 +121,7 @@ int main() {
         // Display whatever you draw
         window.display();
 
-    }
+    }*/
 
     return 0;
 }
