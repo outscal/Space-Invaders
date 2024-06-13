@@ -1,5 +1,5 @@
 #pragma once
-
+#include <vector>
 
 namespace Enemy
 {
@@ -14,11 +14,17 @@ namespace Enemy
 		void update();
 		void render();
 
-		EnemyController* spawnEnemy();
+		void spawnEnemy();
+		
 
 
 	private:
-		EnemyController* enemy_controller;
+		const float spawn_delay = 3.f;
+		float spawn_timer;
+		//EnemyController* enemy_controller;
+		std::vector<EnemyController*> enemy_list;
+		void updateTimer();
+		void processSpawnTimer();
 		void Destroy();
 	};
 
