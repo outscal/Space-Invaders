@@ -138,6 +138,8 @@
     <ClCompile Include="Source\Bullet\BulletView.cpp" />
     <ClCompile Include="Source\Bullet\Controllers\LaserBulletController.cpp" />
     <ClCompile Include="Source\Bullet\Controllers\TorpedoController.cpp" />
+    <ClCompile Include="Source\Collision\CollisionService.cpp" />
+    <ClCompile Include="Source\Collision\ICollider.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerController.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerModel.cpp" />
     <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
@@ -191,6 +193,8 @@
     <ClInclude Include="Headers\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Headers\Bullet\Controllers\TorpedoController.h" />
     <ClInclude Include="Headers\Collectible\ICollectible.h" />
+    <ClInclude Include="Headers\Collision\CollisionService.h" />
+    <ClInclude Include="Headers\Collision\ICollider.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerController.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Headers\Element\Bunker\BunkerView.h" />
