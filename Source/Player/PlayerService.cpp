@@ -1,5 +1,5 @@
-#include "../Header/PlayerService.h"
-#include "../Header/PlayerController.h"
+#include "../../Header/Player/PlayerService.h"
+#include "../../Header/Player/PlayerController.h"
 
 PlayerService::PlayerService()
 {
@@ -25,3 +25,4 @@ void PlayerService::render()
 {
 	player_controller->render();
 }
+

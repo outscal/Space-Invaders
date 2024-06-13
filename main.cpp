@@ -1,4 +1,4 @@
-#include "../Space-Invaders/Header/GameService.h"
+#include "../Space-Invaders/Header/Main/GameService.h"
 
 int main() {
 

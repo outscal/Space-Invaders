@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Header/PlayerView.h"
-#include "../Header/PlayerModel.h"
+
+enum class PlayerSate;
+class PlayerView;
+class PlayerModel;
 
 class PlayerController 
 {

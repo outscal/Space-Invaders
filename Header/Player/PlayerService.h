@@ -1,5 +1,7 @@
 #pragma once
-#include "../../Header/PlayerController.h"
+
+enum class PlayerState;
+class PlayerController;
 
 class PlayerService
 {
