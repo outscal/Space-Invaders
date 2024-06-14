@@ -10,7 +10,15 @@ namespace Enemy
 		SubZeroController();
 		~SubZeroController();
 
-	private:
+		void initialize() override;
+	/*	void render();
+		void update();*/
 
+		
+
+	private:
+		const float movement_speed = 100.f;
+		void move() override;
+		void moveDown();
 	};
 }

@@ -17,7 +17,7 @@ namespace Enemy
 
 		sf::Vector2f getEnemyPosition();
 
-		virtual void move();
+		 virtual void move() = 0;
 		void moveLeft();
 		void moveRight();
 		void moveDown();
