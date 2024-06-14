@@ -1,5 +1,6 @@
-#include "PlayerView.h"
-#include "ServiceLocator.h"
+#include "Player/PlayerView.h"
+#include "Global/ServiceLocator.h"
+#include "Player/PlayerController.h"
 
 PlayerView::PlayerView() {};
 PlayerView::~PlayerView() {};

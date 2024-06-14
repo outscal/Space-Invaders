@@ -1,4 +1,5 @@
-#include "PlayerModel.h"
+#include "Player/PlayerModel.h"
+
 
 PlayerModel::PlayerModel() {};
 PlayerModel::~PlayerModel() {};

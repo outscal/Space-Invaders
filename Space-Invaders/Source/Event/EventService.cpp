@@ -1,6 +1,7 @@
-#include "EventService.h"
-#include "GameService.h"
-#include "GraphicService.h"
+#include "Event/EventService.h"
+#include "Main/GameService.h"
+#include "Graphic/GraphicService.h"
+#include "Global/ServiceLocator.h"
 
 EventService::EventService()
 {
