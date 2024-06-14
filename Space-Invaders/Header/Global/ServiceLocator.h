@@ -1,34 +1,38 @@
 #pragma once
+#include "Event/EventService.h"
+#include "Graphic/GraphicService.h"
+#include "Time/TimeService.h"
+#include "Player/PlayerService.h"
 
 
-class GraphicService;
-class EventService;
-class PlayerService;
-class TimeService;
-
-class ServiceLocator
+namespace Global
 {
-private:
-	GraphicService* graphic_service;
-	EventService* event_service;
-	PlayerService* player_service;
-	TimeService* time_service;
 
-	ServiceLocator();
-	~ServiceLocator();
+	class ServiceLocator
+	{
+	private:
+		Graphic::GraphicService* graphic_service;
+		Event::EventService* event_service;
+		Player::PlayerService* player_service;
+		Time::TimeService* time_service;
 
-	void createServices();
-	void clearAllServices();
+		ServiceLocator();
+		~ServiceLocator();
 
-public:
+		void createServices();
+		void clearAllServices();
 
-	static ServiceLocator* getInstance();
-	void initialize();
-	void update();
-	void render();
+	public:
 
-	GraphicService* getGraphicService();
-	EventService* getEventService();
-	PlayerService* getPlayerService();
-	TimeService* getTimeService();
-};
+		static ServiceLocator* getInstance();
+		void initialize();
+		void update();
+		void render();
+
+		Graphic::GraphicService* getGraphicService();
+		Event::EventService* getEventService();
+		Player::PlayerService* getPlayerService();
+		Time::TimeService* getTimeService();
+	};
+
+}

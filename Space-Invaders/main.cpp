@@ -4,6 +4,7 @@
 #include<iostream>
 #include "Main/GameService.h"
 using namespace std;
+using namespace Main;
 
 /*
 class Player {

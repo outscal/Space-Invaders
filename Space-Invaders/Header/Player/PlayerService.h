@@ -1,21 +1,23 @@
 #pragma once
 
-class PlayerController;
-
-
-class PlayerService
+namespace Player
 {
-private:
+	class PlayerController;
 
-	PlayerController* player_controller;
+	class PlayerService
+	{
+	private:
 
-public:
+		PlayerController* player_controller;
 
-	PlayerService();
-	~PlayerService();
+	public:
 
-	void initialize();
-	void update();
-	void render();
+		PlayerService();
+		~PlayerService();
 
-};
+		void initialize();
+		void update();
+		void render();
+
+	};
+}
