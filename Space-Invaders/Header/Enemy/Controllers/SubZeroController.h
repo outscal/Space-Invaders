@@ -4,21 +4,25 @@
 
 namespace Enemy
 {
-	class SubZeroController:public EnemyController
+	namespace Controller
 	{
-	public:
-		SubZeroController();
-		~SubZeroController();
+		class SubZeroController :public EnemyController
+		{
+		public:
+			SubZeroController();
+			~SubZeroController();
 
-		void initialize() override;
-	/*	void render();
-		void update();*/
+			void initialize() override;
+			/*	void render();
+				void update();*/
 
-		
 
-	private:
-		const float movement_speed = 100.f;
-		void move() override;
-		void moveDown();
-	};
+
+		private:
+			const float movement_speed = 100.f;
+			void move() override;
+			void moveDown();
+		};
+	}
+	
 }

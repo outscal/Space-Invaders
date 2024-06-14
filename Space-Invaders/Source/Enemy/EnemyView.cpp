@@ -3,6 +3,7 @@
 #include "../../Header/Global/ServiceLocator.h"
 
 #include "../../Header/Graphic/GraphicService.h"
+#include "../../Header/Enemy/EnemyConfig.h"
 
 
 namespace Enemy
@@ -21,7 +22,7 @@ namespace Enemy
 	{
 		enemy_controller = controller;
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializeSprite();
+		initializeSprite(enemy_controller->getEnemyType());
 	}
 
 	void Enemy::EnemyView::update()
@@ -33,14 +34,46 @@ namespace Enemy
 	{
 		game_window->draw(enemy_sprite);
 	}
-	void EnemyView::initializeSprite()
+	void EnemyView::initializeSprite(EnemyType type)
 	{
-		if (enemy_texture.loadFromFile(enemy_texture_path))
+		switch (type)
 		{
-			enemy_sprite.setTexture(enemy_texture);
-			scaleSprite();
+		case Enemy::EnemyType::ZAPPER:
+			if (enemy_texture.loadFromFile(zapper_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleSprite();
+			}
+			break;
+		case Enemy::EnemyType::SUBZERO:
+			if (enemy_texture.loadFromFile(subzero_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleSprite();
+			}
+			break;
+			break;
+		case Enemy::EnemyType::UFO:
+			break;
+		case Enemy::EnemyType::THUNDER_SNAKE:
+			break;
+		default:
+			break;
 		}
 	}
+	//void EnemyView::initializeSprite(EnemyType type)
+	//{
+	//	switch (type)
+	//	{
+	//	default:
+	//		break;
+	//	}
+	///*	if (enemy_texture.loadFromFile(enemy_texture_path))
+	//	{
+	//		enemy_sprite.setTexture(enemy_texture);
+	//		scaleSprite();
+	//	}*/
+	//}
 	void EnemyView::scaleSprite()
 	{
 		enemy_sprite.setScale(

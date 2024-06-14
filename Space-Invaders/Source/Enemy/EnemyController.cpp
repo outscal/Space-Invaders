@@ -114,4 +114,8 @@ namespace Enemy
 			enemy_model->setEnemyPosition(current_position);
 		}
 	}
+	EnemyType EnemyController::getEnemyType()
+	{
+		return enemy_model->getEnemyType();
+	}
 }

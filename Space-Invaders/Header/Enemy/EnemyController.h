@@ -5,6 +5,7 @@ namespace Enemy
 {
 	class EnemyModel;
 	class EnemyView;
+	enum class EnemyType;
 	class EnemyController
 	{
 	public:
@@ -30,8 +31,10 @@ namespace Enemy
 		void getRandomInitialPosition();
 		void handleOutOfBounds();
 
+		EnemyType getEnemyType();
 
-	private:
+
+	protected:
 		EnemyModel* enemy_model;
 		EnemyView* enemy_view;
 		float vertical_movement_speed;

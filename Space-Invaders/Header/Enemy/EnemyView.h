@@ -3,6 +3,7 @@
 namespace Enemy
 {
 	class EnemyController;
+	enum class EnemyType;
 	class EnemyView
 	{
 	public:
@@ -13,11 +14,12 @@ namespace Enemy
 		void update();
 		void render();
 
-		void initializeSprite();
+		void initializeSprite(EnemyType type);
 		void scaleSprite();
 
 	private:
-		const sf::String enemy_texture_path = "assets/textures/zapper.png";
+		const sf::String subzero_texture_path = "assets/textures/subzero.png";
+		const sf::String zapper_texture_path = "assets/textures/zapper.png";
 		const float enemy_height = 60.f;
 		const float enemy_width = 60.f;
 		sf::Texture enemy_texture;
