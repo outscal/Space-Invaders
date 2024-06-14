@@ -5,6 +5,7 @@
 class GraphicService
 {
 private:
+	const int frame_rate = 60;
 
 	const std::string game_window_title = "Space_Invaders";
 

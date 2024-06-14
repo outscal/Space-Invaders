@@ -1,6 +1,7 @@
 #include "../Header/PlayerService.h"
 #include "../Header/ServiceLocator.h"
 
+
 PlayerService::PlayerService()
 {
 	game_window = nullptr;
@@ -36,14 +37,25 @@ void PlayerService::processPlayerInput()
 	{
 		if (event_service->pressedLeftKey())
 		{
-			move(-1.0f * getMoveSpeed());
+			moveLeft();
+			
 		}
 
 		if (event_service->pressedRightKey())
 		{
-			move(1.0f * getMoveSpeed());
+			moveRight();
+			
 		}
 	}
+}
+void PlayerService::moveLeft()
+{
+	position.x -= movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void PlayerService::moveRight()
+{
+	position.x += movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 }
 
 void PlayerService::initializePlayerSprite()
@@ -54,9 +66,7 @@ void PlayerService::initializePlayerSprite()
 	}
 }
 
-void PlayerService::move(float offsetX) {
-	position.x += offsetX;
-}
+
 
 //helper functions
 sf::Vector2f PlayerService::getPlayerPosition() { return position; }

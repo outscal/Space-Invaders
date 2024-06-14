@@ -24,6 +24,7 @@ void GameService::initialize()
 {
 	service_locator->initialize();
 	initializeVariables();
+	
 }
 
 void GameService::initializeVariables()

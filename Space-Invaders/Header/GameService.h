@@ -14,7 +14,7 @@ private:
 	void destroy();			// Handles cleanup tasks.
 
 public:
-
+	
 	GameService();			// Constructor for initializing the GameService object.
 	~GameService();	// Destructor for cleaning up resources upon object deletion.
 
