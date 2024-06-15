@@ -5,6 +5,8 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include <algorithm>
 
+using namespace Global;
+
 PlayerController::PlayerController() 
 {
 

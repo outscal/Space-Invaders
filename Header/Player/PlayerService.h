@@ -1,18 +1,23 @@
 #pragma once
+#include "../../Header/Player/PlayerController.h"
 
-enum class PlayerState;
-class PlayerController;
-
-class PlayerService
+namespace Player
 {
-private:
-	PlayerController* player_controller;
 
-public:
-	PlayerService();
-	~PlayerService();
+	enum class PlayerState;
+	//class PlayerController;
 
-	void initialize();
-	void update();
-	void render();
-};
+	class PlayerService
+	{
+	private:
+		PlayerController* player_controller;
+
+	public:
+		PlayerService();
+		~PlayerService();
+
+		void initialize();
+		void update();
+		void render();
+	};
+}

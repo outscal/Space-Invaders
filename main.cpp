@@ -2,6 +2,8 @@
 
 int main() {
 
+    using namespace Main;
+
     GameService gameService;
 
     gameService.ignite();
