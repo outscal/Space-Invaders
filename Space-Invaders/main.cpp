@@ -1,8 +1,8 @@
-#include "header/GameService.h"
+#include "Header/Main/GameService.h"
 
 int main()
 {
-    GameService* game_service = new GameService();
+   Main:: GameService* game_service = new Main::GameService();
 
     game_service->ignite();
 
