@@ -7,6 +7,11 @@
 namespace Global
 {
 
+    /*class GraphicService;
+    class EventService;
+    class PlayerService;
+    class TimeService;*/
+
     class ServiceLocator
     {
     private:

@@ -3,8 +3,16 @@
 #include "../../Header/Global/ServiceLocator.h"
 
 namespace Main
+
 {
-	using namespace Global;
+	
+
+	enum class GameState 
+	{
+		BOOT,
+		MAIN_MENU,
+		GAMEPLAY,
+	};
 
 	class GameService
 	{
@@ -12,6 +20,8 @@ namespace Main
 
 		Global::ServiceLocator* service_locator;
 		sf::RenderWindow* game_window;
+
+		static GameState current_state;
 
 		void initialize();
 		void initializeVariables();// Handles game initialization.
@@ -26,5 +36,10 @@ namespace Main
 		void update();			// Updates the game logic and game state.
 		void render();			// Renders each frame of the game.
 		bool isRunning();		// Checks if the game is currently running.
+
+		//getter and setter
+		static void setGameState(GameState new_state);
+		static GameState getGameState();
+		
 	};
 }
