@@ -5,6 +5,7 @@
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
 #include "../../Header/Main/GameService.h"
+#include "../../Header/Element/ElementService.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ namespace Global
 		gameplay_service = nullptr;
 		player_service = nullptr;
 		enemy_service = nullptr;
+		element_service = nullptr;
 
 		createServices();
 	}
@@ -52,6 +54,7 @@ namespace Global
 		gameplay_service->initialize();
 		player_service->initialize();
 		enemy_service->initialize();
+		element_service->initialize();
 
 
 	}
@@ -67,6 +70,7 @@ namespace Global
 			gameplay_service->update();
 			player_service->update();
 			enemy_service->update();
+			element_service->update();
 		}
 	}
 
@@ -79,6 +83,7 @@ namespace Global
 			gameplay_service->render();
 			player_service->render();
 			enemy_service->render();
+			element_service->render();
 
 
 		}
@@ -115,6 +120,11 @@ namespace Global
 		return gameplay_service;
 	}
 
+	Element::ElementService* ServiceLocator::getElementService()
+	{
+		return element_service;
+	}
+
 	UI::UIService* ServiceLocator::uiService()
 	{
 		return ui_service;
@@ -130,6 +140,7 @@ namespace Global
 		player_service = new Player::PlayerService();
 		enemy_service = new Enemy::EnemyService();
 		gameplay_service = new Gameplay::GameplayService();
+		element_service = new Element::ElementService();
 
 	}
 
@@ -142,6 +153,7 @@ namespace Global
 		delete(player_service);
 		delete(enemy_service);
 		delete(gameplay_service);
+		delete(element_service);
 
 		
 
