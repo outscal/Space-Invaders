@@ -11,8 +11,9 @@ namespace Enemy
 	using namespace Global;
 	namespace Controller
 	{
-		Enemy::SubZeroController::SubZeroController()
+		Enemy::SubZeroController::SubZeroController(EnemyType type):EnemyController(type)
 		{
+
 		}
 
 		Enemy::SubZeroController::~SubZeroController()

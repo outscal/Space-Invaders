@@ -8,7 +8,7 @@ namespace Enemy
 		class ZapperController :public EnemyController
 		{
 		public:
-			ZapperController();
+			ZapperController(EnemyType type);
 			~ZapperController();
 
 			void initialize() override;

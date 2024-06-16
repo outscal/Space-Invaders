@@ -9,7 +9,7 @@ namespace Enemy
 		class SubZeroController :public EnemyController
 		{
 		public:
-			SubZeroController();
+			SubZeroController(EnemyType type);
 			~SubZeroController();
 
 			void initialize() override;

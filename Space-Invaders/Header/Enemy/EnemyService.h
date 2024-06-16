@@ -4,6 +4,7 @@
 namespace Enemy
 {
 	class EnemyController;
+	enum class EnemyType;
 	class EnemyService
 	{
 	public:
@@ -14,9 +15,10 @@ namespace Enemy
 		void update();
 		void render();
 
-		void spawnEnemy();
+		EnemyController* spawnEnemy();
 		
-
+	
+		void destroyEnemy(EnemyController* enemy_controller);
 
 	private:
 		const float spawn_delay = 3.f;
@@ -26,6 +28,9 @@ namespace Enemy
 		void updateTimer();
 		void processSpawnTimer();
 		void Destroy();
+
+		EnemyType getRandomEnemyType();
+		EnemyController* createEnemy(EnemyType type); 
 	};
 
 }

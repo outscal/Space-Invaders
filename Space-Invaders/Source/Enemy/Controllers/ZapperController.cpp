@@ -10,7 +10,7 @@ namespace Enemy
 	using namespace Controller;
 	namespace Controller
 	{
-		Enemy::ZapperController::ZapperController()
+		Enemy::ZapperController::ZapperController(EnemyType type):EnemyController(type)
 		{
 		}
 
@@ -59,6 +59,7 @@ namespace Enemy
 			currentPosition.x += enemy_model->move_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 			if (currentPosition.x >= enemy_model->right_window.x)
 			{
+				std::cout << "Move Down" << endl;
 				enemy_model->setMovementDirection(MovementDirection::DOWN);
 				enemy_model->setRefPosition(currentPosition);
 			}
@@ -72,9 +73,9 @@ namespace Enemy
 		{
 			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 			currentPosition.y += enemy_model->move_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-			if (currentPosition.y <= enemy_model->getRefPosition().y + enemy_model->down_distance)
+			if (currentPosition.y >= enemy_model->getRefPosition().y + enemy_model->down_distance)
 			{
-				if (currentPosition.x <= enemy_model->left_window.x)
+				if (enemy_model->getRefPosition().x<=enemy_model->left_window.x)
 				{
 					enemy_model->setMovementDirection(MovementDirection::RIGHT);
 				}

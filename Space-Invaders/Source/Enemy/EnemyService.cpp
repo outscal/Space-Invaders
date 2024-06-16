@@ -2,14 +2,20 @@
 #include "../../Header/Enemy/EnemyController.h"
 #include "../../Header//Global/ServiceLocator.h"
 #include "../../Header/Time/TimeService.h"
+#include "../../Header/Enemy/EnemyConfig.h"
+#include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/SubZeroController.h";
 
 namespace Enemy
 {
 	using namespace Global;
 	using namespace Time;
+	using namespace Controller;
 
+	
 	EnemyService::EnemyService()
 	{
+		std::srand(static_cast<unsigned>(std::time(nullptr)));
 	}
 
 	EnemyService::~EnemyService()
@@ -32,7 +38,6 @@ namespace Enemy
 		{
 			enemy_list[i]->update();
 		}
-		//enemy_controller->update();
 	}
 
 	void EnemyService::render()
@@ -43,11 +48,31 @@ namespace Enemy
 		}
 		//enemy_controller->render();
 	}
-	void EnemyService::spawnEnemy()
+	EnemyController* EnemyService::spawnEnemy()
 	{
-		EnemyController* enemy_controller = new EnemyController();
+		EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
 		enemy_controller->initialize();
 		enemy_list.push_back(enemy_controller);
+		return enemy_controller;
+	}
+
+	void seedValue()
+	{
+		 std::srand(static_cast<unsigned>(std::time(nullptr)));
+
+	}
+	//void EnemyService::spawnEnemy()
+	//{
+	//	//EnemyController* enemy_controller; /*= new EnemyController();*/
+	//	//enemy_controller->initialize();
+	//	//enemy_list.push_back(enemy_controller);
+
+	//}
+
+	void EnemyService::destroyEnemy(EnemyController* enemy_controller)
+	{
+		enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
+		delete(enemy_controller);
 	}
 
 	void EnemyService::updateTimer()
@@ -71,6 +96,29 @@ namespace Enemy
 			delete(enemy_list[i]);
 		}
 		//delete(enemy_controller);
+	}
+	EnemyType EnemyService::getRandomEnemyType()
+	{
+		int random_enemy = std::rand() % 2;
+		return static_cast<Enemy::EnemyType>(random_enemy);
+	}
+	EnemyController* EnemyService::createEnemy(EnemyType type)
+	{
+		switch (type)
+		{
+		case Enemy::EnemyType::ZAPPER:
+			return new ZapperController(Enemy::EnemyType::ZAPPER);
+			break;
+		case Enemy::EnemyType::SUBZERO:
+			return new SubZeroController(Enemy::EnemyType::SUBZERO);
+			break;
+		case Enemy::EnemyType::UFO:
+			break;
+		case Enemy::EnemyType::THUNDER_SNAKE:
+			break;
+		default:
+			break;
+		}
 	}
 }
 

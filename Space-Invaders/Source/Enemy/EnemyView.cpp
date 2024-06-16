@@ -61,19 +61,6 @@ namespace Enemy
 			break;
 		}
 	}
-	//void EnemyView::initializeSprite(EnemyType type)
-	//{
-	//	switch (type)
-	//	{
-	//	default:
-	//		break;
-	//	}
-	///*	if (enemy_texture.loadFromFile(enemy_texture_path))
-	//	{
-	//		enemy_sprite.setTexture(enemy_texture);
-	//		scaleSprite();
-	//	}*/
-	//}
 	void EnemyView::scaleSprite()
 	{
 		enemy_sprite.setScale(

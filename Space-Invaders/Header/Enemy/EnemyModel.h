@@ -14,6 +14,7 @@ namespace Enemy
 
 		float move_speed = 250.f;
 		const sf::Vector2f left_window = sf::Vector2f(50.f, 950.f);
+		const float Y_axis = 50.f;
 		const sf::Vector2f right_window = sf::Vector2f(1800.f, 950.f);
 		const float down_distance = 100.f;
 
