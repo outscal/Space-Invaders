@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../../Header/Element/Bunker/BunkerController.h"
+
 namespace Element
 {
 	namespace Bunker
@@ -22,7 +23,7 @@ namespace Element
 			const float bunker_height = 50.f;
 			const float bunker_width = 50.f;
 
-			sf::String bunker_texture_path = "assets/textures/bunker.png";
+			sf::String bunker_texture_path;
 			sf::Texture bunker_texture;
 			sf::Sprite bunker_sprite;
 

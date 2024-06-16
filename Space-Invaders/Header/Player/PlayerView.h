@@ -18,7 +18,7 @@ namespace Player
 
 	private:
 
-		const sf::String player_texture_path = "assets/textures/player_ship.png";
+		const sf::String player_texture_path;
 		sf::Texture player_texture;
 		sf::Sprite player_sprite;
 		int sprite_height = 60;

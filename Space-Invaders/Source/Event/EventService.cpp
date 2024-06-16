@@ -26,7 +26,7 @@ namespace Event
 		updateKeyState(left_key_button_state, sf::Keyboard::Left);
 		updateKeyState(right_key_button_state, sf::Keyboard::Right);
 		updateKeyState(a_key_button_state, sf::Keyboard::A);
-		updateKeyState(a_key_button_state, sf::Keyboard::D);
+		updateKeyState(d_key_button_state, sf::Keyboard::D);
 
 
 

@@ -2,7 +2,7 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Main/GameService.h";
-
+#include "../../Header/Global/Config.h"
 #include "../../Header/Event/EventService.h"
 
 
@@ -41,7 +41,7 @@ namespace UI
 		}
 		void MainMenuUIController::initializeBackground()
 		{
-			if (background_texture.loadFromFile(background_texture_path))
+			if (background_texture.loadFromFile(Config::background_texture_path))
 			{
 				//cout << "Background loaded" <<endl;
 				background_sprite.setTexture(background_texture);
@@ -68,7 +68,7 @@ namespace UI
 		}
 		bool MainMenuUIController::loadFromTexture()
 		{
-			return play_button_texture.loadFromFile(play_button_path) && instruction_button_texture.loadFromFile(instruction_button_path) && quit_button_texture.loadFromFile(quit_button_path);
+			return play_button_texture.loadFromFile(Config::play_button_texture_path) && instruction_button_texture.loadFromFile(Config::instructions_button_texture_path) && quit_button_texture.loadFromFile(Config::quit_button_texture_path);
 		}
 		void MainMenuUIController::setButtonSprite()
 		{

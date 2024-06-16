@@ -34,10 +34,10 @@ namespace UI
 
 			const float button_width = 400.f;
 			const float button_height = 140.f;
-			const sf::String  background_texture_path = "assets/textures/space_invaders_bg.png";
-			const sf::String play_button_path = "assets/textures/play_button.png";
-			const sf::String instruction_button_path = "assets/textures/instructions_button.png";
-			const sf::String quit_button_path = "assets/textures/quit_button.png";
+			const sf::String  background_texture_path;
+			const sf::String play_button_path;
+			const sf::String instruction_button_path;
+			const sf::String quit_button_path;
 			sf::RenderWindow* game_window;
 			sf::Texture background_texture;
 			sf::Texture play_button_texture;
