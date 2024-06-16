@@ -5,6 +5,8 @@ namespace Global {
 	using namespace Time;
 	using namespace Event;
 	using namespace Player;
+	//using namespace UI;
+	
 
 
 	ServiceLocator::ServiceLocator()
@@ -13,6 +15,7 @@ namespace Global {
 		time_service = nullptr;
 		event_service = nullptr;
 		player_service = nullptr;
+		//UI_Service = nullptr;
 		createServices();
 	}
 	ServiceLocator::~ServiceLocator()

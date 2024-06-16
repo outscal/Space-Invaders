@@ -4,6 +4,7 @@
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Time/TimeService.h"
+//#include "../../Header/UIService/UIService.h"
 
 // ServiceLocator Class Summary: This class manages access to various services in the application.
 // include relevant headers files
@@ -18,6 +19,7 @@ namespace Global {
         Event::EventService* event_service;
         Player::PlayerService* player_service;
         Time::TimeService* time_service;
+       // UI::UIService* UI_Service;
 
         // Private Attributes:
         // - event_service: Manages event-related functionalities.
@@ -51,6 +53,7 @@ namespace Global {
         Event::EventService* getEventService();
         Player::PlayerService* getPlayerService();
         Time::TimeService* getTimeService();
+       // UI::UIService* getUIService();
         // Methods to Get Specific Services: 
           // Retrieve the EventService instance
        // GraphicService* getGraphicService();   // Retrieve the GraphicService instance
