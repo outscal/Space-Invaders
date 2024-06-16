@@ -20,14 +20,6 @@ namespace Enemy
 		
 
 		 virtual void move() = 0;
-	/*	void moveLeft();
-		void moveRight();
-		void moveDown();*/
-
-	/*	float getVerticalMoveSpeed();
-		void setVerticalMoveSpeed(float move_speed);
-		float getHorizontalMoveSpeed();
-		void setHorizontalMoveSpeed(float move_speed);*/
 
 		sf::Vector2f getRandomInitialPosition();
 		void handleOutOfBounds();
@@ -40,8 +32,6 @@ namespace Enemy
 	protected:
 		EnemyModel* enemy_model;
 		EnemyView* enemy_view;
-	/*	float vertical_movement_speed;
-		float horizontal_movement_speed;*/
 	};
 }
 
