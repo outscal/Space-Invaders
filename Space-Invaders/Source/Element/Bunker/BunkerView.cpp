@@ -11,11 +11,11 @@ namespace Element
 
 		Element::Bunker::BunkerView::BunkerView()
 		{
-			bunker_controller = nullptr;
+			//bunker_controller = nullptr;
 		}
 		BunkerView::~BunkerView()
 		{
-			delete(bunker_controller);
+			//delete(bunker_controller);
 		}
 
 		void BunkerView::initialize(BunkerController* controller)
