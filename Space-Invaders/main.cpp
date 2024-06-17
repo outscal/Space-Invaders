@@ -70,7 +70,7 @@ int main() {
         }
 
         // Clear the window
-        window.clear(sf::Color::Blue); // This code will set a blue background color (optional)
+        window.clear(sf::Color::Black); // This code will set a blue background color (optional)
 
         player.player_sprite.setPosition(player.getPosition()); // Set the position of the player sprite
 
