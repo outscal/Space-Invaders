@@ -1,7 +1,10 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Gameservice.h"
 
+
+/*
 
 //Player Class
 class Player
@@ -47,10 +50,13 @@ public:
 
 };
 
-
+*/
 
 int main()
 {
+
+/*
+
     sf::VideoMode videoMode = sf::VideoMode(800, 600); 
 
     sf::RenderWindow window(videoMode, "SFML Window"); 
@@ -88,6 +94,21 @@ int main()
         window.display();
 
     } 
+
+    */
+
+
+    GameService game_service;
+
+    game_service.ignite();
+
+    while (game_service.isRunning())
+    {
+        game_service.update();
+        game_service.render();
+    }
+
+
 
     return 0;
 }
