@@ -3,6 +3,7 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
+#include "../../Header/UI/UIService.h"
 
 namespace Global
 {
