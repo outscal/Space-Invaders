@@ -26,10 +26,12 @@ namespace Main
 	{
 		service_locator->initialize();
 		initializeVariables();
+		showMainMenu();
 	}
 	void GameService::initializeVariables()
 	{
 		game_window = service_locator->getGraphicService()->getGameWindow();
+
 	}
 
 	void GameService::destroy()
@@ -69,5 +71,10 @@ namespace Main
 	GameState GameService::getGameState()
 	{
 		return current_state;
+	}
+
+	void GameService::showMainMenu()
+	{
+		setGameState(GameState::MAIN_MENU);
 	}
 }

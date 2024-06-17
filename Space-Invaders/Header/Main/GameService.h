@@ -21,6 +21,7 @@ namespace Main
 		void initialize();
 		void initializeVariables();
 		void destroy();
+		void showMainMenu();
 
 	public:
 		GameService();
