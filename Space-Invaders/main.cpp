@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 
@@ -8,8 +9,8 @@ class Player
 private:
     int playerScore = 0;
     int health = 3;
-    int movementSpeed = 5;
-    sf::Vector2f Position = sf::Vector2f(200.0f, 100.0f);
+    int movementSpeed = 2;
+    sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
 
 public:
 
@@ -26,18 +27,22 @@ public:
         playerScore = newScore;
     }
 
-    void setPosition(float)
+    void move(float offsetX)
     {
-        Position = Position;
+        position.x += offsetX;
     }
 
-    float getPosition()
+    int getMoveSpeed()
     {
-        
+        return movementSpeed;
+    }
+
+    sf::Vector2f getPosition()
+    {
+        return position;
     }
 
     void takeDamage(){}
-    void move(){}
     void shoot(){}
 
 };
@@ -67,15 +72,16 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) 
         {
-            player.move();
+            player.move(-1.0f*player.getMoveSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
         {
-            player.move();
+            player.move(1.0f * player.getMoveSpeed());
         }
+
         window.clear(sf::Color::Blue);
 
-        player.player_sprite.setPosition(200.0f, 100.0f);
+        player.player_sprite.setPosition(player.getPosition());
 
         window.draw(player.player_sprite);
 
