@@ -1,91 +1,80 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 class Player
 {
+
 private:
+
     int health = 3;
     sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
-    int player_score = 0;
     int movement_speed = 5;
+    int player_score = 0;
 
 public:
+
+    // Properties
     sf::Texture player_texture;
     sf::Sprite player_sprite;
 
-    int getScore() {
-        return player_score;
+    //functions
+    void move(float offsetX) {
+        position.x += offsetX;
     }
 
-    void setScore(int newScore) {
-        player_score = newScore;
+    int getMoveSpeed() {
+        return movement_speed;
     }
 
     sf::Vector2f getPosition() {
         return position;
     }
 
-    void setPosition(sf::Vector2f newPosition) {
-        position = newPosition;
-    }
-
-    void takeDamage() {
-        if (health > 0) {
-            health--;
-        }
-    }
-
-    void move(sf::Keyboard::Key key) {
-        if (key == sf::Keyboard::Left) {
-            position.x -= movement_speed;
-        }
-        else if (key == sf::Keyboard::Right) {
-            position.x += movement_speed;
-        }
-    }
-
-    void shootBullets() {
-        // Implement shooting logic here
-    }
 };
 
 int main() {
-    sf::VideoMode videoMode = sf::VideoMode(1920, 1080); // Define the video mode (dimensions)
-    sf::RenderWindow window(videoMode, "SFML Window"); // Create a window object
+    // Define the video mode (dimensions)
+    sf::VideoMode videoMode = sf::VideoMode(1920, 1080);
 
-    Player player; // Create the player object
+    // Create a window object with specific dimensions and a title
+    sf::RenderWindow window(videoMode, "SFML Window");
 
-    if (!player.player_texture.loadFromFile("assets/textures/player_ship.png")) {
-        std::cerr << "Error loading player ship texture" << std::endl;
-        return -1;
-    }
+    // Using default constructor
+    Player player;
 
-    player.player_sprite.setTexture(player.player_texture); // Set the player sprite texture
+    // Load the player ship texture  
+    player.player_texture.loadFromFile("assets/textures/player_ship.png");
+
+    // Set the player sprite variable to the player ship texture
+    player.player_sprite.setTexture(player.player_texture);
 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
+            // Check for window closure
+            if (event.type == sf::Event::Closed)
                 window.close();
-            }
         }
 
         // Handle keyboard input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            player.move(sf::Keyboard::Left);
+            player.move(-1.0f * player.getMoveSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            player.move(sf::Keyboard::Right);
+            player.move(1.0f * player.getMoveSpeed());
         }
 
         // Clear the window
-        window.clear(sf::Color::Blue); // this code will set a blue background color (optional)
+        window.clear(sf::Color::Blue);
 
-        player.player_sprite.setPosition(player.getPosition()); // Set the position of the player sprite
+        // Set the position of the player sprite
+        player.player_sprite.setPosition(player.getPosition());
 
-        window.draw(player.player_sprite); // Draw the player sprite
+        // Draw the player sprite
+        window.draw(player.player_sprite);
 
-        window.display(); // Display what was drawn
+        // Display what was drawn
+        window.display();
     }
 
     return 0;
