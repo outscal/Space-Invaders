@@ -1,6 +1,7 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include "header/GameService.h"
 
+/*
 //Creating empty player class below
 class Player {
     private: // private access modifier
@@ -37,10 +38,22 @@ class Player {
         }
 
         void shootBullets() {}
-};
+}; */
 
     int main() {
+        GameService game_service; //create object
+        game_service.ignite(); // "ignites"/starts the flow of our game
 
+        //while the game is running we will update the game loop
+        while (game_service.isRunning())
+        {
+            game_service.update();
+            game_service.render();
+        }
+
+        
+        
+        /*
         sf::VideoMode videoMode = sf::VideoMode(800, 600); // Define the video mode (dimensions)
 
         sf::RenderWindow window(videoMode, "SFML Window");  // Create a window object
@@ -77,6 +90,5 @@ class Player {
             window.display(); // Display what was drawn
 
         } // end while loop
-
-        return 0;
+        */
     }

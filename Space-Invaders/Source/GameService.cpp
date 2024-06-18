@@ -14,7 +14,7 @@ int Add(int x, int y) //same function declaration as our header
 // While the game is running, keep iterating the game loop:
 	// Fetch Player Inputs
 	// Update all game logic for this frame according to fetched inputs
-	// Draw all game objects on the game wondow after they are updated.
+	// Draw all game objects on the game window after they are updated.
 
 // If game ends or is stopped:
 	// Clean up all resources
@@ -44,7 +44,7 @@ void GameService::update()
 }
 
 void GameService::render()
-{ // This rendrs each frame of the game
+{ // This renders each frame of the game
 }
 
 bool GameService::isRunning()
