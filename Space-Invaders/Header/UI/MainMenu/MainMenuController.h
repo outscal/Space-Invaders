@@ -44,12 +44,16 @@ namespace UI
 			void scaleButton(sf::Sprite* button_to_scale);
 			void positionButtons();
 
+
 		public:
 			MainMenuUIController();
 
 			void initialize();
 			void update();
 			void render();
+
+			void processButtonInteractions();
+			bool clickedButton(sf::Sprite*, sf::Vector2f);
 
 		};
 	}
