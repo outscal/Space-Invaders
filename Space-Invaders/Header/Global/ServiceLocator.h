@@ -53,7 +53,7 @@ namespace Global {
         Event::EventService* getEventService();
         Player::PlayerService* getPlayerService();
         Time::TimeService* getTimeService();
-      //  UI::UIService* getUIService();
+        UI::UIService* getUIService();
 
         // Methods to Get Specific Services: 
           // Retrieve the EventService instance

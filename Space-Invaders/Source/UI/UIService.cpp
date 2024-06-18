@@ -30,10 +30,12 @@ namespace UI
 
 	void UIService::update()
 	{
+
 	}
 
 	void UIService::render()
 	{
+
 	}
 
 	void UIService::initializeControllers()

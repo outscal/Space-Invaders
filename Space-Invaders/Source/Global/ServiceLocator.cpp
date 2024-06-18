@@ -1,4 +1,5 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include <iostream>
 
 namespace Global {
 	using namespace Graphic;
@@ -29,6 +30,7 @@ namespace Global {
 		time_service = new TimeService();
 		event_service = new EventService();
 		player_service = new PlayerService();
+		ui_Service = new UIService(); 
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -47,6 +49,7 @@ namespace Global {
 
 	void ServiceLocator::initialize()
 	{
+		ui_Service->initialize();
 		graphic_service->initialize();
 		time_service->initialize();
 		event_service->initialize();
@@ -57,6 +60,7 @@ namespace Global {
 
 	void ServiceLocator::update()
 	{
+		ui_Service->update();
 		graphic_service->update();
 		time_service->update();
 		event_service->update();
@@ -66,15 +70,13 @@ namespace Global {
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
-		//ui_service->render();
-		graphic_service->render();
+		ui_Service->render();
 		player_service->render();
 
-
-		//this is where i want render the circle.
 	}
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
+	UIService* ServiceLocator::getUIService() { return ui_Service;}
 }

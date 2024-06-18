@@ -3,6 +3,7 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
 
+
 namespace UI
 {
     namespace MainMenu
@@ -27,6 +28,7 @@ namespace UI
             {   //if it did then set the bg image and scale it
                 background_sprite.setTexture(background_texture);
                 scaleBackgroundImage();
+                
             }
         }
 
