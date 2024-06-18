@@ -32,6 +32,8 @@ namespace UI
 			sf::Texture quit_button_texture;
 			sf::Sprite quit_button_sprite;
 
+			void processButtonInteractions();
+			bool clickedButton(sf::Sprite*, sf::Vector2f);
 			// Since this is a single image, we can check if it loaded or not during initialization
 			void initializeBackgroundImage();
 			void scaleBackgroundImage();

@@ -22,6 +22,40 @@ namespace UI
             initializeButtons();
         }
 
+        /*
+    // First we get the location of the mouse on our screen.
+    // If we register a click while the mouse is above a button,
+    // then we do something based on which button it is
+    // we will call processButtonInteractions() on update.
+    */
+        void MainMenuUIController::processButtonInteractions()
+        {
+            sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+            if (clickedButton(&play_button_sprite, mouse_position))
+            {
+                GameService::setGameState(GameState::GAMEPLAY);
+            }
+
+            if (clickedButton(&instructions_button_sprite, mouse_position))
+            {
+                printf("Clicked Instruction Button \\n");
+            }
+
+            if (clickedButton(&quit_button_sprite, mouse_position))
+                game_window->close();
+        }
+
+        /*
+        // This checks if the use left clicked on a sprite and then returns
+        // true if the click happened while the mouse was overlapping with the
+        // sprite.
+        */
+        bool MainMenuUIController::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+        {
+            Event::EventService* event_service = Global::ServiceLocator::getInstance()->getEventService();
+            return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
+        }
         void MainMenuUIController::initializeBackgroundImage()
         {   //check if a texture loaded properly
             if (background_texture.loadFromFile(background_texture_path))
@@ -58,7 +92,7 @@ namespace UI
         // only returns true if all tectures are loaded
         bool MainMenuUIController::loadButtonTexturesFromFile()
         {
-            return play_button_texture.loadFromFile(play_button_texture_path) &&
+                return play_button_texture.loadFromFile(play_button_texture_path) &&
                 instructions_button_texture.loadFromFile(instructions_button_texture_path) &&
                 quit_button_texture.loadFromFile(quit_button_texture_path);
         }
@@ -96,7 +130,7 @@ namespace UI
         }
         void MainMenuUIController::update()
         {
-
+            processButtonInteractions();
         }
 
         void MainMenuUIController::render()

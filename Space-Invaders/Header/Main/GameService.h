@@ -17,6 +17,7 @@ namespace Main
         Global::ServiceLocator* service_locator;
         sf::RenderWindow* game_window;
         static GameState current_state;
+        void showMainMenu();
         void initialize();
         void initializeVariables(); // Handles game initialization.
         void destroy(); // Handles cleanup tasks.

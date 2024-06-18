@@ -20,6 +20,10 @@ namespace Main
     {
         destroy(); // Clean up and release resources
     }
+    void GameService::showMainMenu()
+    {
+        setGameState(GameState::MAIN_MENU);
+    }
 
     // Prepares the game service for use by obtaining the service locator instance and initializing services.
     void GameService::ignite()
@@ -33,6 +37,7 @@ namespace Main
     {
         service_locator->initialize();
         initializeVariables();
+        showMainMenu();
       
     }
 

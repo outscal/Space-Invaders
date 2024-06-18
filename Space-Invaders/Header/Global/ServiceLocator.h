@@ -16,10 +16,12 @@ namespace Global {
     private:
 
         Graphic::GraphicService* graphic_service;
+        UI::UIService* ui_Service;
         Event::EventService* event_service;
         Player::PlayerService* player_service;
         Time::TimeService* time_service;
-        UI::UIService* ui_Service;
+        
+        
 
         // Private Attributes:
         // - event_service: Manages event-related functionalities.
@@ -50,10 +52,12 @@ namespace Global {
         void update(); 				//	Updates all services.
         void render(); 				//	Renders using the services.
         Graphic::GraphicService* getGraphicService();
+        UI::UIService* getUIService();
         Event::EventService* getEventService();
         Player::PlayerService* getPlayerService();
         Time::TimeService* getTimeService();
-        UI::UIService* getUIService();
+      
+      
 
         // Methods to Get Specific Services: 
           // Retrieve the EventService instance
