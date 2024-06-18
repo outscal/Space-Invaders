@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+//comment in order to make new commit
+// 
 //Creating empty player class below
 class Player {
     private: // private access modifier
