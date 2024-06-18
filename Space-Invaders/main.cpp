@@ -1,8 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-//comment in order to make new commit
-// 
 //Creating empty player class below
 class Player {
     private: // private access modifier
@@ -25,7 +23,19 @@ class Player {
             player_score = newScore;
         }
         void takeDamage() {};
-        void move() {};
+
+        void move(float offsetX) {
+            position.x += offsetX;
+        }
+
+        int getMoveSpeed() {
+            return movement_speed;
+        }
+
+        sf::Vector2f getPosition() {
+            return position;
+        }
+
         void shootBullets() {}
 };
 
@@ -51,10 +61,10 @@ class Player {
 
             // Handle keyboard input
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-                player.move();
+                player.move(-1.0f*player.getMoveSpeed());
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-                player.move();
+                player.move(-1.0f*player.getMoveSpeed());
             }
 
             // Clear the window
