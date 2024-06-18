@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-#include <SFML/Graphics.hpp>
+
 
 // namespace sf {
     
@@ -26,6 +24,7 @@ using namespace std;
 //void gameloop() {
     
 //}
+#include <SFML/Graphics.hpp>
 
 
 
@@ -43,14 +42,15 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        }
-    window.setFramerateLimit(60);
 
+        // window.setFramerateLimit(60);
+        window.display();
 
         window.clear(sf::Color::Blue);
+    }
 
        
-        window.display();
+      
 
 
     return 0;
