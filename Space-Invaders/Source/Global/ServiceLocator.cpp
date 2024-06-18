@@ -74,6 +74,7 @@ namespace Global
 		
 		player_service->render();
 		ui_service->render();
+		
 	}
 
 	// Returns a pointer to the currently set graphic service.

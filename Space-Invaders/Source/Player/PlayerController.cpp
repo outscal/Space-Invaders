@@ -5,7 +5,9 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include <algorithm>
 
+using namespace Event;
 using namespace Global;
+
 
 PlayerController::PlayerController() 
 {
@@ -54,6 +56,17 @@ sf::Vector2f PlayerController::getPlayerPosition()
 
 void PlayerController::processPlayerInput()
 {
+	EventService* event_service = ServiceLocator::getInstance()->getEventService();
+
+	if (event_service->pressedLeftKey() || event_service->pressedAKey())
+	{
+		moveLeft();
+	}
+
+	if (event_service->pressedRightKey() || event_service->pressedDKey())
+	{
+		moveRight();
+	}
 	// we will move this to event service at a later time
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
 	{
