@@ -19,6 +19,8 @@ namespace Global
         // Private Attributes:
         Graphic::GraphicService* graphic_service;
 
+        UI::UIService* ui_service;
+
         Event::EventService* event_service;
 
         Player::PlayerService* player_service;
@@ -43,6 +45,7 @@ namespace Global
 
         // Methods to Get Specific Services: 
         Graphic::GraphicService* getGraphicService();
+        UI::UIService* getUIService();
         Event::EventService* getEventService();
         Player::PlayerService* getPlayerService();
         Time::TimeService* getTimeService();

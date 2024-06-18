@@ -3,7 +3,7 @@
 
 namespace UI
 {
-	using namespace Main;
+	//using namespace Main;
 	using namespace MainMenu;
 
 	UIService::UIService()
@@ -16,6 +16,7 @@ namespace UI
 	void UIService::createControllers()
 	{
 		main_menu_controller = new MainMenuUIController();
+		
 	}
 
 	UIService::~UIService()
@@ -30,10 +31,12 @@ namespace UI
 
 	void UIService::update()
 	{
+		main_menu_controller->update();
 	}
 
 	void UIService::render()
 	{
+		main_menu_controller->render();
 	}
 
 	void UIService::initializeControllers()
@@ -43,6 +46,8 @@ namespace UI
 
 	void UIService::destroy()
 	{
+		
 		delete(main_menu_controller);
+		
 	}
 }
