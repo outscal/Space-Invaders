@@ -10,7 +10,7 @@ namespace Bullet
 	public:
 
 		virtual void initialize(sf::Vector2f position,Bullet::MovementDirection dirction) = 0;
-		virtual void updateProjectile() = 0;
+		virtual void updateProjectilePosition() = 0;
 		virtual sf::Vector2f getProjectilePosition() = 0;
 
 		virtual void update() = 0;
