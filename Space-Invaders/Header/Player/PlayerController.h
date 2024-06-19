@@ -7,13 +7,14 @@ namespace Player
 	enum class PlayerState;
 	class PlayerModel;
 	class PlayerView;
+	
 
 	class PlayerController
 	{
 	private:
 		PlayerView* player_view;
 		PlayerModel* player_model;
-
+		
 		void processPlayerInput();
 		void moveLeft();
 		void moveRight();

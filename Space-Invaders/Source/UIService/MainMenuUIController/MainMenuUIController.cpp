@@ -48,7 +48,7 @@ namespace UI
 		{
 			if (loadButtonTextureFromFile())
 			{
-				//printf("initalizing buttons \\n");
+				//printf("initalizing buttons \n");
 				setButtonSprites();
 				scaleAllButtons();
 				positionButtons();
@@ -64,7 +64,7 @@ namespace UI
 
 		void MainMenuUIController::setButtonSprites()
 		{
-			printf("initalizing buttons \\n");
+			printf("initalizing buttons ");
 			play_button_sprite.setTexture(play_button_texture);
 			instructions_button_sprite.setTexture(instructions_button_texture);
 			quit_button_sprite.setTexture(quit_button_texture);

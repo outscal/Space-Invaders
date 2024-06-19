@@ -8,11 +8,13 @@
 namespace Player
 {
 	using namespace Global;
+	using namespace Event;
 
 	PlayerController::PlayerController()
 	{
 		player_view = new PlayerView();
 		player_model = new PlayerModel();
+		
 
 	}
 	PlayerController::~PlayerController()
@@ -25,6 +27,8 @@ namespace Player
 	{
 		player_model->initialize();
 		player_view->initialize(this);
+
+		
 	}
 
 	void PlayerController::update()
@@ -45,11 +49,13 @@ namespace Player
 
 	void PlayerController::processPlayerInput()
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		EventService* event_service = ServiceLocator::getInstance()->getEventService();
+
+		if (event_service->pressedLeftKey() || event_service->pressedAKey())
 		{
 			moveLeft();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		if (event_service->pressedRightKey() || event_service->pressedDKey())
 		{
 			moveRight();
 		}
