@@ -9,7 +9,7 @@ namespace Bullet
 	class BulletModel;
 	enum class BulletType;
 
-	class  BulletController : public IProjectile::IProjectile
+	class  BulletController : public IProjectile
 	{
 		
 	protected:
