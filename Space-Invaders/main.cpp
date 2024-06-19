@@ -65,12 +65,32 @@ int main() {
                 window.close();
         }
 
+     sf::Texture outscal_texture;                                           // sf::Texture.texture
+    outscal_texture.loadFromFile("assets/textures/outscal_logo.png");      // texture.loadfromfile(pathtoimage.png)
+
+    sf::Sprite outscal_sprite;                                             // sf::Sprite sprite;
+    outscal_sprite.setTexture(outscal_texture);                            //  sprite.setTexture(texture);
+
+    // set its position, rotation, scale:
+    outscal_sprite.setPosition(100, 200);
+    outscal_sprite.setRotation(45);
+    outscal_sprite.setScale(0.5, 0.5);
+
+    sf::Font font;
+    font.loadFromFile("assets/fonts/bubbleBobble.ttf");
+    sf::Text text("SFML is Awesome!", font, 50);
+    text.setFillColor(sf::Color::White);
+
+
+
         // window.setFramerateLimit(60);
         window.display();
         window.clear(sf::Color::Blue);
         window.draw(circle);
         window.draw(square);
         window.draw(triangle);
+        window.draw(outscal_sprite);
+        window.draw(text);
      
     }
 
