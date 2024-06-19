@@ -35,12 +35,25 @@ int main() {
 
     sf::RenderWindow window(videoMode, "SFML Window");
 
-    // Draw a circle
+    // Draw a  green circle
     sf::CircleShape circle(50); // Radius 50
 
-    circle.setFillColor(sf::Color::Red);
-    circle.setPosition(400, 300); // Set position
-    window.draw(circle);
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition(window.getSize().x/2 - circle.getRadius(), window.getSize().y / 2 - circle.getRadius()); // Set position
+
+    //Draw a red square
+    sf::RectangleShape square(sf::Vector2f(100.f, 100.f)); // equal width and height
+    square.setFillColor(sf::Color::Red);
+    square.setPosition(window.getSize().x/6, window.getSize().y/6); //setting the position
+  //   square.setPosition(100,250);
+
+    //Draw a triangle
+    sf::ConvexShape triangle;
+    triangle.setPointCount(3);
+    triangle.setPoint(0, sf::Vector2f(600.f, 200.f));
+    triangle.setPoint(1, sf::Vector2f(500.f, 400.f));
+    triangle.setPoint(2, sf::Vector2f(700.f, 400.f));
+    triangle.setFillColor(sf::Color::Magenta);
 
   //  gameloop();
 
@@ -56,6 +69,8 @@ int main() {
         window.display();
         window.clear(sf::Color::Blue);
         window.draw(circle);
+        window.draw(square);
+        window.draw(triangle);
      
     }
 
