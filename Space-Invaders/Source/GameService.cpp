@@ -1,53 +1,56 @@
 #include "../Header/GameService.h"
+#include "../Header/GraphicService.h"
 
-int Add(int x, int y) //same function declaration as our header
+//Constructor: Initializes pointers to null.
+GameService::GameService()
 {
-	int z = x + y; //the body or the definition.
-
-	return z;
+	service_locator = nullptr; // Set service locator to null
+	game_window = nullptr; // Set game window to null
 }
 
+//Destructor: Calls the destroy function to clean up resources
+GameService::~GameService(){
+destroy(); // Clean up and release resources
+}
 
-// Start the Game:
-	// Initialize all necessary game elements when game starts
+//Prepares the game service for use by obtaining the service locator instance and initializing services
+void GameService::ignite() {
+	service_locator = ServiceLocator::getInstance(); // Get ServiceLocator
+	initialize(); // Initialize services.
+}
 
-// While the game is running, keep iterating the game loop:
-	// Fetch Player Inputs
-	// Update all game logic for this frame according to fetched inputs
-	// Draw all game objects on the game window after they are updated.
-
-// If game ends or is stopped:
-	// Clean up all resources
-
+//initialize service locator and other variables
 void GameService::initialize()
-{ //This gets everything running
+{
+	service_locator->initialize();
+	initializeVariables();
+}
+
+void GameService::initializeVariables()
+{
+	game_window = service_locator->getGraphicService()->getGameWindow(); //set game window, was null before this
 }
 
 void GameService::destroy()
-{ // This probably cleans up resources (memory, etc)
+{
+	//Don't need to do anything here for the time being.
 }
 
-GameService::GameService()
-{ // This is a constructor
+//Updates the game logic by delegating to the service locator's update method.
+void GameService::update() {
+	service_locator->update(); // Call update on the service locator which then updates all its managed services
 }
 
-GameService::~GameService()
-{ // This is a deconstructor
+// Clears the window then displays it.
+void GameService::render() {
+	//Clears the game window with the background color provided by the graphic service
+	game_window->clear(service_locator->getGraphicService()->getWindowColor());
+	service_locator->render(); // Render the current frame using the service locator
+	game_window->display(); // Display the rendered frame on the game window
 }
 
-void GameService::ignite()
-{ // This gets the game started
-}
-
-void GameService::update()
-{ // This updates game logic and/or states
-}
-
-void GameService::render()
-{ // This renders each frame of the game
-}
-
-bool GameService::isRunning()
-{ //This checks to see if the game is running
-	return false; //This was the default return value
+//Checks if the game is still running by querying the graphic service's window status
+bool GameService::isRunning() {
+	//Returns true if the game window is open, indicating the game is still running
+	return service_locator->getGraphicService()->isGameWindowOpen();
 }

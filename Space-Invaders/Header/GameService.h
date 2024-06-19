@@ -1,12 +1,16 @@
 #pragma once
-
-// we declare a function that returns an integer and takes two int arguments. -declaration
-// we say nothing about what it actually does.
+#include <SFML/Graphics.hpp>
+#include "../Header/ServiceLocator.h"
 
 class GameService
 {
 private:
+
+	ServiceLocator* service_locator;
+	sf::RenderWindow* game_window;
+
 	void initialize(); //Handles game initialization.
+	void initializeVariables(); //Handles game initialization
 	void destroy(); // Handles cleanup tasks
 
 public:

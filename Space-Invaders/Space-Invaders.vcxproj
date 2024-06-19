@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>#include "../Header/GameService.h"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
       <AdditionalHeaderUnitDependencies>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>#include "../Header/GameService.h"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
       <AdditionalHeaderUnitDependencies>
@@ -149,10 +149,12 @@
       </AdditionalHeaderUnitDependencies>
     </ClCompile>
     <ClCompile Include="Source\GameService.cpp" />
+    <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\GameService.h" />
+    <ClInclude Include="Header\GraphicService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

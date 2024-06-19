@@ -1,34 +1,54 @@
-#include "ServiceLocator.h"
+#include "../Header/ServiceLocator.h"
 
+//Constructor: Initializes the graphic_service pointer to null and creates services
 ServiceLocator::ServiceLocator()
-{ //This is a constructor
+{
+	graphic_service = nullptr; // Initialize graphic_service to null
+	createServices(); //Call createServices to instantiate services
 }
 
-ServiceLocator::~ServiceLocator()
-{ // This is a deconstructor
+//Destructor: Cleans up resources by clearing all services
+ServiceLocator::~ServiceLocator(){
+	clearAllServices(); // Call clearAllServices to delete any allocated services
 }
 
+// Creates services instances, specifically the graphic service in this case.
 void ServiceLocator::createServices()
-{ // Creates an instance of all services
+{
+	graphic_service - new GraphicService(); // Dynamically create a GraphicService instance
 }
 
+//Deletes allocated services to prevent memory leaks. In this case, the graphic service.
 void ServiceLocator::clearAllServices()
-{ //Clears and deallocates memory for all services
+{
+	delete(graphic_service); // Delete the graphic_service instance
+	graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
 }
 
+//Returns a pointer to ServiceLocator.
 ServiceLocator* ServiceLocator::getInstance()
 {
-	//allows us to access the unique ServiceLocator instance (object).
+	static ServiceLocator instance; 
+	return &instance;
 }
 
+// Calls initialize on the graphic service, readying it for use.
 void ServiceLocator::initialize()
-{ // Initializing service locator
+{
+	graphic_service->initialize(); //initializes graphic service
 }
 
+//updates the state of the graphic service
 void ServiceLocator::update()
-{ //updates all services
+{
+	graphic_service->update(); //Update graphic service
 }
 
+//Renders using the graphic service
 void ServiceLocator::render()
-{ //Renders using all services 
+{
+	graphic_service->render(); //Render graphic service
 }
+
+// Returns a pointer to the currently set graphic service
+GraphicService* ServiceLocator::getGraphicService() {return graphic_service;}
