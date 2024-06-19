@@ -30,8 +30,12 @@ namespace Enemy
 
 	void EnemyController::update()
 	{
-		enemy_view->update();
+		updateFireTime();
+		processFireTime();
+	
 		move();
+		enemy_view->update();
+		handleOutOfBounds();
 	}
 
 	void EnemyController::render()
@@ -128,6 +132,20 @@ namespace Enemy
 		if (enemy_position.x < 0 || enemy_position.x > windowSize.x || enemy_position.y < 0 || enemy_position.y > windowSize.y) {
 			ServiceLocator::getInstance()->getEnemyService()->destroyEnemy(this);
 		}
+	}
+	void EnemyController::updateFireTime()
+	{
+		elapsed_fire_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+	void EnemyController::processFireTime()
+	{
+		if (elapsed_fire_duration>= rate_of_fire)
+		{
+			fireBullet(); 
+			elapsed_fire_duration = 0;
+
+		}
+	
 	}
 	EnemyType EnemyController::getEnemyType()
 	{

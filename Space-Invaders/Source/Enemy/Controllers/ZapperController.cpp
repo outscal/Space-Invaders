@@ -21,6 +21,14 @@ namespace Enemy
 		void Enemy::ZapperController::initialize()
 		{
 			EnemyController::initialize();
+			//enemy_model->setMovementDirection(MovementDirection::DOWN);
+			rate_of_fire = 2.f;
+		}
+
+		void ZapperController::fireBullet()
+		{
+			printf("Fire Enemy");
+			ServiceLocator::getInstance()->getBulletService()->spawnBullet(enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset, Bullet::MovementDirection::DOWM, Bullet::BulletType::LASER);
 		}
 
 		void Enemy::ZapperController::move()

@@ -24,6 +24,13 @@ namespace Enemy
 		{
 			EnemyController::initialize();
 			enemy_model->setMovementDirection(MovementDirection::DOWN);
+			rate_of_fire = 1.f;
+		}
+
+		void SubZeroController::fireBullet()
+		{
+			ServiceLocator::getInstance()->getBulletService()->spawnBullet(enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset, Bullet::MovementDirection::DOWM, Bullet::BulletType::LASER);
+
 		}
 
 		void Enemy::SubZeroController::move()

@@ -23,6 +23,7 @@ namespace Player
 		void render();
 
 		sf::Vector2f getPosition();
+	
 
 	private:
 
@@ -32,8 +33,7 @@ namespace Player
 		void processInput();
 		void moveLeft();
 		void moveRight();
-
-
+		void fireBullet();
 
 	};
 

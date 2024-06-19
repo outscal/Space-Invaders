@@ -27,6 +27,8 @@ namespace Player
 
 		PlayerState getPlayerAlive();
 		void setPlayerAlive(PlayerState state);
+		const sf::Vector2f barrel_position_offset = sf::Vector2f(20.f, 5.f);
+
 	private:
 		const sf::Vector2f initial_position = sf::Vector2f(950.f, 950.f);
 

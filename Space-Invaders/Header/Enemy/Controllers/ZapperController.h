@@ -12,6 +12,7 @@ namespace Enemy
 			~ZapperController();
 
 			void initialize() override;
+			void fireBullet() override;
 
 		private:
 			float vertical_travel_distance = 100.f;

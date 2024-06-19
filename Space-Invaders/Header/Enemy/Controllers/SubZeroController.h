@@ -15,7 +15,7 @@ namespace Enemy
 			void initialize() override;
 			/*	void render();
 				void update();*/
-
+			void fireBullet() override;
 
 
 		private:
