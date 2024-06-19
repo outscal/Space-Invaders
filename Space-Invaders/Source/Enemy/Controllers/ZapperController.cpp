@@ -59,7 +59,7 @@ namespace Enemy
 			currentPosition.x += enemy_model->move_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 			if (currentPosition.x >= enemy_model->right_window.x)
 			{
-				std::cout << "Move Down" << endl;
+				//std::cout << "Move Down" << endl;
 				enemy_model->setMovementDirection(MovementDirection::DOWN);
 				enemy_model->setRefPosition(currentPosition);
 			}

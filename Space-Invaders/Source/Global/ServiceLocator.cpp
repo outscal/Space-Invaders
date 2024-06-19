@@ -6,6 +6,7 @@
 #include "../../Header/Time/TimeService.h"
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Element/ElementService.h"
+#include "../../Header/Sound/SoundService.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ namespace Global
 	using namespace Player;
 	using namespace UI;
 	using namespace Main;
+	using namespace Sound;
 
 
 	ServiceLocator::ServiceLocator()
@@ -30,6 +32,7 @@ namespace Global
 		player_service = nullptr;
 		enemy_service = nullptr;
 		element_service = nullptr;
+		sound_service = nullptr;
 
 		createServices();
 	}
@@ -55,6 +58,7 @@ namespace Global
 		player_service->initialize();
 		enemy_service->initialize();
 		element_service->initialize();
+		sound_service->initialize();
 
 
 	}
@@ -125,6 +129,11 @@ namespace Global
 		return element_service;
 	}
 
+	Sound::SoundService* ServiceLocator::getSoundService()
+	{
+		return sound_service;
+	}
+
 	UI::UIService* ServiceLocator::uiService()
 	{
 		return ui_service;
@@ -141,6 +150,7 @@ namespace Global
 		enemy_service = new Enemy::EnemyService();
 		gameplay_service = new Gameplay::GameplayService();
 		element_service = new Element::ElementService();
+		sound_service = new Sound::SoundService();
 
 	}
 
@@ -154,6 +164,7 @@ namespace Global
 		delete(enemy_service);
 		delete(gameplay_service);
 		delete(element_service);
+		delete(sound_service);
 
 		
 

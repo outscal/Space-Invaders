@@ -4,6 +4,7 @@
 #include "../../Header/Main/GameService.h";
 #include "../../Header/Global/Config.h"
 #include "../../Header/Event/EventService.h"
+#include "../../Header/Sound/SoundService.h"
 
 
 namespace UI
@@ -14,6 +15,7 @@ namespace UI
 		using namespace Event;
 		using namespace Graphic;
 		using namespace Main;
+		using namespace Sound;
 
 		MainMenuUIController::MainMenuUIController()
 		{
@@ -104,17 +106,23 @@ namespace UI
 		{
 			sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 			if (buttonClick(&play_button_sprite, mouse_position))
-			{
-				
+			{	
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+				ServiceLocator::getInstance()->getSoundService()->backgroundSound();
 				GameService::setGameState(GameState::GAMEPLAY);
 			}
 			if (buttonClick(&instruction_button_sprite, mouse_position))
 			{
 				printf("Instruction Button Clicked \\n");
+		
+				//Sound::SoundType::BUTTON_CLICK;
+
 			}
 			if (buttonClick(&quit_button_sprite, mouse_position))
 			{
 				game_window->close();
+				Sound::SoundType::BUTTON_CLICK;
+
 			}
 			
 		}
@@ -122,7 +130,7 @@ namespace UI
 		bool MainMenuUIController::buttonClick(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
 		{
 			Event::EventService* event_service = ServiceLocator::getInstance()->getEventService();
-			printf("Button click");
+			//printf("Button click");
 			return event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
 		}
 
