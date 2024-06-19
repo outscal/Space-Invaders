@@ -15,6 +15,17 @@ namespace Bullet
 		void update();
 		void render();
 
+		float getMovementSpeed();
+		sf::Vector2f getPosition();
+		BulletType getBulletType();
+		MovementDirection getMovementDirection();
+
+		void setPosition(sf::Vector2f psoition);
+		void setMovementSpeed(float speed);
+		void setMovementDirection(MovementDirection direction);
+		void setBulletType(BulletType type);
+
+
 	private:
 		float movement_speed = 300.f;
 		sf::Vector2f bullet_position;
@@ -22,17 +33,7 @@ namespace Bullet
 		BulletType bullet_type;
 		MovementDirection movement_type;
 
-		float getMovementSpeed();
-		void setMovementSpeed(float speed);
-
-		sf::Vector2f getPosition();
-		void setPosition(sf::Vector2f psoition);
-
-		BulletType getBulletType();
-		void setBulletType(BulletType type);
-
-		MovementDirection getMovementDirection();
-		void setMovementDirection(MovementDirection direction);
+	
 	};
 }
 
