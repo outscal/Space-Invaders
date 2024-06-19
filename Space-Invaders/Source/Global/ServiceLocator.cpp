@@ -1,4 +1,5 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
 
 namespace Global
 {
@@ -8,14 +9,17 @@ namespace Global
 	using namespace Player;
 	using namespace Event;
 	using namespace UI;
+	using namespace Main;
+	using namespace Enemy;
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
 	ServiceLocator::ServiceLocator() {
 		graphic_service = nullptr; // Initialize graphic_service to null
-		ui_service = nullptr;
 		time_service = nullptr;
 		event_service = nullptr;
 		player_service = nullptr;
+		ui_service = nullptr;
+		enemy_service = nullptr;
 		createServices(); // Call createServices to instantiate services
 	}
 
@@ -31,6 +35,7 @@ namespace Global
 		time_service = new TimeService();
 		event_service = new EventService();
 		player_service = new PlayerService();
+		enemy_service = new EnemyService();
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -40,6 +45,7 @@ namespace Global
 		delete(time_service);
 		delete(event_service);
 		delete(player_service);
+		delete(enemy_service);
 
 		graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
 	}
@@ -57,22 +63,37 @@ namespace Global
 		time_service->initialize();
 		event_service->initialize();
 		player_service->initialize();
+		enemy_service->initialize();
 	}
 
 	// Updates the state of the graphic service.
-	void ServiceLocator::update() {
-		graphic_service->update(); // Update graphic service
-		ui_service->update();
+	void ServiceLocator::update()
+	{
+		graphic_service->update();
 		time_service->update();
 		event_service->update();
-		player_service->update();
+
+		//Only update if the game state is correct
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+			enemy_service->update();
+		}
+
+		ui_service->update();
+
 	}
 
 	// Renders using the graphic service.
-	void ServiceLocator::render() {
-		graphic_service->render(); // Render graphic service
+	void ServiceLocator::render()
+	{
+		graphic_service->render();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+			enemy_service->render();
+		}
 		
-		player_service->render();
 		ui_service->render();
 		
 	}
@@ -83,6 +104,7 @@ namespace Global
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
+	EnemyService* ServiceLocator::getEnemyService() { return enemy_service; }
 
 }
 
