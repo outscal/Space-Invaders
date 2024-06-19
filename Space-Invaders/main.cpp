@@ -34,7 +34,16 @@ int main() {
     sf::VideoMode videoMode = sf::VideoMode(800, 600);
 
     sf::RenderWindow window(videoMode, "SFML Window");
+
+    // Draw a circle
+    sf::CircleShape circle(50); // Radius 50
+
+    circle.setFillColor(sf::Color::Red);
+    circle.setPosition(400, 300); // Set position
+    window.draw(circle);
+
   //  gameloop();
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -45,8 +54,9 @@ int main() {
 
         // window.setFramerateLimit(60);
         window.display();
-
         window.clear(sf::Color::Blue);
+        window.draw(circle);
+     
     }
 
        
