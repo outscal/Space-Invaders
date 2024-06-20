@@ -46,15 +46,14 @@ int main()
     sf::RenderWindow window(videomode, "SFML Window");
     Player player;
 
-    sf::Texture playership;
-    playership.loadFromFile("assets/textures/player_ship.png");
-    sf::Sprite playershipsprite;
-    playershipsprite.setTexture(playership);                                // sprite.setTexture(texture);
+    player.playershiptexture.loadFromFile("assets/textures/player_ship.png");
+   
+    player.playershipsprite.setTexture(player.playershiptexture);                                // sprite.setTexture(texture);
     // set position, rotation, scale and more
 
-    playershipsprite.setPosition(300, 450);
-    playershipsprite.setRotation(0);
-    playershipsprite.setScale(1, 1); 
+    player.playershipsprite.setPosition(300, 450);
+    player.playershipsprite.setRotation(0);
+    player.playershipsprite.setScale(1, 1); 
     cout << "Player score is " << player.getScore() << endl;;
     player.setScore(100);
     cout <<"New player score: "<<player.getScore() << endl;
@@ -84,7 +83,7 @@ int main()
             //Clear the window
             window.clear(sf::Color::Blue);
             //Draw assets
-            window.draw(playershipsprite);
+            window.draw(player.playershipsprite);
             //Display window to display whatever drawn
             window.display();
         }
