@@ -1,7 +1,6 @@
 #include "../../Header/Enemy/EnemyController.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Enemy/EnemyView.h"
-#include "../../Header/Event/EventService.h"
 #include "../../Header/Global/ServiceLocator.h"
 
 
@@ -34,8 +33,11 @@ namespace Enemy
 
 	}
 
+	
+
 	void EnemyController::update()
 	{
+		// call move() in update.
 		move();
 		enemy_view->update();
 	}
@@ -45,6 +47,8 @@ namespace Enemy
 		enemy_view->render();
 	}
 
+
+	//switch between move functions based on move dir state
 	void EnemyController::move()
 	{
 		switch (enemy_model->getMovementDirection())
@@ -63,33 +67,39 @@ namespace Enemy
 		}
 	}
 
-	void EnemyController::moveRight()
-	{
-		sf::Vector2f currentPosition = enemy_model->getEnemyPosition(); //get enemy pos
-		currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime(); //move
-
-		if (currentPosition.x >= enemy_model->right_most_position.x) //check if we reached right most pos
-		{
-			enemy_model->setMovementDirection(MovementDirection::DOWN); // move
-			enemy_model->setReferencePosition(currentPosition);// set ref pos
-		}
-		else enemy_model->setEnemyPosition(currentPosition); //if we have not reached right most pos continue moving right
-	}
 
 	void EnemyController::moveLeft()
 	{
-		sf::Vector2f currentPosition = enemy_model->getEnemyPosition(); //get enemy pos
-		currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime(); //move
+		// Get current pos
+		// Move left by multiplying by speed and delta time
+		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
+		currentPosition.x -= enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-		if (currentPosition.x >= enemy_model->left_most_position.x) //check if we reached right most pos
+		//check for bounds
+		if (currentPosition.x <= enemy_model->left_most_position.x)
 		{
-			enemy_model->setMovementDirection(MovementDirection::DOWN); // move
-			enemy_model->setReferencePosition(currentPosition);// set ref pos
+			//if reached the left most pos
+			//start moving down
+			//set ref pos for the downwards movement
+			enemy_model->setMovementDirection(MovementDirection::DOWN);
+			enemy_model->setReferencePosition(currentPosition);
 		}
-		else enemy_model->setEnemyPosition(currentPosition); //if we have not reached right most pos continue moving right
+		else enemy_model->setEnemyPosition(currentPosition);
 	}
 
-	
+	void EnemyController::moveRight()
+	{
+		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
+		currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+		if (currentPosition.x >= enemy_model->right_most_position.x)
+		{
+			enemy_model->setMovementDirection(MovementDirection::DOWN);
+			enemy_model->setReferencePosition(currentPosition);
+		}
+		else enemy_model->setEnemyPosition(currentPosition);
+	}
+
 	void EnemyController::moveDown()
 	{
 		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
@@ -105,10 +115,8 @@ namespace Enemy
 		else enemy_model->setEnemyPosition(currentPosition);
 	}
 
-	
 	sf::Vector2f EnemyController::getEnemyPosition()
 	{
 		return enemy_model->getEnemyPosition();
 	}
-
 }
