@@ -9,6 +9,7 @@ private:
     int playerScore = 0;
     int health = 1;
     int movementSpeed = 10;
+    sf::Vector2f position = sf::Vector2f(300.0f, 450.0f);
 
 
 public:
@@ -18,9 +19,17 @@ public:
     int getScore()
     {
         return playerScore;
-      }
+    }
     void setScore(int newScore) {
         playerScore = newScore;
+    }
+    int getMoveSpeed()
+    {
+        return movementSpeed;
+    }
+    void setMoveSpeed(int newMoveSpeed)
+    {
+        movementSpeed = newMoveSpeed;
     }
 
     void takeDamage() {
@@ -28,13 +37,19 @@ public:
         cout << "Player took damage" << endl;
     };
 
-    void move() {
-       cout<<"Player is moving" << endl;
+    void move(float offsetX) {
+        position.x += offsetX;
     };
 
     void shootBullets() {
         cout << "Player is shooting bullets" << endl;
     };
+
+    sf::Vector2f getPosition()
+    {
+        return position;
+    }
+
 
    
 };
@@ -51,7 +66,7 @@ int main()
     player.playershipsprite.setTexture(player.playershiptexture);                                // sprite.setTexture(texture);
     // set position, rotation, scale and more
 
-    player.playershipsprite.setPosition(300, 450);
+   // player.playershipsprite.setPosition(300, 450);
     player.playershipsprite.setRotation(0);
     player.playershipsprite.setScale(1, 1); 
     cout << "Player score is " << player.getScore() << endl;;
@@ -71,17 +86,19 @@ int main()
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
             {
 
-                player.move();
+                player.move(-1.0f * player.getMoveSpeed());
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
             {
 
-                player.move();
+                player.move(1.0f * player.getMoveSpeed());
             }
 
 
             //Clear the window
             window.clear(sf::Color::Blue);
+
+            player.playershipsprite.setPosition(player.getPosition());
             //Draw assets
             window.draw(player.playershipsprite);
             //Display window to display whatever drawn
