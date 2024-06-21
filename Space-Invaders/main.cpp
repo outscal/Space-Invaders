@@ -3,7 +3,7 @@
 using namespace std;
 #include <SFML/Graphics.hpp>
 
-class Player {
+/* class Player {
 
 private:
     int playerScore = 0;
@@ -52,11 +52,11 @@ public:
 
 
    
-};
+};  */
 
 int main()
 {
-    //render a blue colored window
+    /* //render a blue colored window
     sf::VideoMode videomode = sf::VideoMode(800, 600);
     sf::RenderWindow window(videomode, "SFML Window");
     Player player;
@@ -106,7 +106,7 @@ int main()
         }
 
 
-    }
+    } */
 
     return 0;
 }
