@@ -1,10 +1,10 @@
 #include "../Header/ServiceLocator.h"
 
-
 // Constructor: Initializes the graphic_service pointer to null and creates services.
 ServiceLocator::ServiceLocator() {
-	graphic_service = nullptr; // Initialize graphic_service to null
-	event_service = nullptr;
+	graphic_service = nullptr; // Initialize graphic_service to null.
+	event_service = nullptr; // Initialize event_service to null.
+	//
 	createServices(); // Call createServices to instantiate services
 }
 
@@ -15,14 +15,13 @@ ServiceLocator::~ServiceLocator() {
 
 // Creates service instances, specifically the graphic service in this case.
 void ServiceLocator::createServices() {
-	graphic_service = new GraphicService(); // Dynamically create a GraphicService instance
-	event_service = new EventService();
+	graphic_service = new GraphicService();// Dynamically create a GraphicService instance
+	event_service = new EventService(); // Dynamically create a EventService instance
 }
 
 // Deletes allocated services to prevent memory leaks, specifically the graphic service.
 void ServiceLocator::clearAllServices() {
-	delete(graphic_service); // Delete the graphic_service instance
-	graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
+	delete(graphic_service);// Delete the graphic_service instance
 	delete(event_service);
 }
 
@@ -34,14 +33,15 @@ ServiceLocator* ServiceLocator::getInstance() {
 
 // Calls initialize on the graphic service, readying it for use.
 void ServiceLocator::initialize() {
-	graphic_service->initialize(); // Initialize graphic service
-	event_service->initialize();
+	graphic_service->initialize();// Initialize graphic service.
+	event_service->initialize();// Initialize event service.
+
 }
 
 // Updates the state of the graphic service.
 void ServiceLocator::update() {
-	graphic_service->update(); // Update graphic service
-	event_service->update();
+	graphic_service->update();// Update graphic service
+	event_service->update();// Update event service.
 }
 
 // Renders using the graphic service.

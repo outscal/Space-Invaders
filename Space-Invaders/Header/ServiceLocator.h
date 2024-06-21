@@ -23,14 +23,14 @@ private:
     ~ServiceLocator();
 
     // Private Methods:
-    void createServices(); 			// Creates instances of all services.
-    void clearAllServices(); 		//	Deletes and deallocates memory for all services.
+    void createServices(); 	// Creates instances of all services.
+    void clearAllServices();  //	Deletes and deallocates memory for all services.
 
 public:
     // Public Methods:
     static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
 
-    void initialize(); 			//	Initializes the ServiceLocator.
+    void initialize();            //	Initializes the ServiceLocator.
     void update(); 				//	Updates all services.
     void render(); 				//	Renders using the services.
 
