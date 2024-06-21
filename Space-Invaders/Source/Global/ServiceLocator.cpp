@@ -11,6 +11,7 @@ namespace Global
 	using namespace UI;
 	using namespace Main;
 	using namespace Enemy;
+	using namespace Gameplay;
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
 	ServiceLocator::ServiceLocator() {
@@ -20,6 +21,7 @@ namespace Global
 		player_service = nullptr;
 		ui_service = nullptr;
 		enemy_service = nullptr;
+		gameplay_service = nullptr;
 		createServices(); // Call createServices to instantiate services
 	}
 
@@ -36,6 +38,7 @@ namespace Global
 		event_service = new EventService();
 		player_service = new PlayerService();
 		enemy_service = new EnemyService();
+		gameplay_service = new GameplayService();
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -46,6 +49,7 @@ namespace Global
 		delete(event_service);
 		delete(player_service);
 		delete(enemy_service);
+		delete(gameplay_service);
 
 		graphic_service = nullptr; // Reset pointer to null to avoid dangling pointer
 	}
@@ -64,6 +68,7 @@ namespace Global
 		event_service->initialize();
 		player_service->initialize();
 		enemy_service->initialize();
+		gameplay_service->initialize();
 	}
 
 	// Updates the state of the graphic service.
@@ -76,6 +81,7 @@ namespace Global
 		//Only update if the game state is correct
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			gameplay_service->update();
 			player_service->update();
 			enemy_service->update();
 		}
@@ -90,6 +96,7 @@ namespace Global
 		graphic_service->render();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			gameplay_service->render();
 			player_service->render();
 			enemy_service->render();
 		}
@@ -105,6 +112,7 @@ namespace Global
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
 	EnemyService* ServiceLocator::getEnemyService() { return enemy_service; }
+	GameplayService* ServiceLocator::getGameplayService() { return gameplay_service; }
 
 }
 
