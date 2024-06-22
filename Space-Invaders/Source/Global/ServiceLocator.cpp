@@ -1,4 +1,4 @@
-#include "../Header/ServiceLocator.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 
 //Constructor: Initializes the graphic_service pointer to null and creates services
@@ -19,10 +19,10 @@ ServiceLocator::~ServiceLocator(){
 // Creates services instances, specifically the graphic service in this case.
 void ServiceLocator::createServices()
 {
-	graphic_service - new GraphicService(); // Dynamically create a GraphicService instance
-	time_service - new TimeService();
-	event_service - new EventService();
-	player_service - new PlayerService();
+	graphic_service = new GraphicService(); // Dynamically create a GraphicService instance
+	time_service = new TimeService();
+	event_service = new EventService();
+	player_service = new PlayerService();
 	
 }
 
