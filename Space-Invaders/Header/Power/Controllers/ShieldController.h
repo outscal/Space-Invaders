@@ -5,7 +5,7 @@ namespace PowerUp
 {
 	namespace Controller
 	{
-		class ShieldController :public PowerupController
+		class ShieldController : public PowerupController
 		{
 		public:
 			ShieldController(PowerType type);

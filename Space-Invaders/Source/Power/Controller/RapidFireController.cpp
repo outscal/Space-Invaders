@@ -12,5 +12,9 @@ namespace PowerUp
 		{
 		}
 
+		void RapidFireController::onCollected()
+		{
+		}
+
 	}
 }

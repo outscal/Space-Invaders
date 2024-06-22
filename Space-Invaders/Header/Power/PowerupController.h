@@ -1,5 +1,8 @@
 #pragma once
+#include <vector>
+#include <SFML/System/Vector2.hpp>
 #include "../../Header/Collectible/ICollectible.h"
+#include "../../Header/Power/PowerConfig.h"
 namespace PowerUp
 {
 	class PowerupModel;

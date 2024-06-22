@@ -5,7 +5,7 @@ namespace PowerUp
 {
 	namespace Controller
 	{
-		class OutscalBombController:public PowerupController
+		class OutscalBombController: public PowerupController
 		{
 		public:
 			OutscalBombController(PowerType type);

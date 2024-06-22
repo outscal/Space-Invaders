@@ -10,6 +10,9 @@ namespace PowerUp
 		ShieldController::~ShieldController()
 		{
 		}
+		void ShieldController::onCollected()
+		{
+		}
 	}
 }
 

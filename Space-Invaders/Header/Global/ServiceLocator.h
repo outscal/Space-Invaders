@@ -11,6 +11,7 @@
 #include "../../Header/Element/ElementService.h";
 #include "../../Header/Sound/SoundService.h"
 #include "../../Header/Bullet/BulletService.h"
+#include "../../Header/Power/PowerupService.h"
 
 
 namespace Global
@@ -25,6 +26,8 @@ namespace Global
 	class ElementService;
 	class SoundService;
 	class BulletService;
+	class PowerupService;
+
 
 	class ServiceLocator
 	{
@@ -49,6 +52,7 @@ namespace Global
 		Element::ElementService* getElementService();
 		Sound::SoundService* getSoundService();
 		Bullet::BulletService* getBulletService();
+		PowerUp::PowerupService* getPowerupService();
 
 	private:
 		Graphic::GraphicService* graphic_service;
@@ -61,6 +65,7 @@ namespace Global
 		Time::TimeService* time_service;
 		Sound::SoundService* sound_service;
 		Bullet::BulletService* bullet_service;
+		PowerUp::PowerupService* powerup_service;
 		void createServices();
 		void clearAllServices();
 

@@ -4,18 +4,19 @@
 #include "../../Header/Collectible/ICollectible.h"
 namespace PowerUp
 {
+	class PowerupController;
+	enum class PowerType;
 	class PowerupService
 	{
-		class PowerupController;
-		enum class PowerType;
+	
 	public:
 		PowerupService();
 		virtual ~PowerupService();
 
+		void initialize();
 		void update();
 		void render();
-		PowerupController* spawnPowerUp(PowerType type, sf::Vector2f position);
-		//PowerupController* spawnPowerUp(PowerType type,sf::Vector2f position);
+		PowerupController* spawnPowerUp(sf::Vector2f position, PowerType type);
 		void destroyPowerup(PowerupController* powerup_controller);
 
 	private:

@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Header//Bullet/BulletConfig.h"
+#include "../../Header/Bullet/BulletConfig.h"
 #include <SFML/System/Vector2.hpp>
 
 namespace Bullet

@@ -5,7 +5,7 @@ namespace PowerUp
 {
 	namespace Controller
 	{
-		class RapidFireController:public PowerupController
+		class RapidFireController: public PowerupController
 		{
 		public:
 			RapidFireController(PowerType type);

@@ -5,7 +5,7 @@ namespace PowerUp
 {
 	namespace Controller
 	{
-		class TripleLaserController :public PowerupController
+		class TripleLaserController : public PowerupController
 		{
 		public:
 			TripleLaserController(PowerType type);
