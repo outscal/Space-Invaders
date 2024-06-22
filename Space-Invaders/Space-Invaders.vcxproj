@@ -190,6 +190,7 @@
     <ClInclude Include="Header\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bunker\BunkerView.h" />
     <ClInclude Include="Header\Enemy\Controllers\SubZeroController.h" />
+    <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemyConfig.h" />
     <ClInclude Include="Header\Enemy\EnemyController.h" />

@@ -41,7 +41,6 @@ namespace Enemy
 	void EnemyController::render()
 	{
 		enemy_view->render();
-		handleOutOfBounds();
 	}
 
 	sf::Vector2f EnemyController::getEnemyPosition()

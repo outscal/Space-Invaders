@@ -28,6 +28,8 @@ namespace PowerUp
 	{
 		UpdatePowerPosition();
 		powerup_view->update();
+		handleOfBounds();
+
 	}
 
 	void PowerupController::render()
