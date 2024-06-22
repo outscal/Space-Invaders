@@ -8,7 +8,7 @@ namespace UI
 		{
 		public:
 			
-			virtual ~IUIController();
+			virtual ~IUIController() {};
 
 			virtual void initialize() =0;
 			virtual void update() =0;

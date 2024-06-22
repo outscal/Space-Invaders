@@ -7,6 +7,7 @@ using namespace std;
 
 namespace UI
 {
+	using namespace Interface;
 	using  namespace MainMenu;
 	using namespace Main;
 	UIService::UIService()
@@ -28,23 +29,40 @@ namespace UI
 
 	void UIService::update()
 	{
-		switch (GameService::getGameState())
+		//switch (GameService::getGameState())
+		//{
+		//	case GameState::MAIN_MENU:
+		//		return main_menu_controller->update();
+		//		break;
+		//}
+		IUIController* ui_controller = getCurrentUIController();
+		if (ui_controller)
 		{
-			case GameState::MAIN_MENU:
-				return main_menu_controller->update();
-				break;
+			ui_controller->update();
 		}
 	}
 
 	void UIService::render()
 	{
-		switch (GameService::getGameState())
+		//switch (GameService::getGameState())
+		//{
+		//case GameState::MAIN_MENU:
+		//	//cout << "Current State";
+		//	return main_menu_controller->render();
+		//	break;
+		//}
+		IUIController* ui_controller = getCurrentUIController();
+		if (ui_controller)
 		{
-		case GameState::MAIN_MENU:
-			//cout << "Current State";
-			return main_menu_controller->render();
-			break;
+			ui_controller->render();
 		}
+
+	}
+
+	void UIService::showScreen()
+	{
+		IUIController* ui_controller = getCurrentUIController();
+		ui_controller->show();
 	}
 
 	
@@ -57,12 +75,24 @@ namespace UI
 	void UIService::initializeController()
 	{
 		//cout << "initializing";
+		IUIController* ui_controller = getCurrentUIController();
 		main_menu_controller->initialize();
 	}
 
 	void UIService::destroyController()
 	{
 		delete(main_menu_controller);
+	}
+
+	 IUIController* UIService::getCurrentUIController()
+	{
+		switch (GameService::getGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller;
+		default:
+			break;
+		}
 	}
 
 }

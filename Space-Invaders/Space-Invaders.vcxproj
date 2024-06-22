@@ -224,8 +224,10 @@
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UIService\MainMenuUIController\MainMenuUIController.h" />
+    <ClInclude Include="Header\UIService\UIController.h" />
     <ClInclude Include="Header\UIService\UIService.h" />
     <ClInclude Include="Header\Enemy\Controllers\UFOController.h" />
+    <ClInclude Include="Header\UIService\interface\IUIController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

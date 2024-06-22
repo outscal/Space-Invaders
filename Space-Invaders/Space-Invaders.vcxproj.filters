@@ -293,5 +293,11 @@
     <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\UIService\interface\IUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UIService\UIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
