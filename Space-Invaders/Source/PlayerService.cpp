@@ -27,19 +27,20 @@ void PlayerService::render()
 	game_window->draw(player_sprite);
 }
 
-void PlayerService::processPlayerInput()
+void PlayerController::processPlayerInput()
 {
-	EventService* event_service = ServiceLocator::getInstance()->getEventService(); //get the event service object created in service locator
+	EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
 	if (event_service->isKeyboardEvent()) //check if a key has been pressed
 	{
 		if (event_service->pressedLeftKey())
 		{
-			move(-1.0f * getMoveSpeed());
+			moveLeft();
 		}
+
 		if (event_service->pressedRightKey())
 		{
-			move(1.0f * getMoveSpeed());
+			moveRight();
 		}
 	}
 }
@@ -52,8 +53,16 @@ void PlayerService::initializePlayerSprite()
 	}
 }
 
-void PlayerService::move(float offsetX) {
-	position.x += offsetX;
+// New movement methods
+void PlayerController::moveLeft()
+{
+	position.x -= movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void PlayerController::moveRight()
+{
+	position.x += movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
 }
 
 //helper functions

@@ -2,6 +2,7 @@
 #include "../Header/GraphicService.h"
 #include "../header/EventService.h"
 #include "../Header/PlayerService.h"
+#include "../Header/TimeService.h"
 
 //ServiceLocator Class Summary: This class manages access to various services in the application. 
 //include relevant headers files as created/needed
@@ -13,6 +14,7 @@ private:
 	EventService* event_service;
 	GraphicService* graphic_service;
 	PlayerService* player_service;
+	TimeService* time_service;
 		// .... and so on
 
 
@@ -39,4 +41,5 @@ public:
 	EventService* getEventService(); // Retrieve the EventService instance
 	GraphicService* getGraphicService(); // Retrieve the GraphicService instance
 	PlayerService* getPlayerService();
+	TimeService* getTimeService();
 };
