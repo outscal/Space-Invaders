@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Power\PowerupController.cpp" />
+    <ClCompile Include="Source\Power\PowerupService.cpp" />
     <ClCompile Include="Source\Bullet\BulletController.cpp" />
     <ClCompile Include="Source\Bullet\BulletModel.cpp" />
     <ClCompile Include="Source\Bullet\BulletService.cpp" />
@@ -201,6 +203,11 @@
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
+    <ClInclude Include="Header\Power\PowerConfig.h" />
+    <ClInclude Include="Header\Power\PowerupController.h" />
+    <ClInclude Include="Header\Power\PowerupModel.h" />
+    <ClInclude Include="Header\Power\PowerupService.h" />
+    <ClInclude Include="Header\Power\PowerupView.h" />
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
