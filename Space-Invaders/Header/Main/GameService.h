@@ -4,6 +4,7 @@
 
 namespace Main
 {
+   
     enum class GameState //create the enum
     {
         BOOT,
@@ -14,7 +15,7 @@ namespace Main
     class GameService
     {
     private:
-        Global::ServiceLocator* service_locator;
+       Global:: ServiceLocator* service_locator;
         sf::RenderWindow* game_window;
         static GameState current_state;
         void showMainMenu();

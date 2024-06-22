@@ -1,9 +1,11 @@
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Graphic/GraphicService.h"
 
+
 namespace Main
 {
     using namespace Global;
+    
     GameState GameService::current_state = GameState::BOOT;
     // Constructor: Initializes pointers to null.
     GameService::GameService()
@@ -28,7 +30,7 @@ namespace Main
     // Prepares the game service for use by obtaining the service locator instance and initializing services.
     void GameService::ignite()
     {
-        service_locator = Global::ServiceLocator::getInstance(); // Get ServiceLocator
+        service_locator =Global:: ServiceLocator::getInstance(); // Get ServiceLocator
         initialize(); // Initialize services.
     }
 
