@@ -1,10 +1,11 @@
 #pragma once
-#include "../../Header/Graphic/GraphicService.h"
-#include "../../Header/Event/EventService.h"
-#include "../../Header/Player/PlayerService.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Time/TimeService.h"
-#include "../../Header/UI/UIService.h"
+#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Event/EventService.h"
+#include "../../header/Player/PlayerService.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Time/TimeService.h"
+#include "../../header/UI/UIService.h"
+#include"../../header/Enemy/EnemyService.h"
 
 // ServiceLocator Class Summary: This class manages access to various services in the application.
 // include relevant headers files
@@ -20,7 +21,7 @@ namespace Global {
         Event::EventService* event_service;
         Player::PlayerService* player_service;
         Time::TimeService* time_service;
-        Enem::EnemyService* enemy_service;
+        Enemy::EnemyService* enemy_service;
 
         
         

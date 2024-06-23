@@ -1,8 +1,10 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Main/GameService.h"
+#include"../../header/Enemy/EnemyService.h"
 #include <iostream>
 
 namespace Global {
+
 	using namespace Main;
 	using namespace Graphic;
 	using namespace Time;
@@ -75,11 +77,8 @@ namespace Global {
 		event_service->update();
 		
 		ui_service->update();
-		if (GameService::getGameState() == GameState::GAMEPLAY)
-		{
-			player_service->update();
-			enemy_service->update();
-		}
+		player_service->update();
+		enemy_service->update();
 
 	}
 	
@@ -88,11 +87,8 @@ namespace Global {
 		graphic_service->render();
 	   
 		ui_service->render();
-		if (GameService::getGameState() == GameState::GAMEPLAY)
-		{
-			player_service->render();
-			enemy_service->render();
-		}
+		player_service->render();
+		enemy_service->render();
 
 	}
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
