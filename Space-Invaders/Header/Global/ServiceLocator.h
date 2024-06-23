@@ -16,10 +16,12 @@ namespace Global {
     private:
 
         Graphic::GraphicService* graphic_service;
-        UI::UIService* ui_Service;
+        UI::UIService* ui_service;
         Event::EventService* event_service;
         Player::PlayerService* player_service;
         Time::TimeService* time_service;
+        Enem::EnemyService* enemy_service;
+
         
         
 
@@ -32,10 +34,10 @@ namespace Global {
         // Private Constructor and Destructor:
 
         // Constructor for initializing the ServiceLocator.
-        ServiceLocator();
+           ServiceLocator();
 
-        // Destructor for cleaning up resources upon object deletion.
-        ~ServiceLocator();
+            // Destructor for cleaning up resources upon object deletion.
+            ~ServiceLocator();
 
         // Private Methods:
 

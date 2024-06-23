@@ -1,22 +1,26 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
 #include <iostream>
 
 namespace Global {
+	using namespace Main;
 	using namespace Graphic;
 	using namespace Time;
 	using namespace Event;
 	using namespace Player;
 	using namespace UI;
+	using namespace Enemy;
 	
 
 
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
-		ui_Service = nullptr;
+		ui_service = nullptr;
 		time_service = nullptr;
 		event_service = nullptr;
 		player_service = nullptr;
+		enemy_service = nullptr;
 		
 		createServices();
 	}
@@ -28,10 +32,11 @@ namespace Global {
 	void ServiceLocator::createServices()
 	{
 		graphic_service = new GraphicService();
-		ui_Service = new UIService();
+		ui_service = new UIService();
 		time_service = new TimeService();
 		event_service = new EventService();
 		player_service = new PlayerService();
+		enemy_service = new EnemyService();
 		
 	}
 
@@ -41,7 +46,7 @@ namespace Global {
 		delete(time_service);
 		delete(event_service);
 		delete(player_service);
-		delete(ui_Service);
+		delete(ui_service);
 	}  
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -57,7 +62,7 @@ namespace Global {
 		time_service->initialize();
 		event_service->initialize();
 		player_service->initialize();
-		ui_Service->initialize();
+		ui_service->initialize();
 
 
 	}
@@ -68,20 +73,31 @@ namespace Global {
 		graphic_service->update();
 		time_service->update();
 		event_service->update();
-		player_service->update();
-		ui_Service->update();
+		
+		ui_service->update();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+			enemy_service->update();
+		}
+
 	}
 	
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
-	    player_service->render();
-		ui_Service->render();
+	   
+		ui_service->render();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+			enemy_service->render();
+		}
 
 	}
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
-	UIService* ServiceLocator::getUIService() { return ui_Service;}
+	UIService* ServiceLocator::getUIService() { return ui_service;}
 }
