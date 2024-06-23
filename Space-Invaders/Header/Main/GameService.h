@@ -4,10 +4,17 @@
 
 namespace Main
 {
+	enum class GameState //create the enum
+	{
+		BOOT,
+		MAIN_MENU,
+		GAMEPLAY,
+	};
+	
 	class GameService
 	{
 	private:
-
+		static GameState current_state; // what is that static keyword??? We will discuss this later.
 		Global::ServiceLocator* service_locator;
 		sf::RenderWindow* game_window;
 
@@ -24,5 +31,7 @@ namespace Main
 		void render(); //renders each frame of the game
 		bool isRunning(); //checks to see if the game is currently running
 
+		static void setGameState(GameState new_state);
+		static GameState getGameState();
 	};
 }
