@@ -2,60 +2,72 @@
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../header/Event/EventService.h"
 
-//Constructor: Initializes pointers to null.
-GameService::GameService()
+namespace Main
+
 {
-	service_locator = nullptr; // Set service locator to null
-	game_window = nullptr; // Set game window to null
-}
+	using namespace Global;
+	using namespace Graphics;
+	using namespace Event;
 
-//Destructor: Calls the destroy function to clean up resources
-GameService::~GameService(){
-destroy(); // Clean up and release resources
-}
+	//Constructor: Initializes pointers to null.
+	GameService::GameService()
+	{
+		service_locator = nullptr; // Set service locator to null
+		game_window = nullptr; // Set game window to null
+	}
 
-//Prepares the game service for use by obtaining the service locator instance and initializing services
-void GameService::ignite() {
-	service_locator = ServiceLocator::getInstance(); // Get ServiceLocator
-	initialize(); // Initialize services.
-}
+	//Destructor: Calls the destroy function to clean up resources
+	GameService::~GameService()
+	{
+		destroy(); // Clean up and release resources
+	}
 
-//initialize service locator and other variables
-void GameService::initialize()
-{
-	service_locator->initialize();
-	initializeVariables();
-}
+	//Prepares the game service for use by obtaining the service locator instance and initializing services
+	void GameService::ignite()
+	{
+		service_locator = ServiceLocator::getInstance(); // Get ServiceLocator
+		initialize(); // Initialize services.
+	}
 
-void GameService::initializeVariables()
-{
-	game_window = service_locator->getGraphicService()->getGameWindow(); //set game window, was null before this
-}
+	//initialize service locator and other variables
+	void GameService::initialize()
+	{
+		service_locator->initialize();
+		initializeVariables();
+	}
 
-void GameService::destroy()
-{
-	//Don't need to do anything here for the time being.
-}
+	void GameService::initializeVariables()
+	{
+		game_window = service_locator->getGraphicService()->getGameWindow(); //set game window, was null before this
+	}
 
-//Updates the game logic by delegating to the service locator's update method.
-void GameService::update()
-{
-	service_locator->getEventService()->processEvents();
+	void GameService::destroy()
+	{
+		//Don't need to do anything here for the time being.
+	}
 
-	// Update Game Logic.
-	service_locator->update();
-}
+	//Checks if the game is still running by querying the graphic service's window status
+	bool GameService::isRunning() {
+		//Returns true if the game window is open, indicating the game is still running
+		return service_locator->getGraphicService()->isGameWindowOpen();
+	}
 
-// Clears the window then displays it.
-void GameService::render() {
-	//Clears the game window with the background color provided by the graphic service
-	game_window->clear(service_locator->getGraphicService()->getWindowColor());
-	service_locator->render(); // Render the current frame using the service locator
-	game_window->display(); // Display the rendered frame on the game window
-}
+	//Updates the game logic by delegating to the service locator's update method.
+	void GameService::update()
+	{
+		service_locator->getEventService()->processEvents();
 
-//Checks if the game is still running by querying the graphic service's window status
-bool GameService::isRunning() {
-	//Returns true if the game window is open, indicating the game is still running
-	return service_locator->getGraphicService()->isGameWindowOpen();
+		// Update Game Logic.
+		service_locator->update();
+	}
+
+	// Clears the window then displays it.
+	void GameService::render() {
+		//Clears the game window with the background color provided by the graphic service
+		game_window->clear(service_locator->getGraphicService()->getWindowColor());
+		service_locator->render(); // Render the current frame using the service locator
+		game_window->display(); // Display the rendered frame on the game window
+	}
 }
+	
+

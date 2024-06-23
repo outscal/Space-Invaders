@@ -1,25 +1,32 @@
-#include "../../Header/Player/PlayerView.h"
-#include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerView.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Player/PlayerController.h"
 
-PlayerView::PlayerView() { }
-
-PlayerView::~PlayerView() { }
-
-void PlayerView::initialize(PlayerController* controller)
+namespace Player
 {
-	player_controller = controller; //to later use it for setting position
-	game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-	initializePlayerSprite();
-}
+	using namespace Global;
+	using namespace Graphics;
 
-void PlayerView::initializePlayerSprite()
-{
-	if (player_texture.loadFromFile(player_texture_path))
+	PlayerView::PlayerView() { }
+
+	PlayerView::~PlayerView() { }
+
+	void PlayerView::initialize(PlayerController* controller)
 	{
-		player_sprite.setTexture(player_texture);
-		scalePlayerSprite();
+		player_controller = controller; //to later use it for setting position
+		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		initializePlayerSprite();
 	}
-}
+
+	void PlayerView::initializePlayerSprite()
+	{
+		if (player_texture.loadFromFile(player_texture_path))
+		{
+			player_sprite.setTexture(player_texture);
+			scalePlayerSprite();
+		}
+	}
 
 	void PlayerView::scalePlayerSprite()
 	{
@@ -40,4 +47,5 @@ void PlayerView::initializePlayerSprite()
 	void PlayerView::render()
 	{
 		game_window->draw(player_sprite);
+	}
 }

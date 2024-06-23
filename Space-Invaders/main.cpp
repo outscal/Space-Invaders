@@ -1,8 +1,10 @@
-#include <iostream>
-#include "header/GameService.h"
+#include "../../Header/Main/GameService.h"
 
 
-int main() {
+int main() 
+{
+    using namespace Main;
+
     GameService* game_service = new GameService(); //create object
 
     game_service->ignite(); // "ignites"/starts the flow of our game
