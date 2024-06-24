@@ -39,15 +39,45 @@ void PlayerService::render()
 //	}
 //}
 
+//void PlayerService::processPlayerInput()
+//{
+//	// Handle keyboard input
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+//		move(-1.0f * getMoveSpeed());
+//	}
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+//		move(1.0f * getMoveSpeed());
+//	}
+//}
+
+//changed Player Input
 void PlayerService::processPlayerInput()
 {
-	// Handle keyboard input
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		move(-1.0f * getMoveSpeed());
+	EventService* event_service = ServiceLocator::getInstance()->getEventService();
+
+	if (event_service->isKeyboardEvent()) //check if a key has been pressed
+	{
+		if (event_service->pressedLeftKey())
+		{
+			moveLeft();
+		}
+
+		if (event_service->pressedRightKey())
+		{
+			moveRight();
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		move(1.0f * getMoveSpeed());
-	}
+}
+
+// New movement methods
+void PlayerService::moveLeft()
+{
+	position.x -= movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void PlayerService::moveRight()
+{
+	position.x += movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 }
 
 void PlayerService::initializePlayerSprite()
@@ -59,7 +89,7 @@ void PlayerService::initializePlayerSprite()
 }
 
 void PlayerService::move(float offsetX) {
-	position.x += offsetX;
+	position.x += offsetX*ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 }
 
 //helper functions

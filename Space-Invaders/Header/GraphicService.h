@@ -11,6 +11,7 @@ private:
 	const int game_window_height = 600;
 
 	const sf::Color window_color = sf::Color::Blue;
+	const int frame_rate = 60;
 
 sf::VideoMode* video_mode; //pointer to the video mode
 sf::RenderWindow* game_window; //pointer to RenderWindow
