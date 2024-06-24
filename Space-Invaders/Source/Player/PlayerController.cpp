@@ -60,13 +60,12 @@ namespace Player
 	{
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-		// move this to event service at a later time
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
+		if (event_service->pressedLeftKey() || event_service->pressedAKey())
 		{
 			moveLeft();
 		}
 
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)))
+		if (event_service->pressedRightKey() || event_service->pressedDKey())
 		{
 			moveRight();
 		}

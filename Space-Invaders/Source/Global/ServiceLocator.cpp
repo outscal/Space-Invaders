@@ -6,6 +6,7 @@ namespace Global
 	using namespace Main;
 	using namespace Graphics;
 	using namespace Event;
+	using namespace UI;
 	using namespace Time;
 	using namespace Player;
 
@@ -17,6 +18,7 @@ namespace Global
 		time_service = nullptr;
 		event_service = nullptr; //initialize event_service to null 
 		player_service = nullptr;
+		ui_service = nullptr;
 		createServices(); //Call createServices to instantiate services
 	}
 
@@ -32,6 +34,7 @@ namespace Global
 		time_service = new TimeService();
 		event_service = new EventService();
 		player_service = new PlayerService();
+		ui_service = new UIService();
 
 	}
 	// Calls initialize on the graphic service, readying it for use.
@@ -41,30 +44,45 @@ namespace Global
 		time_service->initialize();
 		event_service->initialize(); //initialize event service
 		player_service->initialize();
+		ui_service->initialize();
 	}
 
-	//updates the state of the graphic service
 	void ServiceLocator::update()
 	{
-		graphic_service->update(); //Update graphic service
+		graphic_service->update();
 		time_service->update();
 		event_service->update();
+
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+		}
+
+		ui_service->update();
 	}
 
 	//Renders using the graphic service
 	void ServiceLocator::render()
 	{
-		graphic_service->render(); //Render graphic service
-		//event service does not have anything to render
+		graphic_service->render();
+
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+		}
+
+		ui_service->render();
 	}
+
 
 	//Deletes allocated services to prevent memory leaks. In this case, the graphic service.
 	void ServiceLocator::clearAllServices()
 	{
-		delete(graphic_service); // Delete the graphic_service instance
-		delete(time_service);
-		delete(event_service);
+		delete(ui_service);
 		delete(player_service);
+		delete(event_service);
+		delete(graphic_service); 
+		delete(time_service);
 	}
 
 	//Returns a pointer to ServiceLocator.
@@ -75,10 +93,11 @@ namespace Global
 	}
 
 	// Returns a pointer to the currently set graphic service
-	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 	EventService* ServiceLocator::getEventService() { return event_service; }
-	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
-	TimeService* ServiceLocator::getTimeService() { return time_service; }
+	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
+	UIService* ServiceLocator::getUIService() { return ui_service; }
+	Player::PlayerService* ServiceLocator::getPlayerService() { return player_service; }
+	Time::TimeService* ServiceLocator::getTimeService() { return time_service; }
 
 	void ServiceLocator::deleteServiceLocator() { delete(this); }
 

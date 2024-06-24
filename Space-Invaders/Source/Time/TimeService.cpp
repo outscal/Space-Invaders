@@ -31,11 +31,11 @@ namespace Time
 		int delta = std::chrono::duration_cast<std::chrono::microseconds>(
 			std::chrono::steady_clock::now() - previous_time).count();
 
-		//The cast is used to convert delta time from microseconds into seconds. We will learn more about how this works in detail later.
+		// To convert delta time from microseconds into seconds.
 		return static_cast<float>(delta) / static_cast<float>(1000000);
 	}
 
-	//Update previous_time to current time.
+	// Update previous_time to the current time
 	void TimeService::updatePreviousTime()
 	{
 		previous_time = std::chrono::steady_clock::now();

@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../header/Event/EventService.h"
+#include "../../Header/UIService/UIService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header//Time/TimeService.h"
 
@@ -14,8 +15,10 @@ namespace Global
 		// Private Attributes:
 		Event::EventService* event_service;
 		Graphics::GraphicService* graphic_service;
-		Player::PlayerService* player_service;
+		UI::UIService* ui_service;
 		Time::TimeService* time_service;
+		Player::PlayerService* player_service;
+		
 		// .... and so on
 
 
@@ -40,8 +43,9 @@ namespace Global
 		//Methods to get Specific Services:
 		Event::EventService* getEventService(); // Retrieve the EventService instance
 		Graphics::GraphicService* getGraphicService(); // Retrieve the GraphicService instance
-		Player::PlayerService* getPlayerService();
+		UI::UIService* getUIService();
 		Time::TimeService* getTimeService();
+		Player::PlayerService* getPlayerService();
 		void deleteServiceLocator();
 	};
 }
