@@ -19,6 +19,8 @@ namespace Global
 		event_service = nullptr; //initialize event_service to null 
 		player_service = nullptr;
 		ui_service = nullptr;
+		enemy_service = nullptr;
+
 		createServices(); //Call createServices to instantiate services
 	}
 
@@ -56,6 +58,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			player_service->update();
+			enemy_service->update();
 		}
 
 		ui_service->update();
@@ -69,6 +72,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			player_service->render();
+			enemy_service->render();
 		}
 
 		ui_service->render();

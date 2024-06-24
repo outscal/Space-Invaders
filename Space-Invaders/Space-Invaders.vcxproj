@@ -148,6 +148,10 @@
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalHeaderUnitDependencies>
     </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyController.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyService.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyView.cpp" />
     <ClCompile Include="Source\Event\EventService.cpp" />
     <ClCompile Include="Source\Main\GameService.cpp" />
     <ClCompile Include="Source\Graphic\GraphicService.cpp" />
@@ -161,6 +165,10 @@
     <ClCompile Include="Source\UIService\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Enemy\EnemyController.h" />
+    <ClInclude Include="Header\Enemy\EnemyModel.h" />
+    <ClInclude Include="Header\Enemy\EnemyService.h" />
+    <ClInclude Include="Header\Enemy\EnemyView.h" />
     <ClInclude Include="Header\Event\EventService.h" />
     <ClInclude Include="Header\Main\GameService.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />

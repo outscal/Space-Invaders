@@ -4,6 +4,8 @@
 #include "../../Header/UIService/UIService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header//Time/TimeService.h"
+#include "../../Header/Main/GameService.h"
+#include "../../Header/Enemy/EnemyService.h"
 
 //ServiceLocator Class Summary: This class manages access to various services in the application. 
 //include relevant headers files as created/needed
@@ -18,6 +20,7 @@ namespace Global
 		UI::UIService* ui_service;
 		Time::TimeService* time_service;
 		Player::PlayerService* player_service;
+		Enemy::EnemyService* enemy_service;
 		
 		// .... and so on
 
