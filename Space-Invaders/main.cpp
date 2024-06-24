@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 #include <SFML/Graphics.hpp>
+#include "../Space-Invaders/HeaderFiles/GameService.h"
 
 /* class Player {
 
@@ -107,6 +108,16 @@ int main()
 
 
     } */
+
+    GameService gameservice;
+    gameservice.ignite();
+
+    while (gameservice.isRunning())
+    {
+        gameservice.update();
+        gameservice.render();
+    }
+
 
     return 0;
 }
