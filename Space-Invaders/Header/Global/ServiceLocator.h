@@ -16,8 +16,9 @@ namespace Global
 		Event::EventService* event_service;
 		Graphics::GraphicService* graphic_service;
 		UI::UIService* ui_service;
-		Player::PlayerService* player_service;
 		Time::TimeService* time_service;
+		Player::PlayerService* player_service;
+		
 		// .... and so on
 
 
@@ -43,8 +44,8 @@ namespace Global
 		Event::EventService* getEventService(); // Retrieve the EventService instance
 		Graphics::GraphicService* getGraphicService(); // Retrieve the GraphicService instance
 		UI::UIService* getUIService();
-		Player::PlayerService* getPlayerService();
 		Time::TimeService* getTimeService();
+		Player::PlayerService* getPlayerService();
 		void deleteServiceLocator();
 	};
 }

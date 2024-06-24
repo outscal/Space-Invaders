@@ -54,6 +54,8 @@ namespace UI
 			void initialize();
 			void update();
 			void render();
+
+			void show();
 		};
 	}
 }

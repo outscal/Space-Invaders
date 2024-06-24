@@ -15,7 +15,6 @@ namespace Player
         PlayerController* player_controller;
 
         sf::RenderWindow* game_window;
-
         sf::Texture player_texture;
         sf::Sprite player_sprite;
 

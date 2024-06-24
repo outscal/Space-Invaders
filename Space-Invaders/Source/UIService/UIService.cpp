@@ -47,6 +47,15 @@ namespace UI
 		}
 	}
 
+	void UIService::showScreen()
+	{
+		switch (GameService::getGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller->show();;
+		}
+	}
+
 	void UIService::initializeControllers()
 	{
 		main_menu_controller->initialize();
