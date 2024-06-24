@@ -36,6 +36,7 @@ namespace Main
 	{
 		service_locator->initialize();
 		initializeVariables();
+		showMainMenu();
 	}
 
 	void GameService::initializeVariables()

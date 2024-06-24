@@ -26,5 +26,9 @@ namespace Event
 		bool pressedEscapeKey();
 		bool pressedLeftKey();
 		bool pressedRightKey();
+
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
+
 	};
 }
