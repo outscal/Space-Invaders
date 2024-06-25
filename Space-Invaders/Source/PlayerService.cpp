@@ -39,17 +39,6 @@ void PlayerService::render()
 //	}
 //}
 
-//void PlayerService::processPlayerInput()
-//{
-//	// Handle keyboard input
-//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-//		move(-1.0f * getMoveSpeed());
-//	}
-//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-//		move(1.0f * getMoveSpeed());
-//	}
-//}
-
 //changed Player Input
 void PlayerService::processPlayerInput()
 {
