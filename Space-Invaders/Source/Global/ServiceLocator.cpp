@@ -8,42 +8,44 @@ namespace Global
 	using namespace Event;
 	using namespace UI;
 	using namespace Time;
+	using namespace Gameplay;
 	using namespace Player;
+	using namespace Enemy;
 
-
-	//Constructor: Initializes the graphic_service pointer to null and creates services
 	ServiceLocator::ServiceLocator()
 	{
-		graphic_service = nullptr; // Initialize graphic_service to null
+		graphic_service = nullptr;
 		time_service = nullptr;
-		event_service = nullptr; //initialize event_service to null 
+		event_service = nullptr;
+		gameplay_service = nullptr;
 		player_service = nullptr;
+		enemy_service = nullptr;
 		ui_service = nullptr;
-		createServices(); //Call createServices to instantiate services
+
+		createServices();
 	}
 
-	//Destructor: Cleans up resources by clearing all services
-	ServiceLocator::~ServiceLocator() {
-		clearAllServices(); // Call clearAllServices to delete any allocated services
-	}
+	ServiceLocator::~ServiceLocator() { clearAllServices(); }
 
-	// Creates services instances, specifically the graphic service in this case.
 	void ServiceLocator::createServices()
 	{
-		graphic_service = new GraphicService(); // Dynamically create a GraphicService instance
+		graphic_service = new GraphicService();
 		time_service = new TimeService();
 		event_service = new EventService();
+		gameplay_service = new GameplayService();
 		player_service = new PlayerService();
+		enemy_service = new EnemyService();
 		ui_service = new UIService();
-
 	}
-	// Calls initialize on the graphic service, readying it for use.
+
 	void ServiceLocator::initialize()
 	{
-		graphic_service->initialize(); //initializes graphic service
+		graphic_service->initialize();
 		time_service->initialize();
-		event_service->initialize(); //initialize event service
+		event_service->initialize();
+		gameplay_service->initialize();
 		player_service->initialize();
+		enemy_service->initialize();
 		ui_service->initialize();
 	}
 
@@ -55,50 +57,58 @@ namespace Global
 
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			gameplay_service->update();
 			player_service->update();
+			enemy_service->update();
 		}
 
 		ui_service->update();
 	}
 
-	//Renders using the graphic service
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
 
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			gameplay_service->render();
 			player_service->render();
+			enemy_service->render();
 		}
 
 		ui_service->render();
 	}
 
-
-	//Deletes allocated services to prevent memory leaks. In this case, the graphic service.
 	void ServiceLocator::clearAllServices()
 	{
 		delete(ui_service);
 		delete(player_service);
+		delete(enemy_service);
+		delete(gameplay_service);
 		delete(event_service);
-		delete(graphic_service); 
+		delete(graphic_service);
 		delete(time_service);
 	}
 
-	//Returns a pointer to ServiceLocator.
 	ServiceLocator* ServiceLocator::getInstance()
 	{
 		static ServiceLocator instance;
 		return &instance;
 	}
 
-	// Returns a pointer to the currently set graphic service
 	EventService* ServiceLocator::getEventService() { return event_service; }
+
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
+
 	UIService* ServiceLocator::getUIService() { return ui_service; }
+
 	Player::PlayerService* ServiceLocator::getPlayerService() { return player_service; }
+
+	Enemy::EnemyService* ServiceLocator::getEnemyService() { return enemy_service; }
+
 	Time::TimeService* ServiceLocator::getTimeService() { return time_service; }
 
-	void ServiceLocator::deleteServiceLocator() { delete(this); }
+	Gameplay::GameplayService* ServiceLocator::getGameplayService() { return gameplay_service; }
 
+	void ServiceLocator::deleteServiceLocator() { delete(this); }
 }

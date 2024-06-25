@@ -1,5 +1,5 @@
-#include "../../Header/UIService/UIService.h"
-#include "../../Header/Main/GameService.h"
+#include "../../header/UI/UIService.h"
+#include "../../header/Main/GameService.h"
 
 namespace UI
 {
@@ -42,7 +42,8 @@ namespace UI
 	{
 		switch (GameService::getGameState())
 		{
-		case GameState::MAIN_MENU:return main_menu_controller->render();
+		case GameState::MAIN_MENU:
+			return main_menu_controller->render();;
 			break;
 		}
 	}

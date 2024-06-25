@@ -9,6 +9,7 @@ namespace Player
     {
     private:
         const sf::String player_texture_path = "assets/textures/player_ship.png";
+
         const float player_sprite_width = 60.f;
         const float player_sprite_height = 60.f;
 
@@ -25,7 +26,7 @@ namespace Player
         PlayerView();
         ~PlayerView();
 
-        void initialize(PlayerController* controller); // we pass a pointer of type controller because we need to use this in the view later.
+        void initialize(PlayerController* controller);
         void update();
         void render();
     };

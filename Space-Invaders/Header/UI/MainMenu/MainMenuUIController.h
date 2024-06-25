@@ -13,13 +13,14 @@ namespace UI
 			const sf::String instructions_button_texture_path = "assets/textures/instructions_button.png";
 			const sf::String quit_button_texture_path = "assets/textures/quit_button.png";
 
-			//Constants
+
+			// Constants:
 			const float button_width = 400.f;
 			const float button_height = 140.f;
 
 			sf::RenderWindow* game_window;
 
-			//Textures
+			// Textures:
 			sf::Texture background_texture;
 			sf::Sprite background_sprite;
 
@@ -32,11 +33,9 @@ namespace UI
 			sf::Texture quit_button_texture;
 			sf::Sprite quit_button_sprite;
 
-			//since this is a single image, we can check if it loaded or not during initialization
 			void initializeBackgroundImage();
 			void scaleBackgroundImage();
 
-			//however, we have 3 buttons, so it's better to create a separate function to check if they are loaded
 			void initializeButtons();
 			bool loadButtonTexturesFromFile();
 			void setButtonSprites();
