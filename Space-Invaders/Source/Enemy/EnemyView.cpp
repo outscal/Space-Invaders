@@ -1,12 +1,14 @@
-#include "../../header/Enemy/EnemyView.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Graphics/GraphicService.h"
-#include "../../header/Enemy/EnemyController.h"
+#include "../../Header/Enemy/EnemyView.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Graphic/GraphicService.h"
+#include "../../Header/Enemy/EnemyController.h"
+#include"../../Header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
 	using namespace Global;
-	using namespace Graphics;
+	using namespace Graphic;
+
 
 	EnemyView::EnemyView() { }
 
@@ -16,16 +18,29 @@ namespace Enemy
 	{
 		enemy_controller = controller;
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializeEnemySprite();
+		initializeEnemySprite(enemy_controller->getEnemyType()); //need to get the specific enemy type
 	}
 
-	void EnemyView::initializeEnemySprite()
+	void EnemyView::initializeEnemySprite(EnemyType type)
 	{
-		if (enemy_texture.loadFromFile(enemy_texture_path))
+		switch (type)
 		{
-			enemy_sprite.setTexture(enemy_texture);
-			scaleEnemySprite();
+		case::Enemy::EnemyType::SUBZERO:
+			if (enemy_texture.loadFromFile(subzero_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleEnemySprite();
+			}
+			break;
+		case::Enemy::EnemyType::ZAPPER:
+			if (enemy_texture.loadFromFile(zapper_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleEnemySprite();
+			}
+			break;
 		}
+
 	}
 
 	void EnemyView::scaleEnemySprite()
