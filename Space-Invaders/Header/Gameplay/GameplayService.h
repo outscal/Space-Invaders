@@ -6,7 +6,8 @@ namespace Gameplay
 
 	class GameplayService
 	{
-	private: GameplayController* gameplay_controller;
+	private:
+		GameplayController* gameplay_controller;
 
 	public:
 		GameplayService();

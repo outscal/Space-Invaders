@@ -1,16 +1,17 @@
-#include "../../Header/Gameplay/GameplayView.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Graphic/GraphicService.h"
+#include "../../header/Gameplay/GameplayView.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Graphics/GraphicService.h"
 
 namespace Gameplay
 {
 	using namespace Global;
 	using namespace Graphics;
 
-	GameplayView::GameplayView() {}
-	GameplayView::~GameplayView() {}
-	
-	void GameplayView::initialize() 
+	GameplayView::GameplayView() { }
+
+	GameplayView::~GameplayView() { }
+
+	void GameplayView::initialize()
 	{
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 		initializeBackgroundSprite();
@@ -24,6 +25,7 @@ namespace Gameplay
 			scaleBackgroundSprite();
 		}
 	}
+
 	void GameplayView::scaleBackgroundSprite()
 	{
 		background_sprite.setScale(

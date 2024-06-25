@@ -1,11 +1,14 @@
-#include "../../Header/Enemy/EnemyController.h"
-#include "../../Header/Enemy/EnemyView.h"
-#include "../../Header/Enemy/EnemyModel.h"
-#include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Enemy/EnemyController.h"
+#include "../../header/Enemy/EnemyView.h"
+#include "../../header/Enemy/EnemyModel.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Event/EventService.h"
 
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Event;
+	using namespace Time;
 
 	EnemyController::EnemyController()
 	{
@@ -54,20 +57,13 @@ namespace Enemy
 		}
 	}
 
-
 	void EnemyController::moveLeft()
 	{
-		// Get current pos
-		// Move left by multiplying by speed and delta time
 		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.x -= enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+		currentPosition.x -= enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-		//check for bounds
-		if (currentPosition.x <= enemy_model->left_most_position.x)
+		if (currentPosition.x <= left_most_position.x)
 		{
-			//if reached the left most pos
-			//start moving down
-			//set ref pos for the downwards movement
 			enemy_model->setMovementDirection(MovementDirection::DOWN);
 			enemy_model->setReferencePosition(currentPosition);
 		}
@@ -77,9 +73,9 @@ namespace Enemy
 	void EnemyController::moveRight()
 	{
 		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+		currentPosition.x += enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-		if (currentPosition.x >= enemy_model->right_most_position.x)
+		if (currentPosition.x >= right_most_position.x)
 		{
 			enemy_model->setMovementDirection(MovementDirection::DOWN);
 			enemy_model->setReferencePosition(currentPosition);
@@ -90,13 +86,11 @@ namespace Enemy
 	void EnemyController::moveDown()
 	{
 		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-		currentPosition.y += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+		currentPosition.y += enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-		//check if enemy has moved the specified distance downwards
-		if (currentPosition.y >= enemy_model->getReferencePosition().y + enemy_model->vertical_travel_distance)
+		if (currentPosition.y >= enemy_model->getReferencePosition().y + vertical_travel_distance)
 		{
-			//check where to move them based on position
-			if (enemy_model->getReferencePosition().x <= enemy_model->left_most_position.x) enemy_model->setMovementDirection(MovementDirection::RIGHT);
+			if (enemy_model->getReferencePosition().x <= left_most_position.x) enemy_model->setMovementDirection(MovementDirection::RIGHT);
 			else enemy_model->setMovementDirection(MovementDirection::LEFT);
 		}
 		else enemy_model->setEnemyPosition(currentPosition);
@@ -105,5 +99,10 @@ namespace Enemy
 	sf::Vector2f EnemyController::getEnemyPosition()
 	{
 		return enemy_model->getEnemyPosition();
+	}
+
+	EnemyState EnemyController::getEnemyState()
+	{
+		return enemy_model->getEnemyState();
 	}
 }

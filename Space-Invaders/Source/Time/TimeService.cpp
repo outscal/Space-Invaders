@@ -1,8 +1,7 @@
-#include "../../Header/Time/TimeService.h"
+#include "../../header/Time/TimeService.h"
 
 namespace Time
 {
-
 	void TimeService::initialize()
 	{
 		previous_time = std::chrono::steady_clock::now();

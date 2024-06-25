@@ -1,7 +1,7 @@
-#include "../../Header/Enemy/EnemyView.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Graphic/GraphicService.h"
-#include "../../Header/Enemy/EnemyController.h"
+#include "../../header/Enemy/EnemyView.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Graphics/GraphicService.h"
+#include "../../header/Enemy/EnemyController.h"
 
 namespace Enemy
 {
@@ -9,6 +9,7 @@ namespace Enemy
 	using namespace Graphics;
 
 	EnemyView::EnemyView() { }
+
 	EnemyView::~EnemyView() { }
 
 	void EnemyView::initialize(EnemyController* controller)
@@ -16,6 +17,15 @@ namespace Enemy
 		enemy_controller = controller;
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 		initializeEnemySprite();
+	}
+
+	void EnemyView::initializeEnemySprite()
+	{
+		if (enemy_texture.loadFromFile(enemy_texture_path))
+		{
+			enemy_sprite.setTexture(enemy_texture);
+			scaleEnemySprite();
+		}
 	}
 
 	void EnemyView::scaleEnemySprite()

@@ -1,20 +1,16 @@
-#include "../../Header/Player/PlayerModel.h"
+#include "../../header/Player/PlayerModel.h"
 
 namespace Player
 {
+	PlayerModel::PlayerModel() { }
 
-	PlayerModel::PlayerModel() {}
+	PlayerModel::~PlayerModel() { }
 
-	PlayerModel::~PlayerModel() {}
-
-	void PlayerModel::initialize() 
-	{
-		reset();
-	}
+	void PlayerModel::initialize() { reset(); }
 
 	void PlayerModel::reset()
 	{
-		player_state = PlayerState::ALIVE; // set state to alive
+		player_state = PlayerState::ALIVE;
 		player_position = initial_player_position;
 		player_score = 0;
 	}
@@ -24,7 +20,7 @@ namespace Player
 		return player_position;
 	}
 
-	void PlayerModel::setPlayerPositions(sf::Vector2f position)
+	void PlayerModel::setPlayerPosition(sf::Vector2f position)
 	{
 		player_position = position;
 	}

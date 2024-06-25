@@ -3,32 +3,31 @@
 
 namespace Player
 {
-	class PlayerView;
-	class PlayerModel;
+    class PlayerView;
+    class PlayerModel;
 
-	enum class PlayerState;
+    enum class PlayerState;
 
-	class PlayerController
-	{
-	private:
-		PlayerView* player_view;
-		PlayerModel* player_model;
+    class PlayerController
+    {
+    private:
+        PlayerView* player_view;
+        PlayerModel* player_model;
 
-		void processPlayerInput();
-		void moveLeft();
-		void moveRight();
+        void processPlayerInput();
+        void moveLeft();
+        void moveRight();
 
-	public:
-		PlayerController();
-		~PlayerController();
+    public:
+        PlayerController();
+        ~PlayerController();
 
-		void initialize();
-		void update();
-		void render();
+        void initialize();
+        void update();
+        void render();
 
-		sf::Vector2f getPlayerPosition();
-		int getPlayerScore();
-		PlayerState getPlayerState();
-	};
-
+        sf::Vector2f getPlayerPosition();
+        int getPlayerScore();
+        PlayerState getPlayerState();
+    };
 }

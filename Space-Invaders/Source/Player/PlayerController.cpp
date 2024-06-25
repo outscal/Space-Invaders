@@ -21,24 +21,22 @@ namespace Player
 		delete (player_view);
 		delete (player_model);
 	}
-//the controller is responsible for calling the lifecycle methods for the other two
+
 	void PlayerController::initialize()
 	{
 		player_model->initialize();
-
-		//This will give an error right now since we haven't included the controller in the view.
-		player_view->initialize(this); // 'this' refers to the class we are currently inside
+		player_view->initialize(this);
 	}
 
 	void PlayerController::update()
 	{
 		processPlayerInput();
-		player_view->update(); // we update() the view
+		player_view->update();
 	}
 
 	void PlayerController::render()
 	{
-		player_view->render(); // render the view
+		player_view->render();
 	}
 
 	sf::Vector2f PlayerController::getPlayerPosition()
@@ -60,12 +58,13 @@ namespace Player
 	{
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-		if (event_service->pressedLeftKey() || event_service->pressedAKey())
+		// move this to event service at a later time
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
 		{
 			moveLeft();
 		}
 
-		if (event_service->pressedRightKey() || event_service->pressedDKey())
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)))
 		{
 			moveRight();
 		}

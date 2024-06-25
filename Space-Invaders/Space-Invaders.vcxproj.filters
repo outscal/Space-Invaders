@@ -24,7 +24,7 @@
     <ClCompile Include="Source\Global\ServiceLocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphic\GraphicService.cpp">
+    <ClCompile Include="Source\Graphics\GraphicService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Event\EventService.cpp">
@@ -45,7 +45,7 @@
     <ClCompile Include="Source\Player\PlayerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UIService\MainMenu\MainMenuController.cpp">
+    <ClCompile Include="Source\UIService\MainMenu\MainMenuUIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\UIService\UIService.cpp">
@@ -80,7 +80,7 @@
     <ClInclude Include="Header\Global\ServiceLocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Graphic\GraphicService.h">
+    <ClInclude Include="Header\Graphics\GraphicService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Event\EventService.h">
@@ -101,10 +101,10 @@
     <ClInclude Include="Header\Player\PlayerController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\UIService\MainMenu\MainMenuController.h">
+    <ClInclude Include="Header\UI\MainMenu\MainMenuUIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\UIService\UIService.h">
+    <ClInclude Include="Header\UI\UIService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Enemy\EnemyService.h">

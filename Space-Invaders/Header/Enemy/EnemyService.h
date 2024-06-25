@@ -26,6 +26,6 @@ namespace Enemy
 		void update();
 		void render();
 
-		void spawnEnemy();
+		EnemyController* spawnEnemy();
 	};
 }
