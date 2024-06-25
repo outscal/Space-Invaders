@@ -1,5 +1,7 @@
 #include "../../Header/Player/PlayerView.h"
-#include "../../Header/ServiceLocator.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerController.h"
+#include "../../Header/Player/PlayerModel.h"
 
 PlayerView::PlayerView() { }
 

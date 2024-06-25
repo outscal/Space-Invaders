@@ -1,4 +1,4 @@
-#include "../Header/GraphicService.h"
+#include "../../Header/Graphic/GraphicService.h"
 
 //Constructor: initializes game window and vido mode pointers to null.
 GraphicService::GraphicService() {

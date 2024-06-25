@@ -84,8 +84,8 @@
 ////helper functions
 //sf::Vector2f PlayerService::getPlayerPosition() { return position; }
 //int PlayerService::getMoveSpeed() { return movement_speed; }
-#include "../Header/PlayerService.h"
-#include "../Header/Player/PlayerController.h"
+#include "../../Header/Player/PlayerService.h"
+#include "../../Header/Player/PlayerController.h"
 
 PlayerService::PlayerService()
 {
