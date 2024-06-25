@@ -148,6 +148,8 @@
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalHeaderUnitDependencies>
     </ClCompile>
+    <ClCompile Include="Source\Enemy\Controllers\SubZeroController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
     <ClCompile Include="Source\Enemy\EnemyService.cpp" />
@@ -168,6 +170,8 @@
     <ClCompile Include="Source\UIService\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Enemy\Controllers\SubZeroController.h" />
+    <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemyController.h" />
     <ClInclude Include="Header\Enemy\EnemyModel.h" />
     <ClInclude Include="Header\Enemy\EnemyService.h" />
@@ -186,6 +190,7 @@
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="Header\UI\UIService.h" />
+    <ClInclude Include="Header\Enemy\EnemyConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
