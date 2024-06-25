@@ -3,25 +3,34 @@
 
 namespace Enemy
 {
-    class EnemyView;
-    class EnemyModel;
 
-    class EnemyController
-    {
-    private:
+	class EnemyModel;
+	class EnemyView;
 
-        EnemyView* enemy_view;
-        EnemyModel* enemy_model;
+	class EnemyController
+	{
 
-    public:
-        EnemyController();
-        ~EnemyController();
+	private:
 
-        void initialize();
-        void update();
-        void render();
+		EnemyModel* enemy_model;
+		EnemyView* enemy_view;
 
-        sf::Vector2f getEnemyPosition();
-    };
+	public:
+
+		EnemyController();
+		~EnemyController();
+
+		void initialize();
+		void update();
+		void render();
+
+		sf::Vector2f getEnemyPosition();
+
+		void move();
+		void moveLeft();
+		void moveRight();
+		void moveDown();
+
+	};
+
 }
-
