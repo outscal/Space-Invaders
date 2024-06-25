@@ -107,6 +107,8 @@ namespace UI
 
             if (clickedButton(&play_button_sprite, mouse_position))
             {
+                ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK); //play button sound
+                ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic(); //play background music
                 GameService::setGameState(GameState::GAMEPLAY);
             }
 

@@ -1,60 +1,34 @@
-#include "../../header/Enemy/EnemyService.h"
-#include "../../header/Enemy/EnemyController.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Time/TimeService.h"
+#include "../../header/Elements/ElementService.h"
 
-namespace Enemy
+namespace Element
 {
-	using namespace Global;
-	using namespace Time;
+	ElementService::ElementService() { }
 
-	EnemyService::EnemyService() { }
+	ElementService::~ElementService() { destroy(); }
 
-	EnemyService::~EnemyService() { destroy(); }
-
-	void EnemyService::initialize()
+	void ElementService::initialize()
 	{
-		spawn_timer = spawn_interval;
-	}
-
-	void EnemyService::update()
-	{
-		updateSpawnTimer();
-		processEnemySpawn();
-
-		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->update();
-	}
-
-	void EnemyService::render()
-	{
-		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->render();
-	}
-
-	void EnemyService::updateSpawnTimer()
-	{
-		spawn_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-	}
-
-	void EnemyService::processEnemySpawn()
-	{
-		if (spawn_timer >= spawn_interval)
+		for (int i = 0; i < bunker_data_list.size(); i++)
 		{
-			spawnEnemy();
-			spawn_timer = 0.0f;
+			Bunker::BunkerController* bunker_controller = new Bunker::BunkerController();
+
+			bunker_controller->initialize(bunker_data_list[i]);
+			bunker_list.push_back(bunker_controller);
 		}
 	}
 
-	EnemyController* EnemyService::spawnEnemy()
+	void ElementService::update()
 	{
-		EnemyController* enemy_controller = new EnemyController();
-		enemy_controller->initialize();
-
-		enemy_list.push_back(enemy_controller);
-		return enemy_controller;
+		for (int i = 0; i < bunker_list.size(); i++) bunker_list[i]->update();
 	}
 
-	void EnemyService::destroy()
+	void ElementService::render()
 	{
-		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]);
+		for (int i = 0; i < bunker_list.size(); i++) bunker_list[i]->render();
+	}
+
+	void ElementService::destroy()
+	{
+		for (int i = 0; i < bunker_list.size(); i++) delete(bunker_list[i]);
 	}
 }
