@@ -20,33 +20,56 @@ namespace Gameplay
 	void Gameplay::GameplayView::initialize()
 	{
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializeBackgroundImage();
+		//initializeBackgroundImage();
+		initilizeImage();
 	}
 
 	void Gameplay::GameplayView::update()
 	{
+		gameplayimage_view->setPosition(background_position);
+		gameplayimage_view->update();
 	}
 
 	void Gameplay::GameplayView::render()
 	{
-		game_window->draw(background_sprite);
+		gameplayimage_view->render();
+		//game_window->draw(background_sprite);
 	}
 
-	void GameplayView::initializeBackgroundImage()
+	void GameplayView::createUIElement()
 	{
-		if (background_texture.loadFromFile(Config::background_texture_path))
-		{
-			background_sprite.setTexture(background_texture);
-			setBackgroundScale();
-		}
+		gameplayimage_view = new UI::UIElement::ImageView();
 	}
 
-	void GameplayView::setBackgroundScale()
+	sf::String GameplayView::getGameplayTexturePath()
 	{
-		background_sprite.setScale(
-			static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
-			static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
-		);
+		return Config::background_texture_path;
 	}
+
+	void GameplayView::initilizeImage()
+	{
+		gameplayimage_view->initialize(getGameplayTexturePath(), game_window->getSize().x, game_window->getSize().y, background_position);
+	}
+
+	void GameplayView::destroy()
+	{
+		delete(gameplayimage_view);
+	}
+	//void GameplayView::initializeBackgroundImage()
+	//{
+	//	if (background_texture.loadFromFile(Config::background_texture_path))
+	//	{
+	//		background_sprite.setTexture(background_texture);
+	//		setBackgroundScale();
+	//	}
+	//}
+
+	//void GameplayView::setBackgroundScale()
+	//{
+	//	background_sprite.setScale(
+	//		static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
+	//		static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
+	//	);
+	//}
 
 }

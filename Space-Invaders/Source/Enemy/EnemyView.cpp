@@ -12,30 +12,36 @@ namespace Enemy
 	using namespace Global;
 	Enemy::EnemyView::EnemyView()
 	{
-		game_window = nullptr;
+		//game_window = nullptr;
+		createUIElement();
 	}
 
 	Enemy::EnemyView::~EnemyView()
 	{
+		destroy();
 	}
 
 	void Enemy::EnemyView::initialize(EnemyController* controller)
 	{
 		enemy_controller = controller;
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializeSprite(enemy_controller->getEnemyType());
+		//game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		//initializeSprite(enemy_controller->getEnemyType());
+		initilizeImage();
 	}
 
 	void Enemy::EnemyView::update()
 	{
-		enemy_sprite.setPosition(enemy_controller->getEnemyPosition());
+		enemyimage_view->setPosition(enemy_controller->getEnemyPosition());
+		enemyimage_view->update();
+		//enemy_sprite.setPosition(enemy_controller->getEnemyPosition());
 	}
 
 	void Enemy::EnemyView::render()
 	{
-		game_window->draw(enemy_sprite);
+		enemyimage_view->render();
+		// game_window->draw(enemy_sprite);
 	}
-	void EnemyView::initializeSprite(EnemyType type)
+	/*void EnemyView::initializeSprite(EnemyType type)
 	{
 		switch (type)
 		{
@@ -65,13 +71,41 @@ namespace Enemy
 		default:
 			break;
 		}
-	}
-	void EnemyView::scaleSprite()
+	}*/
+	//void EnemyView::scaleSprite()
+	//{
+	//	enemy_sprite.setScale(
+	//		static_cast<float>(enemy_width) / enemy_sprite.getTexture()->getSize().x,
+	//		static_cast<float>(enemy_height) / enemy_sprite.getTexture()->getSize().y
+	//	);
+	//}
+	void EnemyView::createUIElement()
 	{
-		enemy_sprite.setScale(
-			static_cast<float>(enemy_width) / enemy_sprite.getTexture()->getSize().x,
-			static_cast<float>(enemy_height) / enemy_sprite.getTexture()->getSize().y
-		);
+		enemyimage_view = new UI::UIElement::ImageView();
+	}
+	void EnemyView::initilizeImage()
+	{
+		enemyimage_view->initialize(getEnemyTexturePath(), enemy_height, enemy_width, enemy_controller->getEnemyPosition());
+	}
+
+	sf::String EnemyView::getEnemyTexturePath()
+	{
+		switch (enemy_controller->getEnemyType())
+		{
+		case Enemy::EnemyType::ZAPPER:
+			return Config::zapper_texture_path;
+			break;
+		case Enemy::EnemyType::SUBZERO:
+			return Config::subzero_texture_path;
+			break;
+		case Enemy::EnemyType::UFO:
+			return Config::ufo_texture_path;
+			break;
+		}
+	}
+	void EnemyView::destroy()
+	{
+		delete(enemyimage_view);
 	}
 }
 

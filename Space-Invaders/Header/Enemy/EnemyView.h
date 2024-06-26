@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/UIService/UIElement/ImageView.h"
 namespace Enemy
 {
 	class EnemyController;
@@ -14,8 +15,8 @@ namespace Enemy
 		void update();
 		void render();
 
-		void initializeSprite(EnemyType type);
-		void scaleSprite();
+	/*	void initializeSprite(EnemyType type);
+		void scaleSprite();*/
 
 	private:
 		const sf::String subzero_texture_path;
@@ -27,6 +28,13 @@ namespace Enemy
 
 		sf::RenderWindow* game_window;
 		EnemyController* enemy_controller;
+
+		UI::UIElement::ImageView* enemyimage_view;
+
+		void createUIElement();
+		void initilizeImage();
+		sf::String getEnemyTexturePath();
+		void destroy();
 
 
 

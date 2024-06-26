@@ -1,5 +1,6 @@
 #include "../../Header/UIService/UIService.h"
 #include "../../Header//Main/GameService.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 #include <iostream>
 using namespace std;
@@ -97,3 +98,40 @@ namespace UI
 
 }
 
+namespace UI
+{
+	namespace UIElement
+	{
+		using namespace Global;
+
+		UI::UIElement::UIView::UIView() = default;
+
+		UI::UIElement::UIView::~UIView() = default;
+
+		void UI::UIElement::UIView::initialize()
+		{
+			game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+			ui_state = UIState::VISIBLE;
+		}
+
+		void UI::UIElement::UIView::update()
+		{
+		}
+
+		void UI::UIElement::UIView::render()
+		{
+		}
+
+		void UI::UIElement::UIView::show()
+		{
+			ui_state = UIState::VISIBLE;
+		}
+
+		void UI::UIElement::UIView::hide()
+		{
+			ui_state = UIState::HIDE;
+
+		}
+
+	}
+}

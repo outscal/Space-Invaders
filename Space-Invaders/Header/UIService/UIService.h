@@ -6,6 +6,34 @@
 
 namespace UI
 {
+	namespace UIElement
+	{
+		enum class UIState {
+			HIDE,
+			VISIBLE
+		};
+		
+		class UIView
+		{
+		public:
+			UIView();
+			virtual ~UIView();
+
+			virtual void initialize();
+			virtual void update();
+			virtual void render();
+
+			virtual void show();
+			virtual void hide();
+
+		protected:
+			sf::RenderWindow* game_window;
+			UIState ui_state;
+		};
+
+
+	}
+
 	class UIController;
 
 	class UIService

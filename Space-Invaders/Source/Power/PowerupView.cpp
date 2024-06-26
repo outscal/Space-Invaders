@@ -5,36 +5,44 @@
 #include "../../Header/Global/Config.h"
 #include "../../Header/Global/ServiceLocator.h"
 
+
 namespace PowerUp
 {
 	using namespace Global;
+	using namespace UI;
+	using namespace UIElement;
 
 	PowerupView::PowerupView()
 	{
+		createUIElements();
+
 	}
 
 	PowerUp::PowerupView::~PowerupView()
 	{
+		destroy();
 	}
 
 	void PowerUp::PowerupView::initialize(PowerupController* controller)
 	{
 		power_controller = controller;
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initialSprite(power_controller->getPowerType());
+		//game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		initializeImage();
+		//initialSprite(power_controller->getPowerType());
 	}
 
 	void PowerUp::PowerupView::update()
 	{
-		powerup_sprite.setPosition(power_controller->getCollectiblePosition());
+		powerup_image->setPosition(power_controller->getCollectiblePosition());
+		powerup_image->update();
 	}
 
 	void PowerUp::PowerupView::render()
 	{
-		game_window->draw(powerup_sprite);
+		powerup_image->render();
 	}
 
-	void PowerupView::initialSprite(PowerType type)
+	/*void PowerupView::initialSprite(PowerType type)
 	{
 		switch (type)
 		{
@@ -67,14 +75,49 @@ namespace PowerUp
 			}
 			break;
 		}
+	}*/
+
+	//void PowerupView::scaleSprite()
+	//{
+	//	powerup_sprite.setScale(
+	//		static_cast<float>(powerup_width) / powerup_sprite.getTexture()->getSize().x,
+	//		static_cast<float>(powerup_height) / powerup_sprite.getTexture()->getSize().y
+	//	);
+	//}
+
+	void PowerupView::createUIElements()
+	{
+		powerup_image = new UI::UIElement::ImageView();
+
 	}
 
-	void PowerupView::scaleSprite()
+	void PowerupView::initializeImage()
 	{
-		powerup_sprite.setScale(
-			static_cast<float>(powerup_width) / powerup_sprite.getTexture()->getSize().x,
-			static_cast<float>(powerup_height) / powerup_sprite.getTexture()->getSize().y
-		);
+		powerup_image->initialize(powerup_texture_path(), powerup_height, powerup_width, power_controller->getCollectiblePosition());
+	}
+
+	sf::String PowerupView::powerup_texture_path()
+	{
+		switch (power_controller->getPowerType())
+		{
+		case PowerUp::PowerType::SHIELD:
+			return Config::shield_texture_path;
+			break;
+		case PowerUp::PowerType::RAPID_FIRE:
+			return Config::rapid_fire_texture_path;
+			break;
+		case PowerUp::PowerType::TRIPPLE_LASER:
+			return Config::tripple_laser_texture_path;
+			break;
+		case PowerUp::PowerType::OUTSCAL_BOMB:
+			return Config::outscal_bomb_texture_path;
+			break;
+		}
+	}
+
+	void PowerupView::destroy()
+	{
+		delete(powerup_image);
 	}
 
 

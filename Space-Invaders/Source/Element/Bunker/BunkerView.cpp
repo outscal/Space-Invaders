@@ -4,49 +4,74 @@
 #include "../../Header/Global/Config.h";
 
 
-namespace Element 
+namespace Element
 {
-	namespace Bunker 
+	namespace Bunker
 	{
 		using namespace Global;
 
 		Element::Bunker::BunkerView::BunkerView()
 		{
 			//bunker_controller = nullptr;
+			createUIElement();
 		}
 		BunkerView::~BunkerView()
 		{
 			//delete(bunker_controller);
+			destroy();
 		}
 
 		void BunkerView::initialize(BunkerController* controller)
 		{
 			bunker_controller = controller;
-			game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-			initializeSprite();
+			//game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+			//initializeSprite();
+			initilizeImage();
 		}
 		void BunkerView::update()
 		{
-			bunker_sprite.setPosition(bunker_controller->getBunkerPosition());
+			bunkerimage_view->setPosition(bunker_controller->getBunkerPosition());
+			bunkerimage_view->update();
+			// bunker_sprite.setPosition(bunker_controller->getBunkerPosition());
 		}
 		void BunkerView::render()
 		{
-			game_window->draw(bunker_sprite);
+			bunkerimage_view->render();
+			// game_window->draw(bunker_sprite);
 		}
-		void BunkerView::initializeSprite()
+	/*	void BunkerView::initializeSprite()
 		{
 			if (bunker_texture.loadFromFile(Config::bunker_texture_path))
 			{
 				bunker_sprite.setTexture(bunker_texture);
 				scaleSprite();
 			}
-		}
-		void BunkerView::scaleSprite()
+		}*/
+	/*	void BunkerView::scaleSprite()
 		{
 			bunker_sprite.setScale(
 				static_cast<float>(bunker_width) / bunker_sprite.getTexture()->getSize().x,
 				static_cast<float>(bunker_height) / bunker_sprite.getTexture()->getSize().y
 			);
+		}*/
+		void BunkerView::createUIElement()
+		{
+			bunkerimage_view = new UI::UIElement::ImageView();
+		}
+
+		void BunkerView::initilizeImage()
+		{
+			bunkerimage_view->initialize(getBunkerTexturePath(), bunker_height, bunker_width, bunker_controller->getBunkerPosition());
+		}
+
+		sf::String BunkerView::getBunkerTexturePath()
+		{
+			return Config::bunker_texture_path;
+		}
+
+		void BunkerView::destroy()
+		{
+			delete(bunkerimage_view);
 		}
 	}
 }

@@ -9,42 +9,69 @@ namespace Player
 	using namespace Global;
 	PlayerView::PlayerView()
 	{
+		createUIElement();
 	}
 
-	PlayerView::~PlayerView() {};
+	PlayerView::~PlayerView() {
+		destroy();
+	};
 
 	void PlayerView::initialize(PlayerController* controller)
 	{
 		player_controller = controller;
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		initializePlayerSprite();
+		//game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		//initializePlayerSprite();
+		initilizeImage();
+		
 	}
 
 	void PlayerView::update()
 	{
-		player_sprite.setPosition(player_controller->getPosition());
+		player_image->setPosition(player_controller->getPosition());
+		player_image->update();
 	}
 
 	void PlayerView::render()
 	{
-		game_window->draw(player_sprite);
+		player_image->render();
 	}
 
-	void PlayerView::initializePlayerSprite()
+	//void PlayerView::initializePlayerSprite()
+	//{
+	//	if (player_texture.loadFromFile(Config::player_texture_path))
+	//	{
+	//		player_sprite.setTexture(player_texture);
+	//		scaleSprite();
+	//	}
+	//}
+
+	//void PlayerView::scaleSprite()
+	//{
+	//	player_sprite.setScale(
+	//		static_cast<float>(sprite_width) / player_sprite.getTexture()->getSize().x,
+	//		static_cast<float>(sprite_height) / player_sprite.getTexture()->getSize().y
+	//	);
+	//}
+
+	void PlayerView::createUIElement()
 	{
-		if (player_texture.loadFromFile(Config::player_texture_path))
-		{
-			player_sprite.setTexture(player_texture);
-			scaleSprite();
-		}
+		player_image = new UI::UIElement::ImageView();
 	}
 
-	void PlayerView::scaleSprite()
+
+	void PlayerView::initilizeImage()
 	{
-		player_sprite.setScale(
-			static_cast<float>(sprite_width) / player_sprite.getTexture()->getSize().x,
-			static_cast<float>(sprite_height) / player_sprite.getTexture()->getSize().y
-		);
+		player_image->initialize(getPlayerTexturePath(), sprite_height, sprite_width, player_controller->getPosition());
+	}
+
+	sf::String PlayerView::getPlayerTexturePath()
+	{
+		return Config::player_texture_path;
+	}
+
+	void PlayerView::destroy()
+	{
+		delete(player_image);
 	}
 
 }

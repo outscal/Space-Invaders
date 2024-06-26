@@ -144,6 +144,9 @@
     <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UIService\UIElement\ImageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Header.h">
@@ -297,6 +300,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\UIService\UIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UIService\UIElement\ImageView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
