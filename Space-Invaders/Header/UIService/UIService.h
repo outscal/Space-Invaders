@@ -34,8 +34,9 @@ namespace UI
 
 	}
 
-	class UIController;
-
+	//class UIController;
+	using namespace Interface;
+	using namespace UIElement;
 	class UIService
 	{
 	public:
@@ -48,14 +49,15 @@ namespace UI
 
 
 		void showScreen();
+		UI::Interface::IUIController* getCurrentUIController();
+
 	private:
-		MainMenu::MainMenuUIController* main_menu_controller;
+		UI::MainMenu::MainMenuUIController* main_menu_controller;
 
 		void createController();
 		void initializeController();
 		void destroyController();
 
-		UI::Interface::IUIController* getCurrentUIController();
 
 	
 

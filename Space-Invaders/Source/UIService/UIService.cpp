@@ -1,16 +1,17 @@
 #include "../../Header/UIService/UIService.h"
 #include "../../Header//Main/GameService.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/UIService/UIElement/TextView.h"
 
 #include <iostream>
 using namespace std;
-
 
 namespace UI
 {
 	using namespace Interface;
 	using  namespace MainMenu;
 	using namespace Main;
+	using namespace UIElement;
 	UIService::UIService()
 	{
 		main_menu_controller = nullptr;
@@ -20,11 +21,12 @@ namespace UI
 	UIService::~UIService()
 	{
 		destroyController();
+		
 	}
 
 	void UIService::initialize()
 	{
-
+		TextView::initializeTextView();
 		initializeController();
 	}
 
@@ -76,7 +78,7 @@ namespace UI
 	void UIService::initializeController()
 	{
 		//cout << "initializing";
-		IUIController* ui_controller = getCurrentUIController();
+		//IUIController* ui_controller = getCurrentUIController();
 		main_menu_controller->initialize();
 	}
 
@@ -92,6 +94,7 @@ namespace UI
 		case GameState::MAIN_MENU:
 			return main_menu_controller;
 		default:
+			return nullptr;
 			break;
 		}
 	}
