@@ -83,7 +83,7 @@
 int main()
 {
 	
-	GameService* game_Service = new GameService();
+	Main::GameService* game_Service = new Main::GameService();
 	game_Service->ignite();
 
 	while (game_Service->isRunning())

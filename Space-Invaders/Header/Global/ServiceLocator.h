@@ -9,42 +9,45 @@
 // ServiceLocator Class Summary: This class manages access to various services in the application.
 // include relevant headers files
 
-class ServiceLocator
-{
-private:
-    // Private Attributes:
-    // - event_service: Manages event-related functionalities.
-     EventService* event_service;
-    // - graphic_service: Handles graphics-related tasks.
-    GraphicService* graphic_service;
-    // - player_service: Handles graphics-related tasks.
-    PlayerService* player_service;
-    // - time_service: Handles graphics-related tasks.
-    TimeService* time_service;
-    
-    // Private Constructor and Destructor:
+namespace Global {
+    class ServiceLocator
+    {
+    private:
 
-    // Constructor for initializing the ServiceLocator.
-    ServiceLocator();
+        // Private Attributes:
+        // - event_service: Manages event-related functionalities.
+        Event::EventService* event_service;
+        // - graphic_service: Handles graphics-related tasks.
+        Graphic::GraphicService* graphic_service;
+        // - player_service: Handles graphics-related tasks.
+        Player::PlayerService* player_service;
+        // - time_service: Handles graphics-related tasks.
+        Time::TimeService* time_service;
 
-    // Destructor for cleaning up resources upon object deletion.
-    ~ServiceLocator();
+        // Private Constructor and Destructor:
 
-    // Private Methods:
-    void createServices(); 	// Creates instances of all services.
-    void clearAllServices();  //	Deletes and deallocates memory for all services.
+        // Constructor for initializing the ServiceLocator.
+        ServiceLocator();
 
-public:
-    // Public Methods:
-    static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+        // Destructor for cleaning up resources upon object deletion.
+        ~ServiceLocator();
 
-    void initialize();            //	Initializes the ServiceLocator.
-    void update(); 				//	Updates all services.
-    void render(); 				//	Renders using the services.
+        // Private Methods:
+        void createServices(); 	// Creates instances of all services.
+        void clearAllServices();  //	Deletes and deallocates memory for all services.
 
-    // Methods to Get Specific Services: 
-    EventService* getEventService();   // Retrieve the EventService instance.
-    GraphicService* getGraphicService();   // Retrieve the GraphicService instance.
-    PlayerService* getPlayerService();    // Retrieve the PlayerService instance.
-    TimeService* getTimeService();       //// Retrieve the TimeService instance.
-};
+    public:
+        // Public Methods:
+        static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+
+        void initialize();            //	Initializes the ServiceLocator.
+        void update(); 				//	Updates all services.
+        void render(); 				//	Renders using the services.
+
+        // Methods to Get Specific Services: 
+        Event::EventService* getEventService();   // Retrieve the EventService instance.
+        Graphic::GraphicService* getGraphicService();   // Retrieve the GraphicService instance.
+        Player::PlayerService* getPlayerService();    // Retrieve the PlayerService instance.
+        Time::TimeService* getTimeService();       //// Retrieve the TimeService instance.
+    };
+}

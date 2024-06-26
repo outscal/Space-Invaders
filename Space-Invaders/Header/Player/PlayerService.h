@@ -41,16 +41,20 @@
 #pragma once
 #include "../../Header/Player/PlayerController.h"
 
-class PlayerService
-{
-private:
-	PlayerController* player_controller;
+namespace Player {
 
-public:
-	PlayerService();
-	~PlayerService();
+	class PlayerService
+	{
+	private:
+		PlayerController* player_controller;
 
-	void initialize();
-	void update();
-	void render();
-};
+	public:
+		PlayerService();
+		~PlayerService();
+
+		void initialize();
+		void update();
+		void render();
+	};
+
+}

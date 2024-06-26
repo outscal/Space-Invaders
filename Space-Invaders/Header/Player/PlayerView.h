@@ -2,35 +2,39 @@
 #include <SFML/Graphics.hpp>
 //#include "../../Header/Player/PlayerController.h"
 
-class PlayerController;
-class PlayerModel;
+namespace Player {
 
-class PlayerView
-{
-private:
+    class PlayerController;
+    class PlayerModel;
 
-    const sf::String player_texture_path = "assets/textures/player_ship.png";
-    const float player_sprite_width = 60.f;
-    const float player_sprite_height = 60.f;
+    class PlayerView
+    {
+    private:
 
-    sf::RenderWindow* game_window;
+        const sf::String player_texture_path = "assets/textures/player_ship.png";
+        const float player_sprite_width = 60.f;
+        const float player_sprite_height = 60.f;
 
-  PlayerController* player_controller; // ptr to player controller
+        sf::RenderWindow* game_window;
 
-    sf::Texture player_texture;
-    sf::Sprite player_sprite;
+        PlayerController* player_controller; // ptr to player controller
 
-    void initializePlayerSprite();
-    void scalePlayerSprite();
+        sf::Texture player_texture;
+        sf::Sprite player_sprite;
 
-public:
-    PlayerView();
-    ~PlayerView();
+        void initializePlayerSprite();
+        void scalePlayerSprite();
 
-    void initialize(PlayerController* controller); // we pass a pointer of type controller because we need to use this in the view later.
-   // void initialize();
-    void update();
-    void render();
+    public:
+        PlayerView();
+        ~PlayerView();
 
-   
-};
+        void initialize(PlayerController* controller); // we pass a pointer of type controller because we need to use this in the view later.
+        // void initialize();
+        void update();
+        void render();
+
+
+    };
+
+}
