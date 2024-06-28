@@ -178,6 +178,7 @@
     <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="Source\Global\ServiceLocator.cpp" />
     <ClCompile Include="Source\Powerups\Controllers\OutscalBombController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\UFOController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupModel.cpp" />
     <ClCompile Include="Source\Powerups\PowerupService.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
     <ClInclude Include="Header\Powerups\Controllers\OutscalBombController.h" />
+    <ClInclude Include="Header\Powerups\Controllers\UFOController.h" />
     <ClInclude Include="Header\Powerups\PowerupConfig.h" />
     <ClInclude Include="Header\Powerups\PowerupController.h" />
     <ClInclude Include="Header\Powerups\PowerupModel.h" />
