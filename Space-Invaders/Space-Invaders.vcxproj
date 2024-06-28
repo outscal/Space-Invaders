@@ -191,6 +191,7 @@
     <ClInclude Include="Header\Bullet\Controllers\FrostBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
+    <ClInclude Include="Header\Collectible\Icollectible.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
