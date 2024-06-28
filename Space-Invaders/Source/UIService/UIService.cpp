@@ -1,36 +1,74 @@
-#include "../../header/UI/UIElement/UIView.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Graphics/GraphicService.h"
+#include "../../header/UI/UIService.h"
+#include "../../header/Main/GameService.h"
+#include "../../header/UI/UIElement/TextView.h" // this
 
 namespace UI
 {
-	namespace UIElement
+	using namespace Main;
+	using namespace MainMenu;
+	using namespace UIElement; // this
+	using namespace Interface;
+
+	UIService::UIService()
 	{
-		using namespace Global;
-		using namespace Graphics;
+		main_menu_controller = nullptr;
 
-		UIView::UIView() = default;
+		createControllers();
+	}
 
-		UIView::~UIView() = default;
+	void UIService::createControllers()
+	{
+		main_menu_controller = new MainMenuUIController();
+	}
 
-		void UIView::initialize()
+	UIService::~UIService()
+	{
+		destroy();
+	}
+
+	void UIService::initialize()
+	{
+		TextView::initializeTextView(); // this
+		initializeControllers();
+	}
+
+	void UIService::update()
+	{
+		IUIController* ui_controller = getCurrentUIController();
+		if (ui_controller) ui_controller->update();
+	}
+
+	void UIService::render()
+	{
+		IUIController* ui_controller = getCurrentUIController();
+		if (ui_controller) ui_controller->render();
+	}
+
+	void UIService::showScreen()
+	{
+		IUIController* ui_controller = getCurrentUIController();
+		if (ui_controller) ui_controller->show();
+	}
+
+	void UIService::initializeControllers()
+	{
+		main_menu_controller->initialize();
+	}
+
+	IUIController* UIService::getCurrentUIController()
+	{
+		switch (GameService::getGameState())
 		{
-			game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-			ui_state = UIState::VISIBLE;
+		case GameState::MAIN_MENU:
+			return main_menu_controller;
+
+		default:
+			return nullptr;
 		}
+	}
 
-		void UIView::update() { }
-
-		void UIView::render() { }
-
-		void UIView::show()
-		{
-			ui_state = UIState::VISIBLE;
-		}
-
-		void UIView::hide()
-		{
-			ui_state = UIState::HIDDEN;
-		}
+	void UIService::destroy()
+	{
+		delete(main_menu_controller);
 	}
 }
