@@ -148,6 +148,7 @@
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalHeaderUnitDependencies>
     </ClCompile>
+    <ClCompile Include="Source\Bullet\BulletController.cpp" />
     <ClCompile Include="Source\Bullet\BulletService.cpp" />
     <ClCompile Include="Source\Elements\Bunker\BunkerController.cpp" />
     <ClCompile Include="Source\Elements\Bunker\BunkerModel.cpp" />
@@ -177,7 +178,11 @@
     <ClCompile Include="Source\UIService\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Bullet\BulletConfig.h" />
+    <ClInclude Include="Header\Bullet\BulletController.h" />
+    <ClInclude Include="Header\Bullet\BulletModel.h" />
     <ClInclude Include="Header\Bullet\BulletService.h" />
+    <ClInclude Include="Header\Bullet\BulletView.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
