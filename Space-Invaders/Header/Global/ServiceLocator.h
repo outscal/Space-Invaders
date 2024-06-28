@@ -6,6 +6,7 @@
 #include "../../header/Time/TimeService.h"
 #include "../../header/Enemy/EnemyService.h"
 #include "../../header/Gameplay/GameplayService.h"
+#include "../../Header/Bullet/BulletService.h"
 
 namespace Global
 {
@@ -19,6 +20,7 @@ namespace Global
         Gameplay::GameplayService* gameplay_service;
         Player::PlayerService* player_service;
         Enemy::EnemyService* enemy_service;
+        Bullet::BulletService* bullet_service;
 
         ServiceLocator();
         ~ServiceLocator();
@@ -40,6 +42,8 @@ namespace Global
         Gameplay::GameplayService* getGameplayService();
         Player::PlayerService* getPlayerService();
         Enemy::EnemyService* getEnemyService();
+        Bullet::BulletService* getBulletService();
+
         void deleteServiceLocator();
     };
 }
