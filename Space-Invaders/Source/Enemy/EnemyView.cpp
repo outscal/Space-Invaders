@@ -1,14 +1,14 @@
 #include "../../header/Enemy/EnemyView.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
-#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Graphics/GraphicService.h"
 #include "../../header/Enemy/EnemyController.h"
 #include "../../header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
 	using namespace Global;
-	using namespace Graphic;
+	using namespace Graphics;
 	using namespace UI::UIElement;
 
 	EnemyView::EnemyView() { createUIElements(); }
@@ -40,6 +40,11 @@ namespace Enemy
 	void EnemyView::render()
 	{
 		enemy_image->render();
+	}
+
+	const sf::Sprite& EnemyView::getEnemySprite()
+	{
+		return enemy_image->getSprite();
 	}
 
 	sf::String EnemyView::getEnemyTexturePath()

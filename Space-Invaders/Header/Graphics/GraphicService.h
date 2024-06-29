@@ -1,27 +1,24 @@
-
 #pragma once
-
 #include <SFML/Graphics.hpp>
 
-namespace Graphic
+namespace Graphics
 {
 	class GraphicService
 	{
 	private:
 		const int frame_rate = 60;
 
-		const std::string game_window_title = "Outscal Presents - Alien Invader";
+		const std::string game_window_title = "Outscal Presents - Space Invaders";
 
 		const int game_window_width = 1920;
 		const int game_window_height = 1080;
 
+		const sf::Color window_color = sf::Color(200, 200, 0, 255);
 
-		const sf::Color window_color = sf::Color::Blue;
-
-		sf::VideoMode* video_mode;
+		sf::VideoMode video_mode;
 		sf::RenderWindow* game_window;
 
-		void setVideoMode();
+		void configureVideoMode();
 		void onDestroy();
 
 	public:
@@ -34,10 +31,7 @@ namespace Graphic
 		void update();
 		void render();
 		bool isGameWindowOpen();
-
+		void setFrameRate(int);
 		sf::RenderWindow* getGameWindow();
-		sf::Color getWindowColor();
-
-
 	};
 }

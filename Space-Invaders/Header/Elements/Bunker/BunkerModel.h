@@ -10,7 +10,6 @@ namespace Element
 			sf::Vector2f position;
 
 			BunkerData();
-
 			BunkerData(sf::Vector2f position);
 		};
 	}

@@ -16,5 +16,15 @@ namespace Player
 		void initialize();
 		void update();
 		void render();
+
+		void increaseScore(int val);
+		void decreaseScore(int val);
+		void increaseEnemiesKilled(int val);
+
+		void enableShield();
+		void enableRapidFire();
+		void enableTripleLaser();
+
+		void reset();
 	};
 }

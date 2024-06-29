@@ -1,7 +1,7 @@
 #pragma once
-#include "../../Header/Projectile/IProjectile.h"
+#include "../../header/Projectile/IProjectile.h"
 #include "../../header/Entity/EntityConfig.h"
-#include "../../Header/Bullet/BulletConfig.h"
+#include "../Collision/ICollider.h"
 
 namespace Bullet
 {
@@ -30,8 +30,8 @@ namespace Bullet
         void handleOutOfBounds();
 
     public:
-        BulletController(BulletType bullet_type, Entity::EntityType owner_type);       
-        virtual ~BulletController() override;
+        BulletController(BulletType bullet_type, Entity::EntityType owner_type);
+        virtual ~BulletController();
 
         void initialize(sf::Vector2f position, Bullet::MovementDirection direction) override;
         void update() override;

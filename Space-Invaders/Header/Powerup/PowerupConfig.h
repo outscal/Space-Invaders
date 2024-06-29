@@ -6,7 +6,7 @@ namespace Powerup
 	{
 		SHIELD,
 		RAPID_FIRE,
-		TRIPLE_LASER,
+		TRIPPLE_LASER,
 		OUTSCAL_BOMB,
 	};
 }

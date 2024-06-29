@@ -1,8 +1,9 @@
 #include "../../header/Player/PlayerView.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
-#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Graphics/GraphicService.h"
 #include "../../header/Player/PlayerController.h"
+#include "../../header/Player/PlayerModel.h"
 
 namespace Player
 {
@@ -43,5 +44,16 @@ namespace Player
 	void PlayerView::destroy()
 	{
 		delete(player_image);
+	}
+
+	void PlayerView::setPlayerHighlight(bool b_highlight)
+	{
+		if (b_highlight) player_image->setImageAlpha(PlayerModel::invincible_player_alpha);
+		else player_image->setImageAlpha(255);
+	}
+
+	const sf::Sprite& PlayerView::getPlayerSprite()
+	{
+		return player_image->getSprite();
 	}
 }

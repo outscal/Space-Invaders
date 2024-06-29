@@ -1,6 +1,6 @@
 #include "../../header/Elements/Bunker/BunkerView.h"
 #include "../../header/Global/ServiceLocator.h"
-#include "../../header/Graphic/GraphicService.h"
+#include "../../header/Graphics/GraphicService.h"
 #include "../../header/Global/Config.h"
 #include "../../header/Elements/Bunker/BunkerController.h"
 
@@ -9,7 +9,7 @@ namespace Element
 	namespace Bunker
 	{
 		using namespace Global;
-		using namespace Graphic;
+		using namespace Graphics;
 		using namespace UI::UIElement;
 
 		BunkerView::BunkerView() { createUIElements(); }
@@ -40,6 +40,11 @@ namespace Element
 		void BunkerView::render()
 		{
 			bunker_image->render();
+		}
+
+		const sf::Sprite& BunkerView::getBunkerSprite()
+		{
+			return bunker_image->getSprite();
 		}
 
 		void BunkerView::destroy()
