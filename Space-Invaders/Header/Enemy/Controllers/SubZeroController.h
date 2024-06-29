@@ -9,23 +9,18 @@ namespace Enemy
         {
         private:
             float vertical_movement_speed = 100.f;
+            const float subzero_rate_of_fire = 2;
 
             void move() override;
             void moveDown();
+            void fireBullet() override;
 
         public:
-            SubzeroController();
+            SubzeroController(EnemyType type);
             ~SubzeroController();
 
             void initialize() override;
-        };
 
-        void SubZeroController::fireBullet()
-        {
-            // we spawn the bullet and pass the needed parameters
-            ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
-                enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
-                Bullet::MovementDirection::DOWN);
-        }
+        };
     }
 }

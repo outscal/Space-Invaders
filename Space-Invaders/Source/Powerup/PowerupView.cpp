@@ -5,6 +5,7 @@
 #include "../../header/Powerup/PowerupController.h"
 #include "../../header/Powerup/PowerupConfig.h"
 
+
 namespace Powerup
 {
 	using namespace Global;
@@ -27,12 +28,12 @@ namespace Powerup
 
 	void PowerupView::initializeImage()
 	{
-		powerup_image->initialize(getPowerupTexturePath(), powerup_sprite_width, powerup_sprite_height, powerup_controller->getPowerupPosition());
+		powerup_image->initialize(getPowerupTexturePath(), powerup_sprite_width, powerup_sprite_height, powerup_controller->getCollectiblePosition());
 	}
 
 	void PowerupView::update()
 	{
-		powerup_image->setPosition(powerup_controller->getPowerupPosition());
+		powerup_image->setPosition(powerup_controller->getCollectiblePosition());
 		powerup_image->update();
 	}
 
@@ -48,7 +49,7 @@ namespace Powerup
 		case::Powerup::PowerupType::SHIELD:
 			return Config::shield_texture_path;
 
-		case::Powerup::PowerupType::TRIPPLE_LASER:
+		case::Powerup::PowerupType::TRIPLE_LASER:
 			return Config::tripple_laser_texture_path;
 
 		case::Powerup::PowerupType::RAPID_FIRE:

@@ -1,34 +1,96 @@
-#include "../../header/Elements/ElementService.h"
+#include "../../Header/Enemy/EnemyService.h"
+#include "../../Header/Enemy/EnemyController.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Time/TimeService.h"
+#include "../../Header/Enemy/EnemyConfig.h"
+#include "../../Header/Enemy/Controllers/SubZeroController.h"
+#include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
+#include "../../Header/Enemy/Controllers/UFOController.h"
 
-namespace Element
+namespace Enemy
 {
-	ElementService::ElementService() { }
+	using namespace Global;
+	using namespace Time;
+	using namespace Controller;
 
-	ElementService::~ElementService() { destroy(); }
+	EnemyService::EnemyService() { std::srand(static_cast<unsigned>(std::time(nullptr))); }
 
-	void ElementService::initialize()
+	EnemyService::~EnemyService() { destroy(); }
+
+	void EnemyService::initialize()
 	{
-		for (int i = 0; i < bunker_data_list.size(); i++)
-		{
-			Bunker::BunkerController* bunker_controller = new Bunker::BunkerController();
+		spawn_timer = spawn_interval;
+	}
 
-			bunker_controller->initialize(bunker_data_list[i]);
-			bunker_list.push_back(bunker_controller);
+	void EnemyService::update()
+	{
+		updateSpawnTimer();
+		processEnemySpawn();
+
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->update();
+	}
+
+	void EnemyService::render()
+	{
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->render();
+	}
+
+	void EnemyService::updateSpawnTimer()
+	{
+		spawn_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+
+	void EnemyService::processEnemySpawn()
+	{
+		if (spawn_timer >= spawn_interval)
+		{
+			spawnEnemy();
+			spawn_timer = 0.0f;
 		}
 	}
 
-	void ElementService::update()
+	EnemyType EnemyService::getRandomEnemyType()
 	{
-		for (int i = 0; i < bunker_list.size(); i++) bunker_list[i]->update();
+		int randomType = std::rand() % 4;
+		return static_cast<Enemy::EnemyType>(randomType);
 	}
 
-	void ElementService::render()
+	EnemyController* EnemyService::spawnEnemy()
 	{
-		for (int i = 0; i < bunker_list.size(); i++) bunker_list[i]->render();
+		EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
+		enemy_controller->initialize();
+
+		enemy_list.push_back(enemy_controller);
+		return enemy_controller;
 	}
 
-	void ElementService::destroy()
+	void EnemyService::destroyEnemy(EnemyController* enemy_controller)
 	{
-		for (int i = 0; i < bunker_list.size(); i++) delete(bunker_list[i]);
+		enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
+		delete(enemy_controller);
+	}
+
+	EnemyController* EnemyService::createEnemy(EnemyType enemy_type)
+	{
+		switch (enemy_type)
+		{
+		case::Enemy::EnemyType::ZAPPER:
+			return new ZapperController(Enemy::EnemyType::ZAPPER);
+
+		case::Enemy::EnemyType::THUNDER_SNAKE:
+			return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);
+
+		case::Enemy::EnemyType::SUBZERO:
+			return new SubzeroController(Enemy::EnemyType::SUBZERO);
+
+		case::Enemy::EnemyType::UFO:
+			return new UFOController(Enemy::EnemyType::UFO);
+		}
+	}
+
+	void EnemyService::destroy()
+	{
+		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]);
 	}
 }

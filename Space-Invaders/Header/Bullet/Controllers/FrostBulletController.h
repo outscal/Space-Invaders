@@ -8,10 +8,10 @@ namespace Bullet
         class FrostBulletController : public BulletController
         {
         private:
-            const float frost_movement_speed = 500.f;
+            const float frost_bullet_movement_speed = 500.f;
 
         public:
-            FrostBullettController(BulletType type);
+            FrostBulletController(BulletType type);
             ~FrostBulletController();
 
             void initialize(sf::Vector2f position, MovementDirection direction) override;

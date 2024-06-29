@@ -1,32 +1,26 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "../../header/UI/MainMenu/MainMenuController.h"
+#include "../../header/UI/Interface/IUIController.h"
 
 namespace UI
 {
-	namespace UIElement
+	class UIService
 	{
-		enum class UIState
-		{
-			VISIBLE,
-			HIDDEN,
-		};
+	private:
+		MainMenu::MainMenuUIController* main_menu_controller;
 
-		class UIView
-		{
-		protected:
-			sf::RenderWindow* game_window;
-			UIState ui_state;
+		void createControllers();
+		void initializeControllers();
+		Interface::IUIController* getCurrentUIController();
+		void destroy();
 
-		public:
-			UIView();
-			virtual ~UIView();
+	public:
+		UIService();
+		~UIService();
 
-			virtual void initialize();
-			virtual void update();
-			virtual void render();
-
-			virtual void show();
-			virtual void hide();
-		};
-	}
+		void initialize();
+		void update();
+		void render();
+		void showScreen();
+	};
 }

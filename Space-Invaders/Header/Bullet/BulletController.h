@@ -6,7 +6,10 @@ namespace Bullet
 {
     class BulletView;
     class BulletModel;
+
+
     enum class BulletType;
+
 
     class BulletController : public Projectile::IProjectile
     {
@@ -15,6 +18,7 @@ namespace Bullet
         BulletModel* bullet_model;
 
         void updateProjectilePosition() override;
+
         void moveUp();
         void moveDown();
         void handleOutOfBounds();
@@ -22,6 +26,7 @@ namespace Bullet
     public:
         BulletController(BulletType type);
         virtual ~BulletController() override;
+
         void initialize(sf::Vector2f position, Bullet::MovementDirection direction) override;
         void update() override;
         void render() override;

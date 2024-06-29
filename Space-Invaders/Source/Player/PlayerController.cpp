@@ -1,14 +1,15 @@
-#include "../../header/Player/PlayerController.h"
-#include "../../header/Player/PlayerView.h"
-#include "../../header/Player/PlayerModel.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Event/EventService.h"
+#include "../../Header/Player/PlayerController.h"
+#include "../../Header/Player/PlayerModel.h"
+#include "../../Header/Player/PlayerView.h"
+#include "../../Header/Event/EventService.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Bullet/BulletConfig.h"
 
 namespace Player
 {
 	using namespace Global;
 	using namespace Event;
-	using namespace Time;
+	using namespace Bullet;
 
 	PlayerController::PlayerController()
 	{
@@ -44,30 +45,28 @@ namespace Player
 		return player_model->getPlayerPosition();
 	}
 
-	int PlayerController::getPlayerScore()
-	{
-		return player_model->getPlayerScore();
-	}
-
 	PlayerState PlayerController::getPlayerState()
 	{
+
 		return player_model->getPlayerState();
+
 	}
+
 
 	void PlayerController::processPlayerInput()
 	{
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-		// move this to event service at a later time
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
-		{
-			moveLeft();
-		}
+		if (event_service->pressedLeftKey() || event_service->pressedAKey()) moveLeft();
+		if (event_service->pressedRightKey() || event_service->pressedDKey()) moveRight();
+		if (event_service->pressedLeftMouseButton()) fireBullet(); //this
+	}
 
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)))
-		{
-			moveRight();
-		}
+	void PlayerController::fireBullet()
+	{
+		ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
+			player_model->getPlayerPosition() + player_model->barrel_position_offset,
+			Bullet::MovementDirection::UP);
 	}
 
 	void PlayerController::moveLeft()

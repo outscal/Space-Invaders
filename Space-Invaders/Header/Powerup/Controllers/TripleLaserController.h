@@ -5,13 +5,13 @@ namespace Powerup
 {
     namespace Controller
     {
-        class OutscalBombController : public PowerupController
+        class TripleLaserController : public PowerupController
         {
         public:
-            OutscalBombController(PowerupType type);
-            virtual ~OutscalBombController();
+            TripleLaserController(PowerupType type);
+            virtual ~TripleLaserController();
 
             void onCollected() override;
         };
     }
-}#pragma once
+}

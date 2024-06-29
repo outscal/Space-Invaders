@@ -1,20 +1,24 @@
-#include "../../Header/Main/GameService.h"
+
+#include "Header/Main/GameService.h"
+using namespace Main;
 
 
-int main() 
-{
-    using namespace Main;
+int main() {
 
-    GameService* game_service = new GameService(); //create object
 
-    game_service->ignite(); // "ignites"/starts the flow of our game
 
-    //while the game is running we will update the game loop
+
+    GameService* game_service = new GameService();
+
+    game_service->ignite();
+
     while (game_service->isRunning())
     {
         game_service->update();
         game_service->render();
     }
+
+
+
     return 0;
 }
-

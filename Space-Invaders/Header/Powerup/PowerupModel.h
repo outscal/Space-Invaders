@@ -28,4 +28,4 @@ namespace Powerup
         float getMovementSpeed();
         void setMovementSpeed(float speed);
     };
-}#pragma once
+}
