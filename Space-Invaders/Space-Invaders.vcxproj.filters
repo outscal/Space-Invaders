@@ -317,6 +317,9 @@
     <ClInclude Include="Header\Powerup\Controllers\TripleLaserController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Entity\EntityConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
