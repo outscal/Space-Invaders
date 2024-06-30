@@ -2,6 +2,7 @@
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
+#include"../../Header/Sound/SoundService.h"
 
 
 namespace UI
@@ -11,7 +12,7 @@ namespace UI
         using namespace Global;
         using namespace Main;
         using namespace Graphic;
-
+        using namespace Sound;
 
         MainMenuUIController::MainMenuUIController() { game_window = nullptr; }
 
@@ -34,12 +35,14 @@ namespace UI
 
             if (clickedButton(&play_button_sprite, mouse_position))
             {
+              Global::  ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK); //play button sound
+              Global::  ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic(); //play background music
                 GameService::setGameState(GameState::GAMEPLAY);
             }
 
             if (clickedButton(&instructions_button_sprite, mouse_position))
             {
-                printf("Clicked Instruction Button \\n");
+                printf("Clicked Instruction Button \n");
             }
 
             if (clickedButton(&quit_button_sprite, mouse_position))
