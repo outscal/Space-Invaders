@@ -16,7 +16,7 @@ namespace Enemy
         sf::Vector2f enemy_position;
 
         MovementDirection movement_direction;
-        MovementDirection movement_direction;
+       
         EnemyType enemy_type;
         EnemyState enemy_state;
 

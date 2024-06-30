@@ -4,8 +4,8 @@ namespace Enemy
 {
     enum class EnemyType
     {
-        ZAPPER,
-        SUBZERO,
+        ZAPPER, 
+        SUBZER,
         UFO,
         THUNDER_SNAKE,
     };
