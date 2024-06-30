@@ -15,10 +15,19 @@ namespace Main {
 		destroy(); // Clean up and release resources
 	}
 
+	GameState GameService::current_state = GameState::BOOT;
+
+	void GameService::setGameState(GameState new_state) { current_state = new_state; }
+
+	void GameService::showMainMenu()
+	{
+		setGameState(GameState::MAIN_MENU);
+	}
 	// Prepares the game service for use by obtaining the service locator instance and initializing services.
 	void GameService::ignite() {
 		service_locator = Global::ServiceLocator::getInstance(); // Get ServiceLocator
 		initialize(); // Initialize services.
+		showMainMenu();
 	}
 
 	//initialize service locator and other variables
@@ -59,6 +68,7 @@ namespace Main {
 		service_locator->render(); // Render the current frame using the service locator
 		game_window->display(); // Display the rendered frame on the game window
 	}
+	GameState GameService::getGameState() { return current_state; }
 
 	// Checks if the game is still running by querying the graphic service's window open status.
 	bool GameService::isRunning() {
