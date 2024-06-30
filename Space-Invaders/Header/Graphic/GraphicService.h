@@ -8,8 +8,8 @@ namespace Graphic {
 	private:
 		const std::string game_window_title = " Space Impact ";
 
-		const int game_window_width = 1920;
-		const int game_window_height = 1080;
+		const int game_window_width = 800;
+		const int game_window_height = 600;
 
 		const sf::Color window_color = sf::Color::Blue;
 		const int frame_rate = 60;
@@ -19,7 +19,6 @@ namespace Graphic {
 
 		void setVideoMode(); //Method to setting our video mode
 		void onDestroy();  //Method to run when window is deleated
-		
 
 	public:
 		GraphicService();

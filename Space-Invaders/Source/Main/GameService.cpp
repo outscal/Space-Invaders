@@ -4,8 +4,6 @@
 
 namespace Main {
 
-	using namespace Global;
-
 	// Constructor: Initializes pointers to null.
 	GameService::GameService() {
 		service_locator = nullptr; // Set service locator to null
@@ -15,15 +13,6 @@ namespace Main {
 	// Destructor: Calls the destroy function to clean up resources.
 	GameService::~GameService() {
 		destroy(); // Clean up and release resources
-	}
-
-	GameState GameService::current_state = GameState::BOOT;
-
-	void GameService::setGameState(GameState new_state) { current_state = new_state; }
-
-	void GameService::showMainMenu()
-	{
-		setGameState(GameState::MAIN_MENU);
 	}
 
 	// Prepares the game service for use by obtaining the service locator instance and initializing services.
@@ -37,7 +26,6 @@ namespace Main {
 	{
 		service_locator->initialize();
 		initializeVariables();
-		showMainMenu();
 	}
 
 	void GameService::initializeVariables()
@@ -71,8 +59,6 @@ namespace Main {
 		service_locator->render(); // Render the current frame using the service locator
 		game_window->display(); // Display the rendered frame on the game window
 	}
-
-	GameState GameService::getGameState() { return current_state; }
 
 	// Checks if the game is still running by querying the graphic service's window open status.
 	bool GameService::isRunning() {
