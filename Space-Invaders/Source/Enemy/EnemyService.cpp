@@ -3,11 +3,13 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Time/TimeService.h"
 #include "../../Header/Enemy/EnemyConfig.h"
-
+#include"../../Header/Enemy/Controllers/SubZeroController.h"
+#include"../../Header/Enemy/Controllers/ZapperController.h"
 namespace Enemy
 {
 	using namespace Global;
 	using namespace Time;
+	using namespace Controller;
 	
 
 	EnemyService::EnemyService() 
