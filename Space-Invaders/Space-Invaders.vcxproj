@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="main.cpp" />
@@ -142,6 +143,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Header\GraphicService.h" />
+    <ClInclude Include="Header\EventService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

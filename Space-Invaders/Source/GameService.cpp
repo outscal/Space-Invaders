@@ -52,3 +52,10 @@ bool GameService::isRunning()
 	return service_locator->getGraphicService()->isGameWindowOpen();
 }
 
+void GameService::update()
+{
+	service_locator->getEventService()->processEvents();
+
+	service_locator->update();
+
+}

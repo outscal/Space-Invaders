@@ -8,6 +8,7 @@ private:
 	sf::Event game_event;
 	sf::RenderWindow* game_window;
 	
+	
 	bool isGameWindowOpen();
 	bool gameWindowWasClosed();
 	bool hasQuitGame();
