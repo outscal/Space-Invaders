@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include"../../Header/Enemy/EnemyConfig.h"
+#include"../../Header/Enemy/EnemyModel.h"
+#include"../../Header/Enemy/EnemyView.h"
+#include"../../Header/Enemy/EnemyService.h"
 namespace Enemy
 {
     class EnemyView;

@@ -1,6 +1,7 @@
-
 #pragma once
 #include <vector>
+#include"../../Header/Enemy/EnemyConfig.h"
+#include"../../Header/Enemy/EnemyController.h"
 
 namespace Enemy
 {

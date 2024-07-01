@@ -16,14 +16,14 @@ namespace Enemy
 	{ 
 		std::srand(static_cast<unsigned>(std::time(nullptr)));
 	}
-
+	
 	EnemyService::~EnemyService() { destroy(); }
 
 	void EnemyService::initialize()
 	{
 		spawn_timer = spawn_interval; // for the first spawn
 	}
-
+	
 	void EnemyService::update()
 	{
 		updateSpawnTimer();
@@ -74,14 +74,14 @@ namespace Enemy
 
 		return enemy_controller;
 	}
-	//void EnemyService::spawnEnemy()
-	//{
-	//	EnemyController* enemy_controller = new EnemyController(); // create
-	//	enemy_controller->initialize(); // init as soon as created
+	
+	void EnemyService::destroyEnemy(EnemyController* enemy_controller) {
 
-	//	enemy_list.push_back(enemy_controller); //add to list
-	//}
+	}
+	EnemyType EnemyService::getRandomEnemyType() {
+		return EnemyType::ZAPPER;
 
+	}
 	void EnemyService::destroy()
 	{
 		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]); //delete all enemies
