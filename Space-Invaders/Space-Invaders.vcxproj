@@ -156,6 +156,10 @@
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Element\Bunker\BunkerController.h" />
+    <ClInclude Include="Header\Element\Bunker\BunkerModel.h" />
+    <ClInclude Include="Header\Element\Bunker\BunkerView.h" />
+    <ClInclude Include="Header\Element\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controller\SubZeroController.h" />
     <ClInclude Include="Header\Enemy\Controller\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemyConfig.h" />
@@ -277,6 +281,10 @@
     <ClInclude Include="sfml\include\SFML\Window\WindowBase.hpp" />
     <ClInclude Include="sfml\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="sfml\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="Source\Element\Bunker\BunkerController.cpp" />
+    <ClInclude Include="Source\Element\Bunker\BunkerModel.cpp" />
+    <ClInclude Include="Source\Element\Bunker\BunkerView.cpp" />
+    <ClInclude Include="Source\Element\ElementService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\bubbleBobble.ttf" />
