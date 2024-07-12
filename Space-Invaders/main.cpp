@@ -8,7 +8,7 @@ int main()
     // Create a window object with specific dimensions and a title
     sf::RenderWindow window(videoMode, "SFML Window");
 
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "Resizable Window", sf::Style::Resize);
+    
 
     while (window.isOpen()) {
         sf::Event event;
@@ -20,7 +20,7 @@ int main()
 
 
         // Clear the window
-        window.clear(sf::Color::Blue);
+        window.clear(sf::Color::Red);
 
         // Display whatever you draw
         window.display();
