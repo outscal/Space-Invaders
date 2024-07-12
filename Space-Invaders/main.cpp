@@ -1,5 +1,34 @@
+#include <SFML/Graphics.hpp>
 
 int main()
 {
+    // Define the video mode (dimensions)
+    sf::VideoMode videoMode = sf::VideoMode(800, 600);
+
+    // Create a window object with specific dimensions and a title
+    sf::RenderWindow window(videoMode, "SFML Window");
+
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Resizable Window", sf::Style::Resize);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            // Check for window closure
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+
+        // Clear the window
+        window.clear(sf::Color::Blue);
+
+        // Display whatever you draw
+        window.display();
+
+        window.setFramerateLimit(60);
+
+        window.setPosition(sf::Vector2i(200, 100));
+    }
+
     return 0;
 }
