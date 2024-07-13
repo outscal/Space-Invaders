@@ -43,7 +43,7 @@ int main()
 
             sf::Sprite outscal_sprite;
             outscal_sprite.setTexture(outscal_texture);
-            outscal_sprite.setPosition(200, 100);
+            outscal_sprite.setPosition(400, 300);
             outscal_sprite.setRotation(45);
             outscal_sprite.setScale(0.5, 0.5);
             window.draw(outscal_sprite);
