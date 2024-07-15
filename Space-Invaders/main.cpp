@@ -19,6 +19,15 @@ class Player
 		   return player_Score;
 	   };
 
+	   int getMoveSpeed()
+	   {
+		   return movement_Speed;
+	   };
+
+	   sf::Vector2f getPosition()
+	   {
+		   return position;
+	   };
 	   void setScore(int newScore)
 	   {
 		   player_Score = newScore;
@@ -29,9 +38,9 @@ class Player
 
 	   };
 
-	   void move()
+	   void move(float offsetX )
 	   {
-		   
+		   position.x += offsetX;
 		   
 	   };
 
@@ -63,12 +72,12 @@ int main()
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			player.move();
+			player.move(-1.0f * player.getMoveSpeed());
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			player.move();
+			player.move(1.0f * player.getMoveSpeed());
 		}
 
 		window.clear(sf::Color::Black);
