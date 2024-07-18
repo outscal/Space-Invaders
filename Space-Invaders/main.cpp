@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Header/GameService.h"
 using namespace std;
-
+/*
 class Player 
 {
 	private:
@@ -53,7 +53,7 @@ class Player
 
 	   };
 	 
-};
+}; */
 
 int main() 
 {

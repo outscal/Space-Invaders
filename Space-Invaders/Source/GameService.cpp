@@ -1,3 +1,5 @@
+#include "../Header/Gameservice.h"
+
 void GameService::initialize()
 {
 	//... Get things running
