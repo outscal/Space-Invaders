@@ -2,35 +2,48 @@
 
  ServiceLocator::ServiceLocator()
 {
-	//constructor
+	 graphic_service = nullptr; 
+	 createServices();
 }
 
  ServiceLocator::~ServiceLocator()
  {
-	 //Destructor
+	 clearAllServices();
  }
 
  void ServiceLocator::createServices()
  {
-	 //creating services
+	 graphic_service = new GraphicService();
  }
 
  void ServiceLocator::clearAllServices()
  {
-	 //clearing services
+	 delete(graphic_service);
+	 graphic_service = nullptr;
+ }
+
+ ServiceLocator* ServiceLocator::getInstance()
+ {
+	 static ServiceLocator instance; 
+	 return &instance;
  }
 
  void ServiceLocator::initialize()
  {
-	 //initializing the service locator
+	 graphic_service->initialize();
  }
 
  void ServiceLocator::update()
  {
-	 //updates game services
+	 graphic_service->update();
  }
 
  void ServiceLocator::render()
  {
-	 //renders each frame of the game 
+	 graphic_service->render();
+ }
+
+ GraphicService* ServiceLocator::getGraphicService()
+ {
+	 return graphic_service;
  }
