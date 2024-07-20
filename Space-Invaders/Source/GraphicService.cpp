@@ -39,7 +39,7 @@ void GraphicService::onDestroy()
 
 void GraphicService::update()
 {
-
+	
 }
 
 void GraphicService::render()

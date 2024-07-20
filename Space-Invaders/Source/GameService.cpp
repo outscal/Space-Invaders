@@ -1,5 +1,6 @@
 #include "../Header/Gameservice.h"
 #include "../Header/GraphicService.h"
+#include "../Header/EventService.h"
 
 GameService::GameService()
 {
@@ -36,6 +37,7 @@ void GameService::destroy()
 
 void GameService::update()
 {
+	service_locator->getEventService()->processEvents();
 	service_locator->update();
 }
 
