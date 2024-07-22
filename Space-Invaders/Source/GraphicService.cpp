@@ -16,7 +16,7 @@ GraphicService::~GraphicService()
 void GraphicService::initialize()
 {
 	game_window = createGameWindow(); //assings a new game window to the game_window ptr
-
+	game_window->setFramerateLimit(frame_rate);
 }
 
 sf::RenderWindow* GraphicService::createGameWindow()
