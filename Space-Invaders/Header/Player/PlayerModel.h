@@ -6,6 +6,7 @@ enum class PlayerState
 	ALIVE,
 	DEAD,
 };
+
 class PlayerModel
 {
 private:
@@ -18,7 +19,7 @@ private:
 public:
 	const float player_movement_speed = 200.0f;
 	const sf::Vector2f left_most_position = sf::Vector2f(50.f, 0.0f);
-	const sf::Vector2f right_most_position = sf::Vector2f(700.f, 0.0f);
+	const sf::Vector2f right_most_position = sf::Vector2f(700.f, 0.f);
 
 	PlayerModel();
 	~PlayerModel();

@@ -1,12 +1,13 @@
 #include "../../Header/Player/PlayerView.h"
-#include "../../Header/ServiceLocator.h"
+#include"../../Header/Player/PlayerContoller.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 PlayerView::PlayerView()
 {
-
+	
 }
 
-PlayerView::PlayerView()
+PlayerView::~PlayerView()
 {
 
 }

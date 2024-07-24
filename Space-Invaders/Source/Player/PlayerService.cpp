@@ -1,5 +1,5 @@
-#include "../Header/PlayerService.h"
-#include "../Header/Player/PlayerContoller.h"
+#include "../../Header/Player/PlayerService.h"
+#include "../../Header/Player/PlayerContoller.h"
 
 PlayerService::PlayerService()
 {
