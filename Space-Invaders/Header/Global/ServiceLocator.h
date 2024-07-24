@@ -4,33 +4,36 @@
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
 
-class ServiceLocator
+namespace Global
 {
-private:
-   
-    GraphicService* graphic_service;
-    EventService* event_service;
-    PlayerService* player_service;
-    TimeService* time_service;
-   
-    ServiceLocator();
-    ~ServiceLocator();
+    class ServiceLocator
+    {
+    private:
 
-    // Private Methods:
-    void createServices(); 			// Creates instances of all services.
-    void clearAllServices(); 		//	Deletes and deallocates memory for all services.
+        Graphic::GraphicService* graphic_service;
+        Event::EventService* event_service;
+        Player::PlayerService* player_service;
+        Time::TimeService* time_service;
 
-public:
-    // Public Methods:
-    static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+        ServiceLocator();
+        ~ServiceLocator();
 
-    void initialize(); 			//	Initializes the ServiceLocator.
-    void update(); 				//	Updates all services.
-    void render(); 				//	Renders using the services.
+        // Private Methods:
+        void createServices(); 			// Creates instances of all services.
+        void clearAllServices(); 		//	Deletes and deallocates memory for all services.
 
-    // Methods to Get Specific Services: 
-    EventService* getEventService();   // Retrieve the EventService instance
-    GraphicService* getGraphicService();  // Retrieve the GraphicService instance
-    PlayerService* getPlayerService();
-    TimeService* getTimeService();
-};
+    public:
+        // Public Methods:
+        static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+
+        void initialize(); 			//	Initializes the ServiceLocator.
+        void update(); 				//	Updates all services.
+        void render(); 				//	Renders using the services.
+
+        // Methods to Get Specific Services: 
+        Event::EventService* getEventService();   // Retrieve the EventService instance
+        Graphic::GraphicService* getGraphicService();  // Retrieve the GraphicService instance
+        Player::PlayerService* getPlayerService();
+        Time::TimeService* getTimeService();
+    };
+}
