@@ -24,7 +24,7 @@ namespace Graphic
 	sf::RenderWindow* GraphicService::createGameWindow()
 	{
 		setVideoMode(); // sets video mode for window
-		return new sf::RenderWindow(*video_mode, game_window_title); // creates and returns new renderwindow object
+		return new sf::RenderWindow(*video_mode, game_window_title,sf::Style::Fullscreen); // creates and returns new renderwindow object
 
 	}
 
