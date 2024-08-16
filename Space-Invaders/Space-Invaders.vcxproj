@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,7 +132,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ENEMY\Controllers\SubZeroController.cpp" />
+    <ClCompile Include="ENEMY\Controllers\ZapperController.cpp" />
+    <ClCompile Include="ENEMY\EnemyController.cpp" />
+    <ClCompile Include="ENEMY\EnemyModel.cpp" />
+    <ClCompile Include="ENEMY\Enemyservice.cpp" />
+    <ClCompile Include="ENEMY\EnemyView.cpp" />
+    <ClCompile Include="Gameplay\GameplayController.cpp" />
+    <ClCompile Include="Gameplay\GameplayService.cpp" />
+    <ClCompile Include="Gameplay\GameplayView.cpp" />
+    <ClCompile Include="source\EventService.cpp" />
+    <ClCompile Include="source\GameService.cpp" />
+    <ClCompile Include="source\GraphicService.cpp" />
+    <ClCompile Include="source\PlayerService.cpp" />
+    <ClCompile Include="source\PlayerController.cpp" />
+    <ClCompile Include="source\PlayerModel.cpp" />
+    <ClCompile Include="source\PlayerView.cpp" />
+    <ClCompile Include="source\ServiceLocator.cpp" />
+    <ClCompile Include="source\TimeService .cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UI\MainMenu\MainMenuUIController.cpp" />
+    <ClCompile Include="UI\UISERVICE.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ENEMY\Controllers\SubZeroController.H" />
+    <ClInclude Include="ENEMY\Controllers\ZapperController.h" />
+    <ClInclude Include="ENEMY\EnemyController.h" />
+    <ClInclude Include="ENEMY\EnemyModel.h" />
+    <ClInclude Include="ENEMY\Enemyservice.h" />
+    <ClInclude Include="ENEMY\EnemyView.h" />
+    <ClInclude Include="Gameplay\GameplayController.h" />
+    <ClInclude Include="Gameplay\GameplayService.H" />
+    <ClInclude Include="Gameplay\GameplayView.H" />
+    <ClInclude Include="Headers\EVENT\EventService.h" />
+    <ClInclude Include="Headers\main\GameService.h" />
+    <ClInclude Include="Headers\Graphic\GraphicService.h" />
+    <ClInclude Include="Headers\player\PlayerService.h" />
+    <ClInclude Include="Headers\player\PlayerController.h" />
+    <ClInclude Include="Headers\player\PlayerModel.h" />
+    <ClInclude Include="Headers\player\PlayerView.h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
+    <ClInclude Include="Headers\TIME\TimeService .h" />
+    <ClInclude Include="UI\MainMenu\MainMenuUIController.h" />
+    <ClInclude Include="UI\UISERVICE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,5 +18,115 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\EventService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GameService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GraphicService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ServiceLocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\TimeService .cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\MainMenu\MainMenuUIController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UISERVICE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY\Enemyservice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY\EnemyController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY\EnemyModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ENEMY\EnemyView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\GameplayView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\GameplayController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\GameplayService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\player\PlayerModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\player\PlayerView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\player\PlayerController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\EVENT\EventService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\main\GameService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphic\GraphicService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\player\PlayerService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Global\ServiceLocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\TIME\TimeService .h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\MainMenu\MainMenuUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UISERVICE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY\Enemyservice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY\EnemyModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY\EnemyView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY\EnemyController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\GameplayService.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\GameplayView.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\GameplayController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
