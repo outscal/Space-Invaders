@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,7 +132,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\EventService.cpp" />
+    <ClCompile Include="source\GameService.cpp" />
+    <ClCompile Include="source\GraphicService.cpp" />
+    <ClCompile Include="source\PlayerService.cpp" />
+    <ClCompile Include="source\PlayerController.cpp" />
+    <ClCompile Include="source\PlayerModel.cpp" />
+    <ClCompile Include="source\PlayerView.cpp" />
+    <ClCompile Include="source\ServiceLocator.cpp" />
+    <ClCompile Include="source\TimeService .cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UI\MainMenu\MainMenuUIController.cpp" />
+    <ClCompile Include="UI\UISERVICE.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\EVENT\EventService.h" />
+    <ClInclude Include="Headers\main\GameService.h" />
+    <ClInclude Include="Headers\Graphic\GraphicService.h" />
+    <ClInclude Include="Headers\player\PlayerService.h" />
+    <ClInclude Include="Headers\player\PlayerController.h" />
+    <ClInclude Include="Headers\player\PlayerModel.h" />
+    <ClInclude Include="Headers\player\PlayerView.h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
+    <ClInclude Include="Headers\TIME\TimeService .h" />
+    <ClInclude Include="UI\MainMenu\MainMenuUIController.h" />
+    <ClInclude Include="UI\UISERVICE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
