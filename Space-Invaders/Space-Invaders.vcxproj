@@ -133,6 +133,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\gamesevice.cpp" />
+    <ClCompile Include="source\PlayerService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\gameservice.h" />
+    <ClInclude Include="headers\ServiceLocator.h" />
+    <ClInclude Include="header\PlayerService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
